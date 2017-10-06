@@ -221,7 +221,7 @@
 
     <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente aos diferentes comerciais ### -->
-      <area begin="1s" end="76s" id="areaInter"/>
+      <area begin="16s" end="76s" id="areaInter"/>
       <area begin="77s" end="106s" id="areaOutback"/>
       <property name="bounds"/> <!-- ### Propriedade de mÃ­dia relacionada com o tamanho da midia ### -->
     </media>
