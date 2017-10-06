@@ -338,7 +338,7 @@
       <media descriptor="dsUnidades" id="imgBtnUnidadesSel" src="media/imagens/menu/unidadesMenu.png"/>
 
       <media id="vdoComercialRef1" instance="instSame" refer="vdoComercial"/>
-      <media id="focusNodeCondiminio" instance="instSame" refer="setNode"/>
+      <media id="focusNodeCondominio" instance="instSame" refer="setNode"/>
 
       <!-- #################################
            #  Contexto que contem as midias da tela de interatividade
@@ -549,8 +549,8 @@
         <bind component="ctxCondicoes" interface="ptoCtxRef1TelaInter" role="onEnd"/>
         <bind component="ctxUnidades" interface="ptoCtxRef2TelaInter" role="onEnd"/>
         <bind component="ctxMapa" role="onEnd"/>
-        <bind component="focusNodeCondiminio" interface="inicioOutBack" role="testInicioOutBack"/>
-        <bind component="focusNodeCondiminio" interface="fullScreen" role="testFullScreen"/>
+        <bind component="focusNodeCondominio" interface="inicioOutBack" role="testInicioOutBack"/>
+        <bind component="focusNodeCondominio" interface="fullScreen" role="testFullScreen"/>
         <bind component="imgBtnCondicoesSel" role="start"/>
         <bind component="imgBtnUnidadesSel" role="start"/>
         <bind component="imgBtnLocalizacaoSel" role="start"/>
@@ -568,7 +568,7 @@
         <bind component="vdoComercialRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
         </bind>
-        <bind component="focusNodeCondiminio" interface="fullScreen" role="set">
+        <bind component="focusNodeCondominio" interface="fullScreen" role="set">
           <bindParam name="var" value="false"/>
         </bind>
       </link>
@@ -585,7 +585,7 @@
         <bind component="vdoComercialRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
         </bind>
-        <bind component="focusNodeCondiminio" interface="fullScreen" role="set">
+        <bind component="focusNodeCondominio" interface="fullScreen" role="set">
           <bindParam name="var" value="false"/>
         </bind>
       </link>
