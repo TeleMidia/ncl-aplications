@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="connBase" xmlns="http://www.ncl.org.br/NCL3.0/CausalConnectorProfile"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.ncl.org.br/NCL3.0/CausalConnectorProfile
+http://www.ncl.org.br/NCL3.0/profiles/NCL30CausalConnector.xsd">
+
+<head>
+<connectorBase>    
+<causalConnector id="onBeginStart">
+  <simpleCondition role="onBegin"/>
+  <simpleAction role="start" max="unbounded" qualifier="par"/>
+</causalConnector>
+
+<causalConnector id="onEndStart">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="start" />
+</causalConnector>
+
+<causalConnector id="onEndStartDelay">
+  <connectorParam name="delay"/>
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="start" delay="$delay"/>
+</causalConnector>
+
+<causalConnector id="onEndStop">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="stop" max="unbounded" qualifier="par"/>
+</causalConnector>
+
+<causalConnector id="onEndResume">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="resume" />
+</causalConnector>
+
+<causalConnector id="orOnSelectionSetStopPauseStart">
+  <connectorParam name="keyCode" />
+  <connectorParam name="bounds" />
+  <compoundCondition operator="or">
+    <simpleCondition role="onKeySelection" eventType="selection" transition="starts" key="$keyCode"/>
+    <simpleCondition role="onSelection" key="$keyCode"/>
+  </compoundCondition>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$bounds" duration="$durVal" by="$byVal"/>
+    <simpleAction role="stop" max="unbounded" qualifier="par"/>
+    <simpleAction role="pause" max="unbounded" qualifier="par"/>
+    <simpleAction role="start" max="unbounded" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="orOnSelectionSetStopStart">
+  <connectorParam name="keyCode" />
+  <connectorParam name="bounds" />
+  <compoundCondition operator="or">
+    <simpleCondition role="onKeySelection" eventType="selection" transition="starts" key="$keyCode"/>
+    <simpleCondition role="onSelection" key="$keyCode"/>
+  </compoundCondition>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$bounds"/>
+    <simpleAction role="stop" />
+    <simpleAction role="start" />   
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndSetResume">
+  <connectorParam name="bounds" />
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$bounds"/>
+    <simpleAction role="resume" />
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndStopSet">
+  <connectorParam name="bounds" />
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="par"/>
+    <simpleAction role="set" value="$bounds"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndStopSetResume">
+  <connectorParam name="bounds" />
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="par"/>
+    <simpleAction role="resume" />
+    <simpleAction role="set" value="$bounds"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndStopStartSetResume">
+  <connectorParam name="bounds" />
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="par"/>
+    <simpleAction role="start" max="unbounded" qualifier="par"/>
+    <simpleAction role="set" value="$bounds" duration="$durVal" by="$byVal"/>
+    <simpleAction role="resume" max="unbounded" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndStopStartSet">
+  <connectorParam name="bounds" />
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="par"/>
+    <simpleAction role="set" value="$bounds"/>
+    <simpleAction role="start" max="unbounded" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+
+<causalConnector id="onBeginPause">
+  <simpleCondition role="onBegin"/>
+  <simpleAction role="pause" max="unbounded" qualifier="par"/>
+</causalConnector>
+
+<causalConnector id="onSelectionStopStart">
+  <simpleCondition role="onSelection"/>
+  <compoundAction operator="seq">
+     <simpleAction role="stop" max="unbounded" qualifier="par"/>
+     <simpleAction role="start" max="unbounded" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionStopStart">
+  <connectorParam name="keyCode"/>
+  <compoundCondition operator="or">
+    <simpleCondition role="onKeySelection" eventType="selection" transition="starts" key="$keyCode"/>
+    <simpleCondition role="onSelection" key="$keyCode"/>
+  </compoundCondition>
+  <compoundAction operator="seq">
+     <simpleAction role="stop" max="unbounded" qualifier="par"/>
+     <simpleAction role="start" max="unbounded" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+
+<causalConnector id="onSelectionStop">
+  <simpleCondition role="onSelection"/>
+  <simpleAction role="stop" max="unbounded" qualifier="par"/>
+</causalConnector>
+
+
+</connectorBase>
+</head>
+</ncl>
