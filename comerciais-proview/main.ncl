@@ -20,22 +20,22 @@
       <descriptor id="dsCondicoesBtn" region="rg#rgCondicoesBotoes"/>
       <!-- #### Descritores utilizados para navegacao ### -->
       <descriptor id="dsQuarto1" region="rg#rgQuarto1"
-		  focusSrc="media/imagens/condominio/condicoes/quarto1Selecionado.png"
-		  moveLeft="3" moveRight="2"
-		  focusBorderWidth="0" focusIndex="1"
-		  />
+                  focusSrc="media/imagens/condominio/condicoes/quarto1Selecionado.png"
+                  moveLeft="3" moveRight="2"
+                  focusBorderWidth="0" focusIndex="1"
+                  />
 
       <descriptor id="dsQuarto2" region="rg#rgQuarto2"
-		  focusSrc="media/imagens/condominio/condicoes/quarto2Selecionado.png"
-		  moveLeft="1" moveRight="3"
-		  focusBorderWidth="0" focusIndex="2"
-		  />
+                  focusSrc="media/imagens/condominio/condicoes/quarto2Selecionado.png"
+                  moveLeft="1" moveRight="3"
+                  focusBorderWidth="0" focusIndex="2"
+                  />
 
       <descriptor  id="dsQuarto3" region="rg#rgQuarto3"
-		   focusSrc="media/imagens/condominio/condicoes/quarto3Selecionado.png"
-		   moveLeft="2" moveRight="1"
-		   focusBorderWidth="0" focusIndex="3"
-		   />
+                   focusSrc="media/imagens/condominio/condicoes/quarto3Selecionado.png"
+                   moveLeft="2" moveRight="1"
+                   focusBorderWidth="0" focusIndex="3"
+                   />
 
       <descriptor id="dsFundo" region="rg#rgFundo"/>
       <descriptor id="dsConteudoFundo" region="rg#rgConteudoFundo"/>
@@ -49,144 +49,144 @@
     <connectorBase>
 
       <!-- ################################
-	   #	OnEnd CONNECTORS
-	   ################################-->
+           #  OnEnd CONNECTORS
+           ################################-->
 
       <causalConnector id="onEndAttributionTestStopNStartN">
-	<connectorParam name="varTest"/>
-	<compoundCondition operator="and">
-	  <simpleCondition role="onEndAttribution"/>
-	  <assessmentStatement comparator="eq">
-	    <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="attNodeTest"/>
-	    <valueAssessment value="$varTest"/>
-	  </assessmentStatement>
-	</compoundCondition>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="stop"/>
-	  <simpleAction max="unbounded" qualifier="par" role="start"/>
-	</compoundAction>
+        <connectorParam name="varTest"/>
+        <compoundCondition operator="and">
+          <simpleCondition role="onEndAttribution"/>
+          <assessmentStatement comparator="eq">
+            <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="attNodeTest"/>
+            <valueAssessment value="$varTest"/>
+          </assessmentStatement>
+        </compoundCondition>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="stop"/>
+          <simpleAction max="unbounded" qualifier="par" role="start"/>
+        </compoundAction>
       </causalConnector>
 
       <causalConnector id="onEndStartN">
-	<simpleCondition role="onEnd"/>
-	<simpleAction role="start" max="unbounded" qualifier="seq"/>
+        <simpleCondition role="onEnd"/>
+        <simpleAction role="start" max="unbounded" qualifier="seq"/>
       </causalConnector>
 
       <causalConnector id="onEndStopN">
-	<simpleCondition role="onEnd"/>
-	<simpleAction max="unbounded" qualifier="par" role="stop"/>
+        <simpleCondition role="onEnd"/>
+        <simpleAction max="unbounded" qualifier="par" role="stop"/>
       </causalConnector>
 
       <causalConnector id="onOrEndTestStartN">
-	<compoundCondition operator="and">
-	  <simpleCondition max="unbounded" delay="0.3s" qualifier="or" role="onEnd"/>
-	  <compoundStatement operator="and">
-	    <assessmentStatement comparator="eq">
-	      <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testInicioOutBack"/>
-	      <valueAssessment value="false"/>
-	    </assessmentStatement>
-	    <assessmentStatement comparator="eq">
-	      <attributeAssessment role="testFullScreen" eventType="attribution" attributeType="nodeProperty"/>
-	      <valueAssessment value="true"/>
-	    </assessmentStatement>
-	  </compoundStatement>
-	</compoundCondition>
-	<simpleAction max="unbounded" qualifier="seq" role="start"/>
+        <compoundCondition operator="and">
+          <simpleCondition max="unbounded" delay="0.3s" qualifier="or" role="onEnd"/>
+          <compoundStatement operator="and">
+            <assessmentStatement comparator="eq">
+              <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testInicioOutBack"/>
+              <valueAssessment value="false"/>
+            </assessmentStatement>
+            <assessmentStatement comparator="eq">
+              <attributeAssessment role="testFullScreen" eventType="attribution" attributeType="nodeProperty"/>
+              <valueAssessment value="true"/>
+            </assessmentStatement>
+          </compoundStatement>
+        </compoundCondition>
+        <simpleAction max="unbounded" qualifier="seq" role="start"/>
       </causalConnector>
 
       <causalConnector id="onEndTestStartNStopN">
-	<compoundCondition operator="and">
-	  <simpleCondition role="onEnd"/>
-	  <assessmentStatement comparator="eq">
-	    <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testFullScreen"/>
-	    <valueAssessment value="true"/>
-	  </assessmentStatement>
-	</compoundCondition>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="start"/>
-	  <simpleAction max="unbounded" qualifier="par" role="stop"/>
-	</compoundAction>
+        <compoundCondition operator="and">
+          <simpleCondition role="onEnd"/>
+          <assessmentStatement comparator="eq">
+            <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testFullScreen"/>
+            <valueAssessment value="true"/>
+          </assessmentStatement>
+        </compoundCondition>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="start"/>
+          <simpleAction max="unbounded" qualifier="par" role="stop"/>
+        </compoundAction>
       </causalConnector>
 
       <!-- #######################################
-	   #	OnKeySelection CONNECTORS
-	   ######################################-->
+           #  OnKeySelection CONNECTORS
+           ######################################-->
 
 
       <causalConnector id="onKeySelectionStartNSetNStopN">
-	<connectorParam name="var"/>
-	<connectorParam name="keyCode"/>
-	<simpleCondition key="$keyCode" role="onSelection"/>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="start"/>
-	  <simpleAction role="set" max="unbounded" qualifier="seq" value="$var"/>
-	  <simpleAction role="stop" max="unbounded" qualifier="seq"/>
-	</compoundAction>
+        <connectorParam name="var"/>
+        <connectorParam name="keyCode"/>
+        <simpleCondition key="$keyCode" role="onSelection"/>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="start"/>
+          <simpleAction role="set" max="unbounded" qualifier="seq" value="$var"/>
+          <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+        </compoundAction>
       </causalConnector>
 
       <causalConnector id="onKeySelectionStopN">
-	<connectorParam name="keyCode"/>
-	<simpleCondition key="$keyCode" role="onSelection"/>
-	<simpleAction max="unbounded" qualifier="par" role="stop"/>
+        <connectorParam name="keyCode"/>
+        <simpleCondition key="$keyCode" role="onSelection"/>
+        <simpleAction max="unbounded" qualifier="par" role="stop"/>
       </causalConnector>
 
       <causalConnector id="onKeySelectionStopNStartN">
-	<connectorParam name="keyCode"/>
-	<simpleCondition key="$keyCode" role="onSelection"/>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="stop"/>
-	  <simpleAction max="unbounded" qualifier="par" role="start"/>
-	</compoundAction>
+        <connectorParam name="keyCode"/>
+        <simpleCondition key="$keyCode" role="onSelection"/>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="stop"/>
+          <simpleAction max="unbounded" qualifier="par" role="start"/>
+        </compoundAction>
       </causalConnector>
 
       <causalConnector id="onKeySelectionSetNStopNStartN">
-	<connectorParam name="keyCode"/>
-	<connectorParam name="var"/>
-	<simpleCondition key="$keyCode" role="onSelection"/>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="seq" role="stop"/>
-	  <simpleAction max="unbounded" qualifier="seq" role="start"/>
-	  <simpleAction max="unbounded" qualifier="seq" role="set" value="$var"/>
-	</compoundAction>
+        <connectorParam name="keyCode"/>
+        <connectorParam name="var"/>
+        <simpleCondition key="$keyCode" role="onSelection"/>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="seq" role="stop"/>
+          <simpleAction max="unbounded" qualifier="seq" role="start"/>
+          <simpleAction max="unbounded" qualifier="seq" role="set" value="$var"/>
+        </compoundAction>
       </causalConnector>
 
       <causalConnector id="onKeySelectionSetNStopN">
-	<connectorParam name="keyCode"/>
-	<connectorParam name="var"/>
-	<simpleCondition key="$keyCode" role="onSelection"/>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="set" value="$var"/>
-	  <simpleAction max="unbounded" qualifier="par" role="stop"/>
-	</compoundAction>
+        <connectorParam name="keyCode"/>
+        <connectorParam name="var"/>
+        <simpleCondition key="$keyCode" role="onSelection"/>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="set" value="$var"/>
+          <simpleAction max="unbounded" qualifier="par" role="stop"/>
+        </compoundAction>
       </causalConnector>
 
       <!-- ####################################
-	   #	OnBegin CONNECTORS
-	   ###################################-->
+           #  OnBegin CONNECTORS
+           ###################################-->
 
       <causalConnector id="onBeginStartNStopN">
-	<simpleCondition role="onBegin"/>
-	<compoundAction operator="seq">
-	  <simpleAction max="unbounded" qualifier="par" role="start"/>
-	  <simpleAction max="unbounded" qualifier="par" role="stop"/>
-	</compoundAction>
+        <simpleCondition role="onBegin"/>
+        <compoundAction operator="seq">
+          <simpleAction max="unbounded" qualifier="par" role="start"/>
+          <simpleAction max="unbounded" qualifier="par" role="stop"/>
+        </compoundAction>
       </causalConnector>
 
       <causalConnector id="onBeginStart">
-	<simpleCondition role="onBegin"/>
-	<simpleAction role="start"/>
+        <simpleCondition role="onBegin"/>
+        <simpleAction role="start"/>
       </causalConnector>
 
       <causalConnector id="onBeginSet">
         <connectorParam name="val"/>
         <simpleCondition role="onBegin" />
-	<simpleAction role="set" value="$val" />
+        <simpleAction role="set" value="$val" />
       </causalConnector>
 
       <causalConnector id="onBeginSetN">
-	<connectorParam name="var"/>
-	<simpleCondition role="onBegin"/>
-	<simpleAction role="set" value="$var" delay="0.3s" qualifier="seq" max="unbounded"/>
+        <connectorParam name="var"/>
+        <simpleCondition role="onBegin"/>
+        <simpleAction role="set" value="$var" delay="0.3s" qualifier="seq" max="unbounded"/>
       </causalConnector>
 
     </connectorBase>
@@ -194,13 +194,13 @@
   <body>
 
     <!-- ###########################
-	 # Porta de Entrada
-	 ############################ -->
+         #  Porta de Entrada
+         ############################ -->
     <port component="imgTelaAbertura" id="ptInicio"/>
 
     <!-- ###########################
-	 # VÃ¡riveis Globais
-	 ############################ -->
+         #  VÃ¡riveis Globais
+         ############################ -->
     <media id="setNode" type="application/x-ginga-settings">
       <property name="service.currentFocus"/> <!-- #### VÃ¡riavel de Sistema que seta o Foco atual #### -->
       <property name="service.currentKeyMaster" value="ixLua"/> <!-- ## VÃ¡riavel de Sistema que seta quem recebe eventos de Controle Remoto ## -->
@@ -210,8 +210,8 @@
     </media>
 
     <!-- #############################
-	 # Declaracao das midias de Abertura e Comercial
-	 ############################# -->
+         #  Declaracao das midias de Abertura e Comercial
+         ############################# -->
     <media descriptor="dsFullScreen" id="imgTelaAbertura" src="media/imagens/tela_abertura.png">
       <area begin="5s" id="areaDur"/>
     </media>
@@ -228,8 +228,8 @@
 
 
     <!--##############################
-	# Elos que irao dar inicio a aplicacao
-	##############################-->
+        #  Elos que irao dar inicio a aplicacao
+        ##############################-->
 
     <link xconnector="onBeginStartNStopN">
       <bind component="imgTelaAbertura" interface="areaDur" role="onBegin"/>
@@ -238,14 +238,14 @@
     </link>
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaApresentacao" role="onSelection">
-	<bindParam name="keyCode" value="YELLOW"/>
+        <bindParam name="keyCode" value="YELLOW"/>
       </bind>
       <bind component="vdoComercial" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
-	<bindParam name="var" value="true"/>
+        <bindParam name="var" value="true"/>
       </bind>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="false"/>
+        <bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaApresentacao" role="stop"/>
     </link>
@@ -255,17 +255,17 @@
     </link>
     <link xconnector="onKeySelectionStopNStartN">
       <bind component="imgInteratividade" role="onSelection">
-	<bindParam name="keyCode" value="INFO"/>
+        <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind component="ctxCondominio" role="start"/>
       <bind component="imgInteratividade" role="stop"/>
     </link>
 
     <!-- ##################################
-	 #	Faz o teste do Flag: fullScreen
-	 #	Se tiver fullScreen dispara a interacao do OutBack
-	 #	caso contrario a interacao do usuario continua
-	 ###################################-->
+         #  Faz o teste do Flag: fullScreen
+         #  Se tiver fullScreen dispara a interacao do OutBack
+         #  caso contrario a interacao do usuario continua
+         ###################################-->
     <link xconnector="onEndTestStartNStopN">
       <bind component="vdoComercial" interface="areaInter" role="onEnd"/>
       <bind component="setNode" interface="fullScreen" role="testFullScreen"/>
@@ -275,59 +275,59 @@
     </link>
 
     <!-- ###################################
-	 # Seta o Flag: inicioOutBack com true
-	 # Notificando que o comercial do OutBack iniciou
-	 #################################### -->
+         #  Seta o Flag: inicioOutBack com true
+         #  Notificando que o comercial do OutBack iniciou
+         #################################### -->
     <link xconnector="onBeginSetN">
       <bind component="vdoComercial" interface="areaOutback" role="onBegin"/>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="true"/>
+        <bindParam name="var" value="true"/>
       </bind>
     </link>
 
     <!-- ###################################
-	 # No final do video mostra a tela de encerramento
-	 #################################### -->
+         #  No final do video mostra a tela de encerramento
+         #################################### -->
     <link xconnector="onEndStartN">
       <bind component="vdoComercial" role="onEnd"/>
       <bind component="imgTelaEncerramento" role="start"/>
     </link>
 
     <!-- ####################################
-	 # Caso usuario aperte
-	 #	AMARELO: reeinicia a aplicacao
-	 # 	AZUL: encerra a aplicacao
-	 #################################### -->
+         #  Caso usuario aperte
+         #  AMARELO: reeinicia a aplicacao
+         #  AZUL: encerra a aplicacao
+         #################################### -->
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
-	<bindParam name="keyCode" value="YELLOW"/>
+        <bindParam name="keyCode" value="YELLOW"/>
       </bind>
       <bind component="imgTelaAbertura" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
-	<bindParam name="var" value="true"/>
+        <bindParam name="var" value="true"/>
       </bind>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="false"/>
+        <bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
     </link>
     <link xconnector="onKeySelectionStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
-	<bindParam name="keyCode" value="BLUE"/>
+        <bindParam name="keyCode" value="BLUE"/>
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
     </link>
 
     <!-- ########################################
-	 # Para cada Comercial foi feito um contexto
-	 # 		CtxCondominio: Parque das Aguas
-	 #			|
-	 #			|-> CtxTelaInter:	Engloba Midias da Tela de Interatividade
-	 #			|-> CtxMapa: 		Localizacao do Condominio
-	 #			|-> CtxCondicoes: 	Condicoes de Pagamento
-	 #			|->	CtxUnidades:	Unidades Disponiveis
-	 #		CtxOutBack:    OutBack
-	 #########################################	-->
+         #  Para cada Comercial foi feito um contexto
+         #    CtxCondominio: Parque das Aguas
+         #      |
+         #      |-> CtxTelaInter: Engloba Midias da Tela de Interatividade
+         #      |-> CtxMapa:      Localizacao do Condominio
+         #      |-> CtxCondicoes: Condicoes de Pagamento
+         #      |-> CtxUnidades:  Unidades Disponiveis
+         #    CtxOutBack:    OutBack
+         ######################################### -->
     <context id="ctxCondominio">
       <port component="imgBtnCondicoesSel" id="ptoImgBtnCondicoesSel"/>
       <port component="imgBtnUnidadesSel" id="ptoImgBtnUnidadesSel"/>
@@ -341,7 +341,7 @@
       <media id="focusNodeCondiminio" instance="instSame" refer="setNode"/>
 
       <!-- #################################
-           #	Contexto que contem as midias da tela de interatividade
+           #  Contexto que contem as midias da tela de interatividade
            ################################### -->
       <context id="ctxTelaInteracao">
         <port id="ptoImgFundoInter" component="imgFundoInter"/>
@@ -356,7 +356,7 @@
       </context>
 
       <!-- ###################################
-           #	Contexto que gerencia a exibicao do mapa
+           #  Contexto que gerencia a exibicao do mapa
            #################################### -->
       <context id="ctxMapa">
         <port component="imgMapa" id="ptoMapa"/>
@@ -374,7 +374,7 @@
 
 
       <!-- ###################################
-           # Contexto que gerencia as condicoes de pagamento
+           #  Contexto que gerencia as condicoes de pagamento
            #################################### -->
       <context id="ctxCondicoes">
         <port id="ptoCtxRef1TelaInter" component="telaInterRef1"/>
@@ -419,9 +419,9 @@
         </link>
 
         <!-- ##########################################
-             # Navegacao pelos tipos de apartamentos disponiveis
-             # Utilizando onEndAttributtion do currentFocus
-             # Evita utilizar o botao OK
+             #  Navegacao pelos tipos de apartamentos disponiveis
+             #  Utilizando onEndAttributtion do currentFocus
+             #  Evita utilizar o botao OK
              ###########################################-->
         <link xconnector="onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
@@ -467,7 +467,7 @@
       </context>
 
       <!-- ##############################
-           # Contexto que gerencia as unidades disponiveis
+           #  Contexto que gerencia as unidades disponiveis
            ############################### -->
       <context id="ctxUnidades">
         <port id="ptoCtxRef2TelaInter" component="telaInterRef2"/>
@@ -592,8 +592,8 @@
     </context>
 
     <!-- ###################################
-         # Contexto responsavel pela interatividade
-         # do comercial do OutBack
+         #  Contexto responsavel pela interatividade
+         #  do comercial do OutBack
          ################################### -->
     <context id="ctxOutBack">
 
