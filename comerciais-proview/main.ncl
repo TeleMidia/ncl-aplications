@@ -236,26 +236,29 @@
       <bind component="imgTelaApresentacao" role="start"/>
       <bind component="imgTelaAbertura" role="stop"/>
     </link>
+
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaApresentacao" role="onSelection">
-	<bindParam name="keyCode" value="YELLOW"/>
+      	<bindParam name="keyCode" value="YELLOW"/>
       </bind>
       <bind component="vdoComercial" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
-	<bindParam name="var" value="true"/>
+       	<bindParam name="var" value="true"/>
       </bind>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="false"/>
+      	<bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaApresentacao" role="stop"/>
     </link>
+
     <link xconnector="onBeginStart">
       <bind component="vdoComercial" interface="areaInter" role="onBegin"/>
       <bind component="imgInteratividade" role="start"/>
     </link>
+
     <link xconnector="onKeySelectionStopNStartN">
       <bind component="imgInteratividade" role="onSelection">
-	<bindParam name="keyCode" value="INFO"/>
+      	<bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind component="ctxCondominio" role="start"/>
       <bind component="imgInteratividade" role="stop"/>
@@ -281,7 +284,7 @@
     <link xconnector="onBeginSetN">
       <bind component="vdoComercial" interface="areaOutback" role="onBegin"/>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="true"/>
+      	<bindParam name="var" value="true"/>
       </bind>
     </link>
 
@@ -300,20 +303,20 @@
 	 #################################### -->
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
-	<bindParam name="keyCode" value="YELLOW"/>
+      	<bindParam name="keyCode" value="YELLOW"/>
       </bind>
       <bind component="imgTelaAbertura" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
-	<bindParam name="var" value="true"/>
+      	<bindParam name="var" value="true"/>
       </bind>
       <bind component="setNode" interface="inicioOutBack" role="set">
-	<bindParam name="var" value="false"/>
+      	<bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
     </link>
     <link xconnector="onKeySelectionStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
-	<bindParam name="keyCode" value="BLUE"/>
+      	<bindParam name="keyCode" value="BLUE"/>
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
     </link>
@@ -344,31 +347,31 @@
 	   #	Contexto que contem as midias da tela de interatividade
 	   ################################### -->
       <context id="ctxTelaInteracao">
-	<port id="ptoImgFundoInter" component="imgFundoInter"/>
-	<port id="ptoImgVideoArea" component="imgVideoArea"/>
-	<port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-	<port id="ptoImgProview" component="imgProview"/>
+      	<port id="ptoImgFundoInter" component="imgFundoInter"/>
+      	<port id="ptoImgVideoArea" component="imgVideoArea"/>
+      	<port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+      	<port id="ptoImgProview" component="imgProview"/>
 
-	<media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-	<media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-	<media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-	<media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+      	<media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+      	<media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+      	<media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+      	<media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
       </context>
 
       <!-- ###################################
 	   #	Contexto que gerencia a exibicao do mapa
 	   #################################### -->
       <context id="ctxMapa">
-	<port component="imgMapa" id="ptoMapa"/>
-	<port component="imgSairMapa" id="ptoImgSairMapa"/>
-	<media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
-	<media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
-	<link xconnector="onKeySelectionStopN">
-	  <bind component="imgSairMapa" role="onSelection">
-	    <bindParam name="keyCode" value="RED"/>
-	  </bind>
-	  <bind component="ctxMapa" role="stop"/>
-	</link>
+      	<port component="imgMapa" id="ptoMapa"/>
+      	<port component="imgSairMapa" id="ptoImgSairMapa"/>
+      	<media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
+      	<media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
+      	<link xconnector="onKeySelectionStopN">
+      	  <bind component="imgSairMapa" role="onSelection">
+	          <bindParam name="keyCode" value="RED"/>
+      	  </bind>
+      	  <bind component="ctxMapa" role="stop"/>
+      	</link>
       </context>
 
 
@@ -400,15 +403,15 @@
 	<media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
 
         <context id="telaInterRef1">
-	  <port id="ptoImgFundoInter" component="imgFundoInter"/>
-	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
-	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-	  <port id="ptoImgProview" component="imgProview"/>
+	        <port id="ptoImgFundoInter" component="imgFundoInter"/>
+      	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
+      	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+      	  <port id="ptoImgProview" component="imgProview"/>
 
-	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+      	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+      	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+      	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+      	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
 	<link xconnector="onBeginSetN">
@@ -628,9 +631,9 @@
 
       <!-- ### Termina o outback encerra tudo ### -->
       <link xconnector="onEndStopN">
-	<bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
-	<bind component="imgBtnLocalizacaoOut" role="stop"/>
-	<bind component="luaCep" role="stop"/>
+	      <bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
+      	<bind component="imgBtnLocalizacaoOut" role="stop"/>
+      	<bind component="luaCep" role="stop"/>
       </link>
 
 
