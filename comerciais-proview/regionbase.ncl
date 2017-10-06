@@ -4,7 +4,7 @@
   <head>
     <regionBase>
       <region top="0" left="0" id="rgFullScreen" zIndex="2">
-	<region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56"/>
+	<region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56" zIndex="2"/>
 
 	<!-- ### Regiao para o menu de interatividade ### -->
 	<region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%" zIndex="2">
