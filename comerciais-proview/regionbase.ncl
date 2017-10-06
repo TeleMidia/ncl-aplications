@@ -7,17 +7,17 @@
 	<region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56" zIndex="2"/>
 
 	<!-- ### Regiao para o menu de interatividade ### -->
-	<region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%" zIndex="2">
-	  <region height="29.3%" id="rgLocalizacao"/>
-	  <region height="29.3%" id="rgCondicoes" top="33%"/>
-	  <region height="29.3%" id="rgUnidades" top="66%"/>
+	<region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%">
+	  <region height="29.3%" id="rgLocalizacao" zIndex="2"/>
+	  <region height="29.3%" id="rgCondicoes" top="33%" zIndex="2"/>
+	  <region height="29.3%" id="rgUnidades" top="66%" zIndex="2"/>
 	</region>
 	<!-- ### Regiao para o mapa de localizacao ### -->
-	<region height="56.9%" id="rgMapa" left="3.75%" top="11.67%" width="33.5%">
+	<region height="56.9%" id="rgMapa" left="3.75%" top="11.67%" width="33.5%" zIndex="2">
 	  <region bottom="4.5%" height="9.15%" id="rgSairMapa" left="19.08%" width="21.5%"/>
 	</region>
 	<!-- ### Regiao para a aplicacao em LUA ### -->
-	<region top="400" height="100" id="rgLuaCep" left="0" width="640"/>
+	<region top="400" height="100" id="rgLuaCep" left="0" width="640" zIndex="2"/>
       </region>
 
       <!-- ### Define a Tela de Interacao dos comerciais e as regioes de suas imagens ### -->

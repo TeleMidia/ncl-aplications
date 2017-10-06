@@ -284,7 +284,7 @@
     <link xconnector="onBeginSetN">
       <bind component="vdoComercial" interface="areaOutback" role="onBegin"/>
       <bind component="setNode" interface="inicioOutBack" role="set">
-      	<bindParam name="var" value="true"/>
+	<bindParam name="var" value="true"/>
       </bind>
     </link>
 
@@ -303,7 +303,7 @@
 	 #################################### -->
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
-      	<bindParam name="keyCode" value="YELLOW"/>
+	<bindParam name="keyCode" value="YELLOW"/>
       </bind>
       <bind component="imgTelaAbertura" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
