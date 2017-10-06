@@ -398,7 +398,18 @@
 
 	<media id="focusNodeCondicoes" instance="instSame" refer="setNode"/>
 	<media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
-	<context id="telaInterRef1" refer="ctxTelaInteracao"/>
+
+        <context id="telaInterRef1">
+	  <port id="ptoImgFundoInter" component="imgFundoInter"/>
+	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
+	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+	  <port id="ptoImgProview" component="imgProview"/>
+
+	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+        </context>
 
 	<link xconnector="onBeginSetN">
 	  <bind component="imgBtnQuarto1" role="onBegin"/>
@@ -471,7 +482,18 @@
 
 	<media id="focusNodeUnidades" instance="instSame" refer="setNode"/>
 	<media id="vdoComercialRef3" instance="instSame" refer="vdoComercial"/>
-	<context id="telaInterRef2" refer="ctxTelaInteracao"/>
+
+        <context id="telaInterRef2">
+	  <port id="ptoImgFundoInter" component="imgFundoInter"/>
+	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
+	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+	  <port id="ptoImgProview" component="imgProview"/>
+
+	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+        </context>
 
 	<!-- ### Volta para o menu anterior com o video 100% ### -->
 	<link xconnector="onKeySelectionSetNStopN">
@@ -596,13 +618,13 @@
 	<bind component="imgBtnLocalizacaoOut" role="stop"/>
       </link>
 
-      <link xconnector="onBeginSet">
-        <bind component="luaCep" role="onBegin" />
-        <bind component="setNode" interface="user.location" role="pegadali" />
-        <bind component="luaCep" interface="location" role="set">
-          <bindParam name="val" value="$pegadali" />
-        </bind>
-      </link>
+      <!-- <link xconnector="onBeginSet"> -->
+      <!--   <bind component="luaCep" role="onBegin" /> -->
+      <!--   <bind component="setNode" interface="user.location" role="pegadali" /> -->
+      <!--   <bind component="luaCep" interface="location" role="set"> -->
+      <!--     <bindParam name="val" value="$pegadali" /> -->
+      <!--   </bind> -->
+      <!-- </link> -->
 
       <!-- ### Termina o outback encerra tudo ### -->
       <link xconnector="onEndStopN">
