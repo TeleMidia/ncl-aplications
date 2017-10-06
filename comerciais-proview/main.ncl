@@ -221,7 +221,7 @@
 
     <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente aos diferentes comerciais ### -->
-      <area begin="16s" end="76s" id="areaInter"/>
+      <area begin="1s" end="76s" id="areaInter"/>
       <area begin="77s" end="106s" id="areaOutback"/>
       <property name="bounds"/> <!-- ### Propriedade de mÃ­dia relacionada com o tamanho da midia ### -->
     </media>
@@ -341,260 +341,260 @@
       <media id="focusNodeCondiminio" instance="instSame" refer="setNode"/>
 
       <!-- #################################
-	   #	Contexto que contem as midias da tela de interatividade
-	   ################################### -->
+           #	Contexto que contem as midias da tela de interatividade
+           ################################### -->
       <context id="ctxTelaInteracao">
-	<port id="ptoImgFundoInter" component="imgFundoInter"/>
-	<port id="ptoImgVideoArea" component="imgVideoArea"/>
-	<port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-	<port id="ptoImgProview" component="imgProview"/>
+        <port id="ptoImgFundoInter" component="imgFundoInter"/>
+        <port id="ptoImgVideoArea" component="imgVideoArea"/>
+        <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+        <port id="ptoImgProview" component="imgProview"/>
 
-	<media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-	<media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-	<media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-	<media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+        <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+        <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+        <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+        <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
       </context>
 
       <!-- ###################################
-	   #	Contexto que gerencia a exibicao do mapa
-	   #################################### -->
+           #	Contexto que gerencia a exibicao do mapa
+           #################################### -->
       <context id="ctxMapa">
-	<port component="imgMapa" id="ptoMapa"/>
-	<port component="imgSairMapa" id="ptoImgSairMapa"/>
-	<media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
-	<media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
-	<link xconnector="onKeySelectionStopN">
-	  <bind component="imgSairMapa" role="onSelection">
-	    <bindParam name="keyCode" value="RED"/>
-	  </bind>
-	  <bind component="ctxMapa" role="stop"/>
-	</link>
+        <port component="imgMapa" id="ptoMapa"/>
+        <port component="imgSairMapa" id="ptoImgSairMapa"/>
+        <media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
+        <media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
+        <link xconnector="onKeySelectionStopN">
+          <bind component="imgSairMapa" role="onSelection">
+            <bindParam name="keyCode" value="RED"/>
+          </bind>
+          <bind component="ctxMapa" role="stop"/>
+        </link>
       </context>
 
 
 
       <!-- ###################################
-	   # Contexto que gerencia as condicoes de pagamento
-	   #################################### -->
+           # Contexto que gerencia as condicoes de pagamento
+           #################################### -->
       <context id="ctxCondicoes">
-	<port id="ptoCtxRef1TelaInter" component="telaInterRef1"/>
-	<port id="ptoConteudoFundo" component="imgFundoConteudo"/>
-	<port component="imgBtnQuarto3" id="ptoQuarto3"/>
-	<port component="imgBtnQuarto2" id="ptoQuarto2"/>
-	<port component="imgBtnQuarto1" id="ptoQuarto1"/>
-	<port component="imgBtnCondicoesVolta" id="ptoCondicoesBtn"/>
+        <port id="ptoCtxRef1TelaInter" component="telaInterRef1"/>
+        <port id="ptoConteudoFundo" component="imgFundoConteudo"/>
+        <port component="imgBtnQuarto3" id="ptoQuarto3"/>
+        <port component="imgBtnQuarto2" id="ptoQuarto2"/>
+        <port component="imgBtnQuarto1" id="ptoQuarto1"/>
+        <port component="imgBtnCondicoesVolta" id="ptoCondicoesBtn"/>
 
 
 
-	<media descriptor="dsCondicoesBtn" id="imgBtnCondicoesVolta" src="media/imagens/condominio/condicoes/botoesCondicoes.png"/>
-	<media descriptor="dsQuarto1" id="imgBtnQuarto1" src="media/imagens/condominio/condicoes/quarto1.png"/>
-	<media descriptor="dsQuarto2" id="imgBtnQuarto2" src="media/imagens/condominio/condicoes/quarto2.png"/>
-	<media descriptor="dsQuarto3" id="imgBtnQuarto3" src="media/imagens/condominio/condicoes/quarto3.png"/>
+        <media descriptor="dsCondicoesBtn" id="imgBtnCondicoesVolta" src="media/imagens/condominio/condicoes/botoesCondicoes.png"/>
+        <media descriptor="dsQuarto1" id="imgBtnQuarto1" src="media/imagens/condominio/condicoes/quarto1.png"/>
+        <media descriptor="dsQuarto2" id="imgBtnQuarto2" src="media/imagens/condominio/condicoes/quarto2.png"/>
+        <media descriptor="dsQuarto3" id="imgBtnQuarto3" src="media/imagens/condominio/condicoes/quarto3.png"/>
 
-	<media id="imgFundoConteudo" src="media/imagens/condominio/condicoes/boxConteudo.png" descriptor="dsConteudoFundo"/>
-	<media descriptor="dsConteudoTexto" id="imgConteudoQuarto1" src="media/imagens/condominio/condicoes/text1.png"/>
-	<media descriptor="dsConteudoTexto" id="imgConteudoQuarto2" src="media/imagens/condominio/condicoes/text2.png"/>
-	<media descriptor="dsConteudoTexto" id="imgConteudoQuarto3" src="media/imagens/condominio/condicoes/text3.png"/>
+        <media id="imgFundoConteudo" src="media/imagens/condominio/condicoes/boxConteudo.png" descriptor="dsConteudoFundo"/>
+        <media descriptor="dsConteudoTexto" id="imgConteudoQuarto1" src="media/imagens/condominio/condicoes/text1.png"/>
+        <media descriptor="dsConteudoTexto" id="imgConteudoQuarto2" src="media/imagens/condominio/condicoes/text2.png"/>
+        <media descriptor="dsConteudoTexto" id="imgConteudoQuarto3" src="media/imagens/condominio/condicoes/text3.png"/>
 
-	<media id="focusNodeCondicoes" instance="instSame" refer="setNode"/>
-	<media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
+        <media id="focusNodeCondicoes" instance="instSame" refer="setNode"/>
+        <media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
 
         <context id="telaInterRef1">
-	  <port id="ptoImgFundoInter" component="imgFundoInter"/>
-	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
-	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-	  <port id="ptoImgProview" component="imgProview"/>
+          <port id="ptoImgFundoInter" component="imgFundoInter"/>
+          <port id="ptoImgVideoArea" component="imgVideoArea"/>
+          <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+          <port id="ptoImgProview" component="imgProview"/>
 
-	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+          <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+          <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+          <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+          <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
-	<link xconnector="onBeginSetN">
-	  <bind component="imgBtnQuarto1" role="onBegin"/>
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="set">
-	    <bindParam name="var" value="1"/>
-	  </bind>
-	</link>
+        <link xconnector="onBeginSetN">
+          <bind component="imgBtnQuarto1" role="onBegin"/>
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="set">
+            <bindParam name="var" value="1"/>
+          </bind>
+        </link>
 
-	<!-- ##########################################
-	     # Navegacao pelos tipos de apartamentos disponiveis
-	     # Utilizando onEndAttributtion do currentFocus
-	     # Evita utilizar o botao OK
-	     ###########################################-->
-	<link xconnector="onEndAttributionTestStopNStartN">
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
-	    <bindParam name="varTest" value="1"/>
-	  </bind>
-	  <bind component="imgConteudoQuarto2" role="stop"/>
-	  <bind component="imgConteudoQuarto3" role="stop"/>
-	  <bind component="imgConteudoQuarto1" role="start"/>
-	</link>
-	<link xconnector="onEndAttributionTestStopNStartN">
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
-	    <bindParam name="varTest" value="2"/>
-	  </bind>
-	  <bind component="imgConteudoQuarto1" role="stop"/>
-	  <bind component="imgConteudoQuarto3" role="stop"/>
-	  <bind component="imgConteudoQuarto2" role="start"/>
-	</link>
-	<link xconnector="onEndAttributionTestStopNStartN">
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
-	  <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
-	    <bindParam name="varTest" value="3"/>
-	  </bind>
-	  <bind component="imgConteudoQuarto1" role="stop"/>
-	  <bind component="imgConteudoQuarto2" role="stop"/>
-	  <bind component="imgConteudoQuarto3" role="start"/>
-	</link>
+        <!-- ##########################################
+             # Navegacao pelos tipos de apartamentos disponiveis
+             # Utilizando onEndAttributtion do currentFocus
+             # Evita utilizar o botao OK
+             ###########################################-->
+        <link xconnector="onEndAttributionTestStopNStartN">
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
+            <bindParam name="varTest" value="1"/>
+          </bind>
+          <bind component="imgConteudoQuarto2" role="stop"/>
+          <bind component="imgConteudoQuarto3" role="stop"/>
+          <bind component="imgConteudoQuarto1" role="start"/>
+        </link>
+        <link xconnector="onEndAttributionTestStopNStartN">
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
+            <bindParam name="varTest" value="2"/>
+          </bind>
+          <bind component="imgConteudoQuarto1" role="stop"/>
+          <bind component="imgConteudoQuarto3" role="stop"/>
+          <bind component="imgConteudoQuarto2" role="start"/>
+        </link>
+        <link xconnector="onEndAttributionTestStopNStartN">
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
+            <bindParam name="varTest" value="3"/>
+          </bind>
+          <bind component="imgConteudoQuarto1" role="stop"/>
+          <bind component="imgConteudoQuarto2" role="stop"/>
+          <bind component="imgConteudoQuarto3" role="start"/>
+        </link>
 
-	<!-- ### Volta para o menu anterior com o video 100% ### -->
-	<link xconnector="onKeySelectionSetNStopN">
-	  <bind component="imgBtnCondicoesVolta" role="onSelection">
-	    <bindParam name="keyCode" value="BLUE"/>
-	  </bind>
-	  <bind component="ctxCondicoes" role="stop"/>
-	  <bind component="vdoComercialRef2" interface="bounds" role="set">
+        <!-- ### Volta para o menu anterior com o video 100% ### -->
+        <link xconnector="onKeySelectionSetNStopN">
+          <bind component="imgBtnCondicoesVolta" role="onSelection">
+            <bindParam name="keyCode" value="BLUE"/>
+          </bind>
+          <bind component="ctxCondicoes" role="stop"/>
+          <bind component="vdoComercialRef2" interface="bounds" role="set">
             <bindParam name="var" value="0, 0, 640, 480"/>
-	  </bind>
-	  <bind component="focusNodeCondicoes" interface="fullScreen" role="set">
-	    <bindParam name="var" value="true"/>
-	  </bind>
-	</link>
+          </bind>
+          <bind component="focusNodeCondicoes" interface="fullScreen" role="set">
+            <bindParam name="var" value="true"/>
+          </bind>
+        </link>
       </context>
 
       <!-- ##############################
-	   # Contexto que gerencia as unidades disponiveis
-	   ############################### -->
+           # Contexto que gerencia as unidades disponiveis
+           ############################### -->
       <context id="ctxUnidades">
-	<port id="ptoCtxRef2TelaInter" component="telaInterRef2"/>
-	<port component="imgBtnUnidadesVolta" id="ptoBtnUnidadesVolta"/>
-	<port component="imgConteudoUnidades" id="ptoConteudoUnidades"/>
-	<port component="imgHeadUnidades" id="ptoHeadUnidades"/>
+        <port id="ptoCtxRef2TelaInter" component="telaInterRef2"/>
+        <port component="imgBtnUnidadesVolta" id="ptoBtnUnidadesVolta"/>
+        <port component="imgConteudoUnidades" id="ptoConteudoUnidades"/>
+        <port component="imgHeadUnidades" id="ptoHeadUnidades"/>
 
 
-	<media descriptor="dsHeadUnidades" id="imgHeadUnidades" src="media/imagens/condominio/unidades/unidadesHead.png"/>
-	<media descriptor="dsConteudoFundo" id="imgConteudoUnidades" src="media/imagens/condominio/unidades/unidades.png"/>
-	<media descriptor="dsCondicoesBtn" id="imgBtnUnidadesVolta" src="media/imagens/condominio/unidades/botoesUnidades.png"/>
+        <media descriptor="dsHeadUnidades" id="imgHeadUnidades" src="media/imagens/condominio/unidades/unidadesHead.png"/>
+        <media descriptor="dsConteudoFundo" id="imgConteudoUnidades" src="media/imagens/condominio/unidades/unidades.png"/>
+        <media descriptor="dsCondicoesBtn" id="imgBtnUnidadesVolta" src="media/imagens/condominio/unidades/botoesUnidades.png"/>
 
-	<media id="focusNodeUnidades" instance="instSame" refer="setNode"/>
-	<media id="vdoComercialRef3" instance="instSame" refer="vdoComercial"/>
+        <media id="focusNodeUnidades" instance="instSame" refer="setNode"/>
+        <media id="vdoComercialRef3" instance="instSame" refer="vdoComercial"/>
 
         <context id="telaInterRef2">
-	  <port id="ptoImgFundoInter" component="imgFundoInter"/>
-	  <port id="ptoImgVideoArea" component="imgVideoArea"/>
-	  <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-	  <port id="ptoImgProview" component="imgProview"/>
+          <port id="ptoImgFundoInter" component="imgFundoInter"/>
+          <port id="ptoImgVideoArea" component="imgVideoArea"/>
+          <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
+          <port id="ptoImgProview" component="imgProview"/>
 
-	  <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-	  <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-	  <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-	  <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+          <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+          <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+          <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+          <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
-	<!-- ### Volta para o menu anterior com o video 100% ### -->
-	<link xconnector="onKeySelectionSetNStopN">
-	  <bind component="imgBtnUnidadesVolta" role="onSelection">
-	    <bindParam name="keyCode" value="BLUE"/>
-	  </bind>
-	  <bind component="ctxUnidades" role="stop"/>
-	  <bind component="vdoComercialRef3" interface="bounds" role="set">
-	    <bindParam name="var" value="0, 0, 640, 480"/>
-	  </bind>
-	  <bind component="focusNodeUnidades" interface="fullScreen" role="set">
-	    <bindParam name="var" value="true"/>
-	  </bind>
-	</link>
+        <!-- ### Volta para o menu anterior com o video 100% ### -->
+        <link xconnector="onKeySelectionSetNStopN">
+          <bind component="imgBtnUnidadesVolta" role="onSelection">
+            <bindParam name="keyCode" value="BLUE"/>
+          </bind>
+          <bind component="ctxUnidades" role="stop"/>
+          <bind component="vdoComercialRef3" interface="bounds" role="set">
+            <bindParam name="var" value="0, 0, 640, 480"/>
+          </bind>
+          <bind component="focusNodeUnidades" interface="fullScreen" role="set">
+            <bindParam name="var" value="true"/>
+          </bind>
+        </link>
 
       </context>
 
       <!-- ### Vai para a tela de unidades a partir da tela de condicoes ### -->
       <link xconnector="onKeySelectionStopNStartN">
-	<bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
-	  <bindParam name="keyCode" value="YELLOW"/>
-	</bind>
-	<bind component="ctxCondicoes" role="stop"/>
-	<bind component="ctxUnidades" role="start"/>
+        <bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
+          <bindParam name="keyCode" value="YELLOW"/>
+        </bind>
+        <bind component="ctxCondicoes" role="stop"/>
+        <bind component="ctxUnidades" role="start"/>
       </link>
 
       <!-- ### Vai para tela de condicoes a partir da tela de unidades ### -->
       <link xconnector="onKeySelectionStopNStartN">
-	<bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
-	  <bindParam name="keyCode" value="GREEN"/>
-	</bind>
-	<bind component="ctxUnidades" role="stop"/>
-	<bind component="ctxCondicoes" role="start"/>
+        <bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
+          <bindParam name="keyCode" value="GREEN"/>
+        </bind>
+        <bind component="ctxUnidades" role="stop"/>
+        <bind component="ctxCondicoes" role="start"/>
       </link>
 
       <!-- ### Vai para o mapa ### -->
       <link xconnector="onKeySelectionStopNStartN">
-	<bind component="imgBtnLocalizacaoSel" role="onSelection">
-	  <bindParam name="keyCode" value="RED"/>
-	</bind>
-	<bind component="imgBtnLocalizacaoSel" role="stop"/>
-	<bind component="imgBtnUnidadesSel" role="stop"/>
-	<bind component="imgBtnCondicoesSel" role="stop"/>
-	<bind component="ctxMapa" role="start"/>
+        <bind component="imgBtnLocalizacaoSel" role="onSelection">
+          <bindParam name="keyCode" value="RED"/>
+        </bind>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="ctxMapa" role="start"/>
       </link>
 
 
       <!-- ###
-	   # Testa as condicoes necessarias
-	   # para reexibicao do menu
-	   # caso algum contexto tenha terminado -->
+           # Testa as condicoes necessarias
+           # para reexibicao do menu
+           # caso algum contexto tenha terminado -->
       <link xconnector="onOrEndTestStartN">
-	<bind component="ctxCondicoes" interface="ptoCtxRef1TelaInter" role="onEnd"/>
-	<bind component="ctxUnidades" interface="ptoCtxRef2TelaInter" role="onEnd"/>
-	<bind component="ctxMapa" role="onEnd"/>
-	<bind component="focusNodeCondiminio" interface="inicioOutBack" role="testInicioOutBack"/>
-	<bind component="focusNodeCondiminio" interface="fullScreen" role="testFullScreen"/>
-	<bind component="imgBtnCondicoesSel" role="start"/>
-	<bind component="imgBtnUnidadesSel" role="start"/>
-	<bind component="imgBtnLocalizacaoSel" role="start"/>
+        <bind component="ctxCondicoes" interface="ptoCtxRef1TelaInter" role="onEnd"/>
+        <bind component="ctxUnidades" interface="ptoCtxRef2TelaInter" role="onEnd"/>
+        <bind component="ctxMapa" role="onEnd"/>
+        <bind component="focusNodeCondiminio" interface="inicioOutBack" role="testInicioOutBack"/>
+        <bind component="focusNodeCondiminio" interface="fullScreen" role="testFullScreen"/>
+        <bind component="imgBtnCondicoesSel" role="start"/>
+        <bind component="imgBtnUnidadesSel" role="start"/>
+        <bind component="imgBtnLocalizacaoSel" role="start"/>
       </link>
 
       <!-- ### Vai para a tela de condicoes a partir do menu principal ### -->
       <link xconnector="onKeySelectionSetNStopNStartN">
-	<bind component="imgBtnCondicoesSel" role="onSelection">
-	  <bindParam name="keyCode" value="GREEN"/>
-	</bind>
-	<bind component="imgBtnCondicoesSel" role="stop"/>
-	<bind component="imgBtnUnidadesSel" role="stop"/>
-	<bind component="imgBtnLocalizacaoSel" role="stop"/>
-	<bind component="ctxCondicoes" role="start"/>
+        <bind component="imgBtnCondicoesSel" role="onSelection">
+          <bindParam name="keyCode" value="GREEN"/>
+        </bind>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="ctxCondicoes" role="start"/>
         <bind component="vdoComercialRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
-	</bind>
-	<bind component="focusNodeCondiminio" interface="fullScreen" role="set">
-	  <bindParam name="var" value="false"/>
-	</bind>
+        </bind>
+        <bind component="focusNodeCondiminio" interface="fullScreen" role="set">
+          <bindParam name="var" value="false"/>
+        </bind>
       </link>
 
       <!-- ### Vai para tela de unidades a partir do menu principal ### -->
       <link xconnector="onKeySelectionSetNStopNStartN">
-	<bind component="imgBtnUnidadesSel" role="onSelection">
-	  <bindParam name="keyCode" value="YELLOW"/>
-	</bind>
-	<bind component="imgBtnCondicoesSel" role="stop"/>
-	<bind component="imgBtnUnidadesSel" role="stop"/>
-	<bind component="imgBtnLocalizacaoSel" role="stop"/>
-	<bind component="ctxUnidades" role="start"/>
-	<bind component="vdoComercialRef1" interface="bounds" role="set">
+        <bind component="imgBtnUnidadesSel" role="onSelection">
+          <bindParam name="keyCode" value="YELLOW"/>
+        </bind>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="ctxUnidades" role="start"/>
+        <bind component="vdoComercialRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
-	</bind>
-	<bind component="focusNodeCondiminio" interface="fullScreen" role="set">
-	  <bindParam name="var" value="false"/>
-	</bind>
+        </bind>
+        <bind component="focusNodeCondiminio" interface="fullScreen" role="set">
+          <bindParam name="var" value="false"/>
+        </bind>
       </link>
     </context>
 
     <!-- ###################################
-	 # Contexto responsavel pela interatividade
-	 # do comercial do OutBack
-	 ################################### -->
+         # Contexto responsavel pela interatividade
+         # do comercial do OutBack
+         ################################### -->
     <context id="ctxOutBack">
 
       <port id="ptoLocalizacaoOutBack" component="imgBtnLocalizacaoOut"/>
@@ -608,14 +608,14 @@
 
       <!-- #### Inicia o LUA que ira perguntar o CEP do usuario #### -->
       <link xconnector="onKeySelectionStartNSetNStopN">
-	<bind component="imgBtnLocalizacaoOut" role="onSelection">
-	  <bindParam name="keyCode" value="RED"/>
-	</bind>
-	<bind component="luaCep" role="start"/>
-	<bind component="setNodeOutBack" interface="service.currentKeyMaster" role="set">
-	  <bindParam name="var" value="ixLua"/>
-	</bind>
-	<bind component="imgBtnLocalizacaoOut" role="stop"/>
+        <bind component="imgBtnLocalizacaoOut" role="onSelection">
+          <bindParam name="keyCode" value="RED"/>
+        </bind>
+        <bind component="luaCep" role="start"/>
+        <bind component="setNodeOutBack" interface="service.currentKeyMaster" role="set">
+          <bindParam name="var" value="ixLua"/>
+        </bind>
+        <bind component="imgBtnLocalizacaoOut" role="stop"/>
       </link>
 
       <!-- <link xconnector="onBeginSet"> -->
@@ -628,9 +628,9 @@
 
       <!-- ### Termina o outback encerra tudo ### -->
       <link xconnector="onEndStopN">
-	<bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
-	<bind component="imgBtnLocalizacaoOut" role="stop"/>
-	<bind component="luaCep" role="stop"/>
+        <bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
+        <bind component="imgBtnLocalizacaoOut" role="stop"/>
+        <bind component="luaCep" role="stop"/>
       </link>
 
 
