@@ -33,8 +33,8 @@
           <region id="rgQuarto3" left="67%" width="32%" zIndex="1"/>
         </region>
         <region height="5.33%" id="rgHeadUnidades" left="5%" top="25%" width="16.40%" zIndex="1"/>
-        <region height="56.51%" id="rgConteudoFundo" left="5%" top="30.5%" width="29.29%" zIndex="1">
-          <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%" zIndex="1"/>
+        <region height="56.51%" id="rgConteudoFundo" left="5%" top="30.5%" width="29.29%" zIndex="2">
+          <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%" zIndex="2"/>
         </region>
         <region id="rgVideo" height="42.71%" width="41.85%" top="25%" right="5.1%" zIndex="1"/>
         <region bottom="0%" height="16.79%" id="rgCondicoesBotoes" right="2.5%" width="18.94%" zIndex="1"/>
