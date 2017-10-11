@@ -1107,7 +1107,7 @@
       <port component="DengueOFF" id="pDengueOFF"/>
       <port component="EmergenciaOFF" id="pEmergenciaOFF"/>
       <port component="SangueOFF" id="pSangueOFF"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloPrincipal" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueOFF.png" id="DengueOFF"/>
@@ -1116,7 +1116,7 @@
       <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueON.png" id="SangueON"/>
       <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloPrincipal"/>
 
       <media descriptor="dTexto" src="UPA/ctPrincipal/DengueTEXT.png" id="tDengue"/>
       <media descriptor="dIcone" src="UPA/ctPrincipal/DengueIMAGE.png" id="iDengue"/>
@@ -1225,14 +1225,14 @@
     <context id="ctEmergencias">
       <port component="SamuON" id="pSamuON"/>
       <port component="UpaON" id="pUpaON"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloEmergencia" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctEmergencias/SamuON.png" id="SamuON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctEmergencias/SamuOFF.png" id="SamuOFF"/>
       <media descriptor="dColuna1_Botao2" src="UPA/ctEmergencias/UpaON.png" id="UpaON"/>
       <media descriptor="dColuna1_Botao2" src="UPA/ctEmergencias/UpaOFF.png" id="UpaOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctEmergencias/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctEmergencias/Titulo.png" id="tituloEmergencia"/>
 
       <media descriptor="dTexto" src="UPA/ctEmergencias/SamuTEXT.png" id="tSamu"/>
       <media descriptor="dIcone" src="UPA/ctEmergencias/SamuIMAGE.png" id="iSamu"/>
@@ -1306,7 +1306,7 @@
       <port component="FuncionaON" id="pFuncionaON"/>
       <port component="EspecialidadesON" id="pEspecialidadesON"/>
       <port component="UnidadesON" id="pUnidadesON"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloUpa" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctUpa/OqueON.png" id="OqueON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctUpa/OqueOFF.png" id="OqueOFF"/>
@@ -1317,7 +1317,7 @@
       <media descriptor="dColuna1_Botao4" src="UPA/ctUpa/UnidadesON.png" id="UnidadesON"/>
       <media descriptor="dColuna1_Botao4" src="UPA/ctUpa/UnidadesOFF.png" id="UnidadesOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctUpa/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctUpa/Titulo.png" id="tituloUpa"/>
 
       <media descriptor="dTexto" src="UPA/ctUpa/OqueTEXT.png" id="tOque"/>
       <media descriptor="dIconeShow" src="UPA/ctUpa/OqueIMAGE.png" id="iOque"/>
@@ -1562,7 +1562,7 @@
       <port component="pediatriaON" id="pPediatriaON"/>
       <port component="ortopediaON" id="pOrtopediaON"/>
       <port component="odontologiaON" id="pOdontologiaON"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloEspecialidade" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctEspecialidades/GeralON.png" id="geralON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctEspecialidades/GeralOFF.png" id="geralOFF"/>
@@ -1573,7 +1573,7 @@
       <media descriptor="dColuna1_Botao4" src="UPA/ctEspecialidades/OdontologiaON.png" id="odontologiaON"/>
       <media descriptor="dColuna1_Botao4" src="UPA/ctEspecialidades/OdontologiaOFF.png" id="odontologiaOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctEspecialidades/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctEspecialidades/Titulo.png" id="tituloEspecialidade"/>
 
       <media id="tGeral" src="UPA/ctEspecialidades/GeralTEXT.png" descriptor="dTexto"/>
       <media id="tPediatria" src="UPA/ctEspecialidades/PediatriaTEXT.png" descriptor="dTexto"/>
@@ -1830,7 +1830,7 @@
       <port component="MareOFF" id="pMareOFF"/>
       <port component="StaCruzON" id="pStaCruzON"/>
       <port component="StaCruzOFF" id="pStaCruzOFF"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloUnidade" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctUnidades/BanguON.png" id="BanguON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctUnidades/BanguOFF.png" id="BanguOFF"/>
@@ -1846,7 +1846,7 @@
       <media descriptor="dColuna1_Botao2" src="UPA/ctUnidades/StaCruzON.png" id="StaCruzON"/>
       <media descriptor="dColuna1_Botao2" src="UPA/ctUnidades/StaCruzOFF.png" id="StaCruzOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctUnidades/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctUnidades/Titulo.png" id="tituloUnidade"/>
 
       <media descriptor="dTexto" src="UPA/ctUnidades/BanguTEXT.png" id="tBangu"/>
       <media descriptor="dIconeShow" src="UPA/ctUnidades/BanguIMAGE.png" id="iBangu"/>
@@ -2125,7 +2125,7 @@
       <port component="SintomasON" id="pSintomasON"/>
       <port component="HemoON" id="pHemoON"/>
       <port component="FazerON" id="pFazerON"/>
-      <port component="titulo" id="pTitulo"/>
+      <port component="tituloDengue" id="pTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctDengue/PrevenirON.png" id="PrevenirON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctDengue/PrevenirOFF.png" id="PrevenirOFF"/>
@@ -2136,7 +2136,7 @@
       <media descriptor="dColuna1_Botao4" src="UPA/ctDengue/FazerON.png" id="FazerON"/>
       <media descriptor="dColuna1_Botao4" src="UPA/ctDengue/FazerOFF.png" id="FazerOFF"/>
 
-      <media descriptor="dTitulo" src="UPA/ctDengue/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctDengue/Titulo.png" id="tituloDengue"/>
 
       <media descriptor="dTexto" src="UPA/ctDengue/PrevenirTEXT.png" id="tPrevenir"/>
       <media descriptor="dIconeShow" src="UPA/ctDengue/PrevenirIMAGE.png" id="iPrevenir"/>
@@ -2300,13 +2300,13 @@
 
     <!--### Contexto Efeito ###-->
     <context id="ctEfeito">
-      <port id="p1" component="titulo"/>
+      <port id="p1" component="tituloEfeito"/>
       <port id="p2" component="DengueON"/>
       <port id="p3" component="EmergenciaOFF"/>
       <port id="p4" component="SangueOFF"/>
       <port id="p5" component="tDengue"/>
       <port id="p6" component="iDengue"/>
-      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="titulo"/>
+      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloEfeito"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON"/>
       <media descriptor="dColuna1_Botao2" src="UPA/ctPrincipal/EmergenciaOFF.png" id="EmergenciaOFF"/>
       <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF"/>
@@ -2314,7 +2314,7 @@
       <media descriptor="dIcone" src="UPA/ctPrincipal/DengueIMAGE.png" id="iDengue"/>
 
       <link xconnector="connBase#onEndStopN">
-        <bind role="onEnd" component="titulo"/>
+        <bind role="onEnd" component="tituloEfeito"/>
         <bind role="stop" component="DengueON"/>
         <bind role="stop" component="EmergenciaOFF"/>
         <bind role="stop" component="SangueOFF"/>
