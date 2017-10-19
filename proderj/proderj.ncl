@@ -2,7 +2,7 @@
 <ncl xsi:schemaLocation="http://www.ncl.org.br/NCL3.0/EDTVProfile http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile" id="MainProderj">
   <head>
 
-    <transitionBase>
+    <!-- <transitionBase>
       <transition id="rightToLeft" type="barWipe" subtype="leftToRight" direction="reverse" dur="0.5s"/>
       <transition id="leftToRight" type="barWipe" subtype="leftToRight" dur="1s"/>
       <transition id="topToBottom" type="barWipe" subtype="topToBottom" dur="1s"/>
@@ -10,7 +10,7 @@
       <transition id="bottomUpPilha" type="barWipe" subtype="topToBottom" direction="reverse" dur="0.5s"/>
       <transition id="fadeTransition" type="fade" dur="0.7s"/>
       <transition id="fadeTransitionReverse" type="fade" dur="1s"/>
-    </transitionBase>
+    </transitionBase> -->
 
     <regionBase>
       <!--### Main ###-->
@@ -1126,13 +1126,13 @@
       <media descriptor="dIcone" src="UPA/ctPrincipal/SangueIMAGE.png" id="iSangue"/>
 
       <!-- <media descriptor="dCaixa" src="UPA/borda.png" id="borda"/> -->
-      <!-- <link xconnector="connBase#onBeginStart"> -->
+      <!-- <link xconnector="onBeginStart"> -->
       <!--   <bind role="onBegin" component="titulo"/> -->
       <!--   <bind role="start" component="borda"/> -->
       <!-- </link> -->
 
       <!-- ao exibir o botao com foco, exibe o texto e icones relacionados-->
-      <link xconnector="connBase#onBeginStopNStartN" id="lDengueON">
+      <link xconnector="onBeginStopNStartN" id="lDengueON">
         <bind role="onBegin" component="DengueON"/>
         <bind role="stop" component="DengueOFF"/>
         <bind role="start" component="EmergenciaOFF"/>
@@ -1140,7 +1140,7 @@
         <bind role="start" component="tDengue"/>
         <bind role="start" component="iDengue"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lEmergenciaON">
+      <link xconnector="onBeginStopNStartN" id="lEmergenciaON">
         <bind role="onBegin" component="EmergenciaON"/>
         <bind role="stop" component="EmergenciaOFF"/>
         <bind role="start" component="DengueOFF"/>
@@ -1148,7 +1148,7 @@
         <bind role="start" component="tEmergencia"/>
         <bind role="start" component="iEmergencia"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lSangueON">
+      <link xconnector="onBeginStopNStartN" id="lSangueON">
         <bind role="onBegin" component="SangueON"/>
         <bind role="stop" component="SangueOFF"/>
         <bind role="start" component="DengueOFF"/>
@@ -1158,38 +1158,38 @@
       </link>
 
       <!-- stop nos textos e icones -->
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="DengueON"/>
         <bind role="stop" component="tDengue"/>
         <bind role="stop" component="iDengue"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="EmergenciaON"/>
         <bind role="stop" component="tEmergencia"/>
         <bind role="stop" component="iEmergencia"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="SangueON"/>
         <bind role="stop" component="tSangue"/>
         <bind role="stop" component="iSangue"/>
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="DengueON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="DengueON"/>
         <bind role="start" component="SangueON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="EmergenciaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="EmergenciaON"/>
         <bind role="start" component="DengueON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SangueON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -1198,21 +1198,21 @@
       </link>
 
       <!--  CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="DengueON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="DengueON"/>
         <bind role="start" component="EmergenciaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="EmergenciaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="EmergenciaON"/>
         <bind role="start" component="SangueON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SangueON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -1239,14 +1239,14 @@
       <media descriptor="dTexto" src="UPA/ctEmergencias/UpaTEXT.png" id="tUpa"/>
       <media descriptor="dIcone" src="UPA/ctEmergencias/UpaIMAGE.png" id="iUpa"/>
 
-      <link xconnector="connBase#onBeginStopNStartN">
+      <link xconnector="onBeginStopNStartN">
         <bind role="onBegin" component="SamuON"/>
         <bind role="stop" component="SamuOFF"/>
         <bind role="start" component="UpaOFF"/>
         <bind role="start" component="tSamu"/>
         <bind role="start" component="iSamu"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN">
+      <link xconnector="onBeginStopNStartN">
         <bind role="onBegin" component="UpaON"/>
         <bind role="stop" component="UpaOFF"/>
         <bind role="start" component="SamuOFF"/>
@@ -1255,19 +1255,19 @@
       </link>
 
       <!-- stop em textos e icones -->
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="SamuON"/>
         <bind role="stop" component="tSamu"/>
         <bind role="stop" component="iSamu"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="UpaON"/>
         <bind role="stop" component="tUpa"/>
         <bind role="stop" component="iUpa"/>
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SamuON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -1275,7 +1275,7 @@
         <bind role="start" component="UpaON"/>
       </link>
 
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="UpaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -1284,14 +1284,14 @@
       </link>
 
       <!--  CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SamuON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="SamuON"/>
         <bind role="start" component="UpaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="UpaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -1346,7 +1346,7 @@
       <media descriptor="dIconeShow" src="UPA/ctUpa/UnidadesIMAGE5.png" id="iUnidades5"/>
 
       <!-- botoes em foco -->
-      <link xconnector="connBase#onBeginStartN" id="lOqueON">
+      <link xconnector="onBeginStartN" id="lOqueON">
         <bind role="onBegin" component="OqueON"/>
         <bind role="start" component="FuncionaOFF"/>
         <bind role="start" component="EspecialidadesOFF"/>
@@ -1354,7 +1354,7 @@
         <bind role="start" component="tOque"/>
         <bind role="start" component="iOque"/>
       </link>
-      <link xconnector="connBase#onBeginStartN" id="lFuncionaON">
+      <link xconnector="onBeginStartN" id="lFuncionaON">
         <bind role="onBegin" component="FuncionaON"/>
         <bind role="start" component="EspecialidadesOFF"/>
         <bind role="start" component="UnidadesOFF"/>
@@ -1362,7 +1362,7 @@
         <bind role="start" component="tFunciona"/>
         <bind role="start" component="iFunciona"/>
       </link>
-      <link xconnector="connBase#onBeginStartN" id="lEspecialidadesON">
+      <link xconnector="onBeginStartN" id="lEspecialidadesON">
         <bind role="onBegin" component="EspecialidadesON"/>
         <bind role="start" component="FuncionaOFF"/>
         <bind role="start" component="UnidadesOFF"/>
@@ -1370,7 +1370,7 @@
         <bind role="start" component="tEspecialidades"/>
         <bind role="start" component="iEspecialidades"/>
       </link>
-      <link xconnector="connBase#onBeginStartN" id="lUnidadesON">
+      <link xconnector="onBeginStartN" id="lUnidadesON">
         <bind role="onBegin" component="UnidadesON"/>
         <bind role="start" component="FuncionaOFF"/>
         <bind role="start" component="EspecialidadesOFF"/>
@@ -1380,14 +1380,14 @@
       </link>
 
       <!-- stop nos textos e icones -->
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="OqueON"/>
         <bind role="stop" component="tOque"/>
         <bind role="abort" component="iOque"/>
         <bind role="abort" component="iOque2"/>
         <bind role="abort" component="iOque3"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="FuncionaON"/>
         <bind role="stop" component="tFunciona"/>
         <bind role="abort" component="iFunciona"/>
@@ -1396,7 +1396,7 @@
         <bind role="abort" component="iFunciona4"/>
         <bind role="abort" component="iFunciona5"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="EspecialidadesON"/>
         <bind role="stop" component="tEspecialidades"/>
         <bind role="abort" component="iEspecialidades"/>
@@ -1405,7 +1405,7 @@
         <bind role="abort" component="iEspecialidades4"/>
         <bind role="abort" component="iEspecialidades5"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="UnidadesON"/>
         <bind role="stop" component="tUnidades"/>
         <bind role="abort" component="iUnidades"/>
@@ -1416,28 +1416,28 @@
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="OqueON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="OqueON"/>
         <bind role="start" component="UnidadesON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="FuncionaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="FuncionaON"/>
         <bind role="start" component="OqueON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="EspecialidadesON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="EspecialidadesON"/>
         <bind role="start" component="FuncionaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="UnidadesON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -1446,28 +1446,28 @@
       </link>
 
       <!--  CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="OqueON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="OqueON"/>
         <bind role="start" component="FuncionaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="FuncionaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="FuncionaON"/>
         <bind role="start" component="EspecialidadesON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="EspecialidadesON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="EspecialidadesON"/>
         <bind role="start" component="UnidadesON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="UnidadesON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -1476,81 +1476,81 @@
       </link>
 
       <!-- slideshow OqueE -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOque"/>
         <bind role="start" component="iOque2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOque2"/>
         <bind role="start" component="iOque3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOque3"/>
         <bind role="start" component="iOque"/>
       </link>
 
       <!-- slideshow Funciona -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iFunciona"/>
         <bind role="start" component="iFunciona2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iFunciona2"/>
         <bind role="start" component="iFunciona3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iFunciona3"/>
         <bind role="start" component="iFunciona4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iFunciona4"/>
         <bind role="start" component="iFunciona5"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iFunciona5"/>
         <bind role="start" component="iFunciona"/>
       </link>
 
       <!--slideshow Especialidades -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iEspecialidades"/>
         <bind role="start" component="iEspecialidades2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iEspecialidades2"/>
         <bind role="start" component="iEspecialidades3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iEspecialidades3"/>
         <bind role="start" component="iEspecialidades4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iEspecialidades4"/>
         <bind role="start" component="iEspecialidades5"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iEspecialidades5"/>
         <bind role="start" component="iEspecialidades"/>
       </link>
 
       <!-- slideshow Unidades -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iUnidades"/>
         <bind role="start" component="iUnidades2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iUnidades2"/>
         <bind role="start" component="iUnidades3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iUnidades3"/>
         <bind role="start" component="iUnidades4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iUnidades4"/>
         <bind role="start" component="iUnidades5"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iUnidades5"/>
         <bind role="start" component="iUnidades"/>
       </link>
@@ -1605,7 +1605,7 @@
       <media id="iOdontologia5" src="UPA/ctEspecialidades/OdontologiaIMAGE5.png" descriptor="dIconeShow"/>
 
       <!-- o botao em foco deixa todos os demais sem foco -->
-      <link xconnector="connBase#onBeginStopNStartN" id="lGeralON">
+      <link xconnector="onBeginStopNStartN" id="lGeralON">
         <bind role="onBegin" component="geralON"/>
         <bind role="stop" component="geralOFF"/>
         <bind role="start" component="pediatriaOFF"/>
@@ -1614,7 +1614,7 @@
         <bind role="start" component="tGeral"/>
         <bind role="start" component="iGeral"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lPediatriaOn">
+      <link xconnector="onBeginStopNStartN" id="lPediatriaOn">
         <bind role="onBegin" component="pediatriaON"/>
         <bind role="stop" component="pediatriaOFF"/>
         <bind role="start" component="geralOFF"/>
@@ -1623,7 +1623,7 @@
         <bind role="start" component="tPediatria"/>
         <bind role="start" component="iPediatria"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lOrtopediaON">
+      <link xconnector="onBeginStopNStartN" id="lOrtopediaON">
         <bind role="onBegin" component="ortopediaON"/>
         <bind role="stop" component="ortopediaOFF"/>
         <bind role="start" component="geralOFF"/>
@@ -1632,7 +1632,7 @@
         <bind role="start" component="tOrtopedia"/>
         <bind role="start" component="iOrtopedia"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lOdontologiaON">
+      <link xconnector="onBeginStopNStartN" id="lOdontologiaON">
         <bind role="onBegin" component="odontologiaON"/>
         <bind role="stop" component="odontologiaOFF"/>
         <bind role="start" component="ortopediaOFF"/>
@@ -1643,7 +1643,7 @@
       </link>
 
       <!-- sumindo texto e icones -->
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="geralON"/>
         <bind role="stop" component="tGeral"/>
         <bind role="abort" component="iGeral"/>
@@ -1652,7 +1652,7 @@
         <bind role="abort" component="iGeral4"/>
         <bind role="abort" component="iGeral5"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="ortopediaON"/>
         <bind role="stop" component="tOrtopedia"/>
         <bind role="abort" component="iOrtopedia"/>
@@ -1661,7 +1661,7 @@
         <bind role="abort" component="iOrtopedia4"/>
         <bind role="abort" component="iOrtopedia5"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="odontologiaON"/>
         <bind role="stop" component="tOdontologia"/>
         <bind role="abort" component="iOdontologia"/>
@@ -1670,7 +1670,7 @@
         <bind role="abort" component="iOdontologia4"/>
         <bind role="abort" component="iOdontologia5"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="pediatriaON"/>
         <bind role="stop" component="tPediatria"/>
         <bind role="abort" component="iPediatria"/>
@@ -1683,28 +1683,28 @@
       <!-- navegacao UP e DOWN -->
 
       <!-- CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="geralON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="geralON"/>
         <bind role="start" component="pediatriaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="pediatriaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="pediatriaON"/>
         <bind role="start" component="ortopediaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="ortopediaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="ortopediaON"/>
         <bind role="start" component="odontologiaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="odontologiaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -1713,28 +1713,28 @@
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="geralON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="geralON"/>
         <bind role="start" component="odontologiaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="pediatriaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="pediatriaON"/>
         <bind role="start" component="geralON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="ortopediaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="ortopediaON"/>
         <bind role="start" component="pediatriaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="odontologiaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -1743,73 +1743,73 @@
       </link>
 
       <!-- slideshow Geral -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iGeral"/>
         <bind role="start" component="iGeral2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iGeral2"/>
         <bind role="start" component="iGeral3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iGeral3"/>
         <bind role="start" component="iGeral4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iGeral4"/>
         <bind role="start" component="iGeral"/>
       </link>
 
       <!-- slideshow Pediatria -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPediatria"/>
         <bind role="start" component="iPediatria2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPediatria2"/>
         <bind role="start" component="iPediatria3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPediatria3"/>
         <bind role="start" component="iPediatria4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPediatria4"/>
         <bind role="start" component="iPediatria"/>
       </link>
 
       <!-- slideshow Ortopedia -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOrtopedia"/>
         <bind role="start" component="iOrtopedia2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOrtopedia2"/>
         <bind role="start" component="iOrtopedia3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOrtopedia3"/>
         <bind role="start" component="iOrtopedia4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOrtopedia4"/>
         <bind role="start" component="iOrtopedia"/>
       </link>
 
       <!-- slideshow Odontologia -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOdontologia"/>
         <bind role="start" component="iOdontologia2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOdontologia2"/>
         <bind role="start" component="iOdontologia3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOdontologia3"/>
         <bind role="start" component="iOdontologia4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iOdontologia4"/>
         <bind role="start" component="iOdontologia"/>
       </link>
@@ -1872,7 +1872,7 @@
       <media descriptor="dIconeShow" src="UPA/ctUnidades/StaCruzIMAGE.png" id="iStaCruz"/>
       <media descriptor="dIconeShow" src="UPA/ctUnidades/StaCruzIMAGE2.png" id="iStaCruz2"/>
 
-      <link xconnector="connBase#onBeginStopNStartN" id="lBanguON">
+      <link xconnector="onBeginStopNStartN" id="lBanguON">
         <bind role="onBegin" component="BanguON"/>
         <bind role="stop" component="BanguOFF"/>
         <bind role="start" component="BelfordOFF"/>
@@ -1883,7 +1883,7 @@
         <bind role="start" component="tBangu"/>
         <bind role="start" component="iBangu"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lBelfordON">
+      <link xconnector="onBeginStopNStartN" id="lBelfordON">
         <bind role="onBegin" component="BelfordON"/>
         <bind role="start" component="BanguOFF"/>
         <bind role="stop" component="BelfordOFF"/>
@@ -1894,7 +1894,7 @@
         <bind role="start" component="tBelford"/>
         <bind role="start" component="iBelford"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lCpoGrandeOn">
+      <link xconnector="onBeginStopNStartN" id="lCpoGrandeOn">
         <bind role="onBegin" component="CpoGrandeON"/>
         <bind role="start" component="BanguOFF"/>
         <bind role="start" component="BelfordOFF"/>
@@ -1905,7 +1905,7 @@
         <bind role="start" component="tCpoGrande"/>
         <bind role="start" component="iCpoGrande"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lIrajaON">
+      <link xconnector="onBeginStopNStartN" id="lIrajaON">
         <bind role="onBegin" component="IrajaON"/>
         <bind role="start" component="BanguOFF"/>
         <bind role="start" component="BelfordOFF"/>
@@ -1916,7 +1916,7 @@
         <bind role="start" component="tIraja"/>
         <bind role="start" component="iIraja"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lMareON">
+      <link xconnector="onBeginStopNStartN" id="lMareON">
         <bind role="onBegin" component="MareON"/>
         <bind role="stop" component="BanguOFF"/>
         <bind role="stop" component="BelfordOFF"/>
@@ -1927,7 +1927,7 @@
         <bind role="start" component="tMare"/>
         <bind role="start" component="iMare"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lStaCruzON">
+      <link xconnector="onBeginStopNStartN" id="lStaCruzON">
         <bind role="onBegin" component="StaCruzON"/>
         <bind role="stop" component="BanguOFF"/>
         <bind role="stop" component="BelfordOFF"/>
@@ -1940,37 +1940,37 @@
       </link>
 
       <!-- abort nos icones -->
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="BanguON"/>
         <bind role="stop" component="tBangu"/>
         <bind role="abort" component="iBangu"/>
         <bind role="abort" component="iBangu2"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="BelfordON"/>
         <bind role="stop" component="tBelford"/>
         <bind role="abort" component="iBelford"/>
         <bind role="abort" component="iBelford2"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="CpoGrandeON"/>
         <bind role="stop" component="tCpoGrande"/>
         <bind role="abort" component="iCpoGrande"/>
         <bind role="abort" component="iCpoGrande2"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="IrajaON"/>
         <bind role="stop" component="tIraja"/>
         <bind role="abort" component="iIraja"/>
         <bind role="abort" component="iIraja2"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="MareON"/>
         <bind role="stop" component="tMare"/>
         <bind role="abort" component="iMare"/>
         <bind role="abort" component="iMare2"/>
       </link>
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="StaCruzON"/>
         <bind role="stop" component="tStaCruz"/>
         <bind role="abort" component="iStaCruz"/>
@@ -1978,28 +1978,28 @@
       </link>
 
       <!--  CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="BanguON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="BanguON"/>
         <bind role="start" component="BelfordON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="BelfordON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="BelfordON"/>
         <bind role="start" component="CpoGrandeON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="CpoGrandeON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="CpoGrandeON"/>
         <bind role="start" component="IrajaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="IrajaON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -2009,7 +2009,7 @@
         <bind role="stop" component="IrajaON"/>
         <bind role="start" component="MareON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="MareON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -2018,14 +2018,14 @@
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="BelfordON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="BelfordON"/>
         <bind role="start" component="BanguON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="CpoGrandeON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -2033,7 +2033,7 @@
         <bind role="start" component="BelfordON"/>
       </link>
 
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="IrajaON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -2041,7 +2041,7 @@
         <bind role="start" component="CpoGrandeON"/>
       </link>
 
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="MareON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -2049,7 +2049,7 @@
         <bind role="stop" component="StaCruzOFF"/>
         <bind role="start" component="IrajaON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="StaCruzON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -2058,61 +2058,61 @@
       </link>
 
       <!-- slideshow Bangu -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iBangu"/>
         <bind role="start" component="iBangu2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iBangu2"/>
         <bind role="start" component="iBangu"/>
       </link>
 
       <!-- slideshow Belford Roxo -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iBelford"/>
         <bind role="start" component="iBelford2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iBelford2"/>
         <bind role="start" component="iBelford"/>
       </link>
 
       <!-- slideshow CpoGrande -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iCpoGrande"/>
         <bind role="start" component="iCpoGrande2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iCpoGrande2"/>
         <bind role="start" component="iCpoGrande"/>
       </link>
 
       <!-- slideshow Iraja -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iIraja"/>
         <bind role="start" component="iIraja2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iIraja2"/>
         <bind role="start" component="iIraja"/>
       </link>
 
       <!-- slideshow Mare -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iMare"/>
         <bind role="start" component="iMare2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iMare2"/>
         <bind role="start" component="iMare"/>
       </link>
 
       <!-- slideshow StaCruz -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iStaCruz"/>
         <bind role="start" component="iStaCruz2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iStaCruz2"/>
         <bind role="start" component="iStaCruz"/>
       </link>
@@ -2152,7 +2152,7 @@
       <media descriptor="dTexto" src="UPA/ctDengue/FazerTEXT.png" id="tFazer"/>
       <media descriptor="dIcone" src="UPA/ctDengue/FazerIMAGE.png" id="iFazer"/>
 
-      <link xconnector="connBase#onBeginStopNStartN" id="lPrevenirON">
+      <link xconnector="onBeginStopNStartN" id="lPrevenirON">
         <bind role="onBegin" component="PrevenirON"/>
         <bind role="stop" component="PrevenirOFF"/>
         <bind role="start" component="SintomasOFF"/>
@@ -2161,7 +2161,7 @@
         <bind role="start" component="tPrevenir"/>
         <bind role="start" component="iPrevenir"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lSintomasON">
+      <link xconnector="onBeginStopNStartN" id="lSintomasON">
         <bind role="onBegin" component="SintomasON"/>
         <bind role="stop" component="SintomasOFF"/>
         <bind role="start" component="FazerOFF"/>
@@ -2170,7 +2170,7 @@
         <bind role="start" component="tSintomas"/>
         <bind role="start" component="iSintomas"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lFazerON">
+      <link xconnector="onBeginStopNStartN" id="lFazerON">
         <bind role="onBegin" component="FazerON"/>
         <bind role="stop" component="FazerOFF"/>
         <bind role="start" component="PrevenirOFF"/>
@@ -2179,7 +2179,7 @@
         <bind role="start" component="tFazer"/>
         <bind role="start" component="iFazer"/>
       </link>
-      <link xconnector="connBase#onBeginStopNStartN" id="lHemoON">
+      <link xconnector="onBeginStopNStartN" id="lHemoON">
         <bind role="onBegin" component="HemoON"/>
         <bind role="stop" component="HemoOFF"/>
         <bind role="start" component="PrevenirOFF"/>
@@ -2190,7 +2190,7 @@
       </link>
 
       <!-- stop nos textos e icones -->
-      <link xconnector="connBase#onEndAbortNStopN">
+      <link xconnector="onEndAbortNStopN">
         <bind role="onEnd" component="PrevenirON"/>
         <bind role="stop" component="tPrevenir"/>
         <bind role="abort" component="iPrevenir"/>
@@ -2199,45 +2199,45 @@
         <bind role="abort" component="iPrevenir4"/>
         <bind role="abort" component="iPrevenir5"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="SintomasON"/>
         <bind role="stop" component="tSintomas"/>
         <bind role="stop" component="iSintomas"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="FazerON"/>
         <bind role="stop" component="tFazer"/>
         <bind role="stop" component="iFazer"/>
       </link>
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="HemoON"/>
         <bind role="stop" component="tHemo"/>
         <bind role="stop" component="iHemo"/>
       </link>
 
       <!--  CURSOR_UP -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="PrevenirON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="PrevenirON"/>
         <bind role="start" component="FazerON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SintomasON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="SintomasON"/>
         <bind role="start" component="PrevenirON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="HemoON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
         <bind role="stop" component="HemoON"/>
         <bind role="start" component="SintomasON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="FazerON">
           <bindParam name="keyCode" value="CURSOR_UP"/>
         </bind>
@@ -2246,28 +2246,28 @@
       </link>
 
       <!--  CURSOR_DOWN -->
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="PrevenirON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="PrevenirON"/>
         <bind role="start" component="SintomasON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="SintomasON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="SintomasON"/>
         <bind role="start" component="HemoON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="HemoON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
         <bind role="stop" component="HemoON"/>
         <bind role="start" component="FazerON"/>
       </link>
-      <link xconnector="connBase#onKeySelectionStopNStartN">
+      <link xconnector="onKeySelectionStopNStartN">
         <bind role="onSelection" component="FazerON">
           <bindParam name="keyCode" value="CURSOR_DOWN"/>
         </bind>
@@ -2276,23 +2276,23 @@
       </link>
 
       <!-- slideshow do Prevenir -->
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPrevenir"/>
         <bind role="start" component="iPrevenir2"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPrevenir2"/>
         <bind role="start" component="iPrevenir3"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPrevenir3"/>
         <bind role="start" component="iPrevenir4"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPrevenir4"/>
         <bind role="start" component="iPrevenir5"/>
       </link>
-      <link xconnector="connBase#onEndStart">
+      <link xconnector="onEndStart">
         <bind role="onEnd" component="iPrevenir5"/>
         <bind role="start" component="iPrevenir"/>
       </link>
@@ -2301,140 +2301,140 @@
     <!--### Contexto Efeito ###-->
     <context id="ctEfeito">
       <port id="p1" component="tituloEfeito"/>
-      <port id="p2" component="DengueON"/>
-      <port id="p3" component="EmergenciaOFF"/>
-      <port id="p4" component="SangueOFF"/>
-      <port id="p5" component="tDengue"/>
-      <port id="p6" component="iDengue"/>
+      <port id="p2" component="DengueON_2"/>
+      <port id="p3" component="EmergenciaOFF_2"/>
+      <port id="p4" component="SangueOFF_2"/>
+      <port id="p5" component="tDengue_2"/>
+      <port id="p6" component="iDengue_2"/>
       <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloEfeito"/>
-      <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON"/>
-      <media descriptor="dColuna1_Botao2" src="UPA/ctPrincipal/EmergenciaOFF.png" id="EmergenciaOFF"/>
-      <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF"/>
-      <media descriptor="dTexto" src="UPA/ctPrincipal/DengueTEXT.png" id="tDengue"/>
-      <media descriptor="dIcone" src="UPA/ctPrincipal/DengueIMAGE.png" id="iDengue"/>
+      <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON_2"/>
+      <media descriptor="dColuna1_Botao2" src="UPA/ctPrincipal/EmergenciaOFF.png" id="EmergenciaOFF_2"/>
+      <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF_2"/>
+      <media descriptor="dTexto" src="UPA/ctPrincipal/DengueTEXT.png" id="tDengue_2"/>
+      <media descriptor="dIcone" src="UPA/ctPrincipal/DengueIMAGE.png" id="iDengue_2"/>
 
-      <link xconnector="connBase#onEndStopN">
+      <link xconnector="onEndStopN">
         <bind role="onEnd" component="tituloEfeito"/>
-        <bind role="stop" component="DengueON"/>
-        <bind role="stop" component="EmergenciaOFF"/>
-        <bind role="stop" component="SangueOFF"/>
-        <bind role="stop" component="tDengue"/>
-        <bind role="stop" component="iDengue"/>
+        <bind role="stop" component="DengueON_2"/>
+        <bind role="stop" component="EmergenciaOFF_2"/>
+        <bind role="stop" component="SangueOFF_2"/>
+        <bind role="stop" component="tDengue_2"/>
+        <bind role="stop" component="iDengue_2"/>
       </link>
     </context>
 
     <!-- botao SAIR -->
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctPrincipal" interface="pTitulo"/>
       <bind role="abort" component="ctPrincipal"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctEmergencias" interface="pTitulo"/>
       <bind role="abort" component="ctEmergencias"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctUpa" interface="pTitulo"/>
       <bind role="abort" component="ctUpa"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pTitulo"/>
       <bind role="abort" component="ctEspecialidades"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctUnidades" interface="pTitulo"/>
       <bind role="abort" component="ctUnidades"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="ctDengue" interface="pTitulo"/>
       <bind role="abort" component="ctDengue"/>
     </link>
 
     <!-- inicia a interatividade -->
-    <link xconnector="connBase#onBeginStart">
+    <link xconnector="onBeginStart">
       <bind role="onBegin" component="video" interface="aInterativo"/>
       <bind role="start" component="interativo"/>
     </link>
 
     <!-- loop da interatividade -->
-    <link xconnector="connBase#onEndStart">
+    <link xconnector="onEndStart">
       <bind role="onEnd" component="interativo"/>
       <bind role="start" component="interativo"/>
     </link>
-    <link xconnector="connBase#onEndAbort">
+    <link xconnector="onEndAbort">
       <bind role="onEnd" component="video"/>
       <bind role="abort" component="interativo"/>
     </link>
 
     <!--ativa interatividade -->
-    <link xconnector="connBase#onEndStartN">
+    <link xconnector="onEndStartN">
       <bind role="onEnd" component="ctEfeito"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
 
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="INFO"/>
       <bind role="onSelection" component="interativo"/>
       <bind role="abort" component="interativo"/>
       <bind role="start" component="ctEfeito"/>
     </link>
 
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="RED"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="YELLOW"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="GREEN"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="BLUE"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="CURSOR_LEFT"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="CURSOR_RIGHT"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="CURSOR_DOWN"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="connBase#onKeySelectionAbortNStartN"> -->
+    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
     <!-- <linkParam name="keyCode" value="CURSOR_UP"/> -->
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
 
     <!-- DIREITA ou ENTER no Botao Emergencias -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_RIGHT"/>
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="ENTER"/>
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="abort" component="ctPrincipal"/>
@@ -2443,14 +2443,14 @@
     </link>
 
     <!-- DIREITA ou ENTER no Botao Dengue -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_RIGHT"/>
       <bind role="onSelection" component="ctPrincipal" interface="pDengueON"/>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctDengue" interface="pPrevenirON"/>
       <bind role="start" component="ctDengue" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="ENTER"/>
       <bind role="onSelection" component="ctPrincipal" interface="pDengueON"/>
       <bind role="abort" component="ctPrincipal"/>
@@ -2459,14 +2459,14 @@
     </link>
 
     <!-- DIREITA no UPA -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_RIGHT"/>
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctUpa" interface="pOqueON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="ENTER"/>
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
       <bind role="abort" component="ctEmergencias"/>
@@ -2475,14 +2475,14 @@
     </link>
 
     <!-- DIREITA no Upa para Especialidades -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_RIGHT"/>
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEspecialidades" interface="pGeralON"/>
       <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="ENTER"/>
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="abort" component="ctUpa"/>
@@ -2491,14 +2491,14 @@
     </link>
 
     <!-- DIREITA no Upa para Unidades -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_RIGHT"/>
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctUnidades" interface="pBanguON"/>
       <bind role="start" component="ctUnidades" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="ENTER"/>
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
       <bind role="abort" component="ctUpa"/>
@@ -2507,14 +2507,14 @@
     </link>
 
     <!-- VOLTA no Emergencias -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEmergencias" interface="pSamuON"/>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
       <bind role="abort" component="ctEmergencias"/>
@@ -2523,14 +2523,14 @@
     </link>
 
     <!-- VOLTA com back Emergencias -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEmergencias" interface="pSamuON"/>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
       <bind role="abort" component="ctEmergencias"/>
@@ -2539,28 +2539,28 @@
     </link>
 
     <!-- VOLTA no Dengue -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctDengue" interface="pPrevenirON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctDengue" interface="pSintomasON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctDengue" interface="pHemoON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctDengue" interface="pFazerON"/>
       <bind role="abort" component="ctDengue"/>
@@ -2569,28 +2569,28 @@
     </link>
 
     <!-- VOLTA CoM BACK Dengue -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctDengue" interface="pPrevenirON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctDengue" interface="pSintomasON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctDengue" interface="pHemoON"/>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctDengue" interface="pFazerON"/>
       <bind role="abort" component="ctDengue"/>
@@ -2599,28 +2599,28 @@
     </link>
 
     <!-- Volta no Upa -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUpa" interface="pOqueON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUpa" interface="pFuncionaON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
       <bind role="abort" component="ctUpa"/>
@@ -2629,28 +2629,28 @@
     </link>
 
     <!-- Volta CoM BACK Upa -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUpa" interface="pOqueON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUpa" interface="pFuncionaON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
       <bind role="abort" component="ctUpa"/>
@@ -2659,28 +2659,28 @@
     </link>
 
     <!-- Volta no Especialidades para o Upa -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pGeralON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON"/>
       <bind role="abort" component="ctEspecialidades"/>
@@ -2689,28 +2689,28 @@
     </link>
 
     <!-- Volta no Especialidades para o Upa COM BACK-->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pGeralON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON"/>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON"/>
       <bind role="abort" component="ctEspecialidades"/>
@@ -2719,42 +2719,42 @@
     </link>
 
     <!-- Volta no Unidades -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pBanguON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pIrajaON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pMareON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pStaCruzON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="CURSOR_LEFT"/>
       <bind role="onSelection" component="ctUnidades" interface="pBelfordON"/>
       <bind role="abort" component="ctUnidades"/>
@@ -2763,42 +2763,42 @@
     </link>
 
     <!-- Volta no Unidades COM BACK -->
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pBanguON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pIrajaON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pMareON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pStaCruzON"/>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
-    <link xconnector="connBase#onKeySelectionAbortNStartN">
+    <link xconnector="onKeySelectionAbortNStartN">
       <linkParam name="keyCode" value="BACK"/>
       <bind role="onSelection" component="ctUnidades" interface="pBelfordON"/>
       <bind role="abort" component="ctUnidades"/>

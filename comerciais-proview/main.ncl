@@ -439,7 +439,7 @@
       <!-- ### Vai para tela de condicoes a partir da tela de unidades ### -->
       <!-- Não está funcionando. Provavelmente por causa dessa interface -->
       <link xconnector="onKeySelectionStopNStartN">
-        <bind component="ctxUnidades"  role="onSelection">
+        <bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
           <bindParam name="keyCode" value="GREEN"/>
         </bind>
         <bind component="ctxUnidades" role="stop"/>
