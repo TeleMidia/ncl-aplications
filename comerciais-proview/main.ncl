@@ -4,40 +4,40 @@
 <ncl id="new_ncl_file" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
   <head>
     <regionBase>
-      <region top="0" left="0" id="rgFullScreen" zIndex="2">
-        <region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56" zIndex="2"/>
+      <region top="0" left="0" id="rgFullScreen" zIndex="3">
+        <region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56" zIndex="4"/>
 
         <!-- ### Regiao para o menu de interatividade ### -->
         <region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%">
-          <region height="29.3%" id="rgLocalizacao" zIndex="2"/>
-          <region height="29.3%" id="rgCondicoes" top="33%" zIndex="2"/>
-          <region height="29.3%" id="rgUnidades" top="66%" zIndex="2"/>
+          <region height="29.3%" id="rgLocalizacao" zIndex="4"/>
+          <region height="29.3%" id="rgCondicoes" top="33%" zIndex="4"/>
+          <region height="29.3%" id="rgUnidades" top="66%" zIndex="4"/>
         </region>
         <!-- ### Regiao para o mapa de localizacao ### -->
-        <region height="56.9%" id="rgMapa" left="3.75%" top="11.67%" width="33.5%" zIndex="2">
-          <region bottom="4.5%" height="9.15%" id="rgSairMapa" left="19.08%" width="21.5%" zIndex="2"/>
+        <region height="56.9%" id="rgMapa" left="3.75%" top="11.67%" width="33.5%" zIndex="4">
+          <region bottom="4.5%" height="9.15%" id="rgSairMapa" left="19.08%" width="21.5%" zIndex="5"/>
         </region>
         <!-- ### Regiao para a aplicacao em LUA ### -->
-        <region top="400" height="100" id="rgLuaCep" left="0" width="640" zIndex="2"/>
+        <region top="400" height="100" id="rgLuaCep" left="0" width="640" zIndex="4"/>
       </region>
 
       <!-- ### Define a Tela de Interacao dos comerciais e as regioes de suas imagens ### -->
       <region top="0" left="0" height="480" id="rgTelaInteracao" width="640" zIndex="1">
         <region id="rgFundo" width="100%" height="100%" zIndex="1"/>
-        <region id="rgProviewLogo" height="10.15%" width="19.04%" top="5%" left="5%" zIndex="1"/>
-        <region id="rgGinga" width="23.04%" height="5.98%" right="5%" top="5%" zIndex="1"/>
+        <region id="rgProviewLogo" height="10.15%" width="19.04%" top="5%" left="5%" zIndex="2"/>
+        <region id="rgGinga" width="23.04%" height="5.98%" right="5%" top="5%" zIndex="2"/>
 
-        <region height="5.33%" id="rgMenuQuartos" left="5%" top="25%" width="29.29%" zIndex="1">
-          <region id="rgQuarto1" width="32%" zIndex="1"/>
-          <region id="rgQuarto2" left="33.5%" width="32%" zIndex="1"/>
-          <region id="rgQuarto3" left="67%" width="32%" zIndex="1"/>
+        <region height="5.33%" id="rgMenuQuartos" left="5%" top="25%" width="29.29%" zIndex="2">
+          <region id="rgQuarto1" width="32%" zIndex="2"/>
+          <region id="rgQuarto2" left="33.5%" width="32%" zIndex="2"/>
+          <region id="rgQuarto3" left="67%" width="32%" zIndex="2"/>
         </region>
-        <region height="5.33%" id="rgHeadUnidades" left="5%" top="25%" width="16.40%" zIndex="1"/>
+        <region height="5.33%" id="rgHeadUnidades" left="5%" top="25%" width="16.40%" zIndex="2"/>
         <region height="56.51%" id="rgConteudoFundo" left="5%" top="30.5%" width="29.29%" zIndex="2">
-          <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%" zIndex="2"/>
+          <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%" zIndex="3"/>
         </region>
-        <region id="rgVideo" height="42.71%" width="41.85%" top="25%" right="5.1%" zIndex="1"/>
-        <region bottom="0%" height="16.79%" id="rgCondicoesBotoes" right="2.5%" width="18.94%" zIndex="1"/>
+        <region id="rgVideo" height="42.71%" width="41.85%" top="25%" right="5.1%" zIndex="2"/>
+        <region bottom="0%" height="16.79%" id="rgCondicoesBotoes" right="2.5%" width="18.94%" zIndex="2"/>
       </region>
     </regionBase>
 
@@ -52,6 +52,7 @@
       <descriptor id="dsTelaInteracao" region="rgTelaInteracao"/>
       <descriptor id="dsCondicoesBtn" region="rgCondicoesBotoes"/>
       <!-- #### Descritores utilizados para navegacao ### -->
+      <!-- Não está funcionando a mudança de imagens -->
       <descriptor id="dsQuarto1" region="rgQuarto1"
                   focusSrc="media/imagens/condominio/condicoes/quarto1Selecionado.png"
                   moveLeft="3" moveRight="2"
@@ -368,9 +369,9 @@
       <port component="imgBtnUnidadesSel" id="ptoImgBtnUnidadesSel"/>
       <port component="imgBtnLocalizacaoSel" id="ptoImgBtnLocalizacaoSel"/>
 
-      <media descriptor="dsLocalizacao" id="imgBtnLocalizacaoSel" src="media/imagens/menu/localizacaoMenu.png"/>
-      <media descriptor="dsCondicoes" id="imgBtnCondicoesSel" src="media/imagens/menu/condicoesMenu.png"/>
-      <media descriptor="dsUnidades" id="imgBtnUnidadesSel" src="media/imagens/menu/unidadesMenu.png"/>
+      <media descriptor="dsLocalizacao" id="imgBtnLocalizacaoSel" src="media/imagens/menu/localizacaoMenu.png"/> <!-- Red -->
+      <media descriptor="dsCondicoes" id="imgBtnCondicoesSel" src="media/imagens/menu/condicoesMenu.png"/> <!-- Green -->
+      <media descriptor="dsUnidades" id="imgBtnUnidadesSel" src="media/imagens/menu/unidadesMenu.png"/> <!-- Yellow -->
 
       <media id="vdoComercialRef1" instance="instSame" refer="vdoComercial"/>
       <media id="focusNodeCondominio" instance="instSame" refer="setNode"/>
@@ -389,15 +390,80 @@
         <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
         <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
       </context>
+      
+      <!-- ### Vai para o mapa a partir do menu principal ### -->
+      <link xconnector="onKeySelectionStopNStartN">
+        <bind component="imgBtnLocalizacaoSel" role="onSelection">
+          <bindParam name="keyCode" value="RED"/>
+        </bind>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="ctxMapa" role="start"/>
+      </link>
+      
+      <!-- ### Vai para a tela de condicoes a partir do menu principal ### -->
+      <link xconnector="onKeySelectionSetNStopNStartN">
+        <bind component="imgBtnCondicoesSel" role="onSelection">
+          <bindParam name="keyCode" value="GREEN"/>
+        </bind>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="ctxCondicoes" role="start"/>
+        <bind component="vdoComercialRef1" interface="bounds" role="set">
+          <bindParam name="var" value="346, 126, 256, 192"/>
+        </bind>
+        <bind component="focusNodeCondominio" interface="fullScreen" role="set">
+          <bindParam name="var" value="false"/>
+        </bind>
+      </link>
 
+      <!-- ### Vai para tela de unidades a partir do menu principal ### -->
+      <link xconnector="onKeySelectionSetNStopNStartN">
+        <bind component="imgBtnUnidadesSel" role="onSelection">
+          <bindParam name="keyCode" value="YELLOW"/>
+        </bind>
+        <bind component="imgBtnCondicoesSel" role="stop"/>
+        <bind component="imgBtnUnidadesSel" role="stop"/>
+        <bind component="imgBtnLocalizacaoSel" role="stop"/>
+        <bind component="ctxUnidades" role="start"/>
+        <bind component="vdoComercialRef1" interface="bounds" role="set">
+          <bindParam name="var" value="346, 126, 256, 192"/>
+        </bind>
+        <bind component="focusNodeCondominio" interface="fullScreen" role="set">
+          <bindParam name="var" value="false"/>
+        </bind>
+      </link>
+
+      <!-- ### Vai para tela de condicoes a partir da tela de unidades ### -->
+      <link xconnector="onKeySelectionStopNStartN">
+        <bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
+          <bindParam name="keyCode" value="GREEN"/>
+        </bind>
+        <bind component="ctxUnidades" role="stop"/>
+        <bind component="ctxCondicoes" role="start"/>
+      </link>
+      
+      <!-- ### Vai para a tela de unidades a partir da tela de condicoes ### -->
+      <link xconnector="onKeySelectionStopNStartN">
+        <bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
+          <bindParam name="keyCode" value="YELLOW"/>
+        </bind>
+        <bind component="ctxCondicoes" role="stop"/>
+        <bind component="ctxUnidades" role="start"/>
+      </link>
+      
       <!-- ###################################
            #  Contexto que gerencia a exibicao do mapa
            #################################### -->
       <context id="ctxMapa">
         <port component="imgMapa" id="ptoMapa"/>
         <port component="imgSairMapa" id="ptoImgSairMapa"/>
+
         <media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
         <media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
+        <!-- Não tá funcionando o link -->        
         <link xconnector="onKeySelectionStopN">
           <bind component="imgSairMapa" role="onSelection">
             <bindParam name="keyCode" value="RED"/>
@@ -405,8 +471,6 @@
           <bind component="ctxMapa" role="stop"/>
         </link>
       </context>
-
-
 
       <!-- ###################################
            #  Contexto que gerencia as condicoes de pagamento
@@ -419,9 +483,7 @@
         <port component="imgBtnQuarto1" id="ptoQuarto1"/>
         <port component="imgBtnCondicoesVolta" id="ptoCondicoesBtn"/>
 
-
-
-        <media descriptor="dsCondicoesBtn" id="imgBtnCondicoesVolta" src="media/imagens/condominio/condicoes/botoesCondicoes.png"/>
+        <media descriptor="dsCondicoesBtn" id="imgBtnCondicoesVolta" src="media/imagens/condominio/condicoes/botoesCondicoes.png"/> <!-- Yellow and Blue -->
         <media descriptor="dsQuarto1" id="imgBtnQuarto1" src="media/imagens/condominio/condicoes/quarto1.png"/>
         <media descriptor="dsQuarto2" id="imgBtnQuarto2" src="media/imagens/condominio/condicoes/quarto2.png"/>
         <media descriptor="dsQuarto3" id="imgBtnQuarto3" src="media/imagens/condominio/condicoes/quarto3.png"/>
@@ -458,6 +520,7 @@
              #  Utilizando onEndAttributtion do currentFocus
              #  Evita utilizar o botao OK
              ###########################################-->
+        <!-- Não está funcionando -->
         <link xconnector="onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
@@ -467,6 +530,7 @@
           <bind component="imgConteudoQuarto3" role="stop"/>
           <bind component="imgConteudoQuarto1" role="start"/>
         </link>
+
         <link xconnector="onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
@@ -476,6 +540,7 @@
           <bind component="imgConteudoQuarto3" role="stop"/>
           <bind component="imgConteudoQuarto2" role="start"/>
         </link>
+
         <link xconnector="onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
@@ -487,22 +552,19 @@
         </link>
 
         <!-- ### Volta para o menu anterior com o video 100% ### -->
-        <!-- ESSE BOTAO NAO PARECE ESTAR FUNCIONANDO -->
-        <!-- NO LUGAR DE VOLTAR PARA O COMERCIAL ElE ESTA FECHANDO O VIDEO -->
         <link xconnector="onKeySelectionSetNStopN">
           <bind component="imgBtnCondicoesVolta" role="onSelection">
             <bindParam name="keyCode" value="BLUE"/>
           </bind>
           <bind component="ctxCondicoes" role="stop"/>
           <bind component="vdoComercialRef2" interface="bounds" role="set">
-            <bindParam name="var" value="0, 0, 640, 480"/>
+            <bindParam name="var" value="0, 0, 100%, 100%"/>
           </bind>
           <bind component="focusNodeCondicoes" interface="fullScreen" role="set">
             <bindParam name="var" value="true"/>
           </bind>
         </link>
       </context>
-
 
       <!-- ##############################
            #  Contexto que gerencia as unidades disponiveis
@@ -512,7 +574,6 @@
         <port component="imgBtnUnidadesVolta" id="ptoBtnUnidadesVolta"/>
         <port component="imgConteudoUnidades" id="ptoConteudoUnidades"/>
         <port component="imgHeadUnidades" id="ptoHeadUnidades"/>
-
 
         <media descriptor="dsHeadUnidades" id="imgHeadUnidades" src="media/imagens/condominio/unidades/unidadesHead.png"/>
         <media descriptor="dsConteudoFundo" id="imgConteudoUnidades" src="media/imagens/condominio/unidades/unidades.png"/>
@@ -534,15 +595,13 @@
         </context>
 
         <!-- ### Volta para o menu anterior com o video 100% ### -->
-        <!-- ESSE BOTAO NAO PARECE ESTAR FUNCIONANDO -->
-        <!-- NO LUGAR DE VOLTAR PARA O COMERCIAL ELE ESTA FECHANDO O VIDEO -->
         <link xconnector="onKeySelectionSetNStopN">
           <bind component="imgBtnUnidadesVolta" role="onSelection">
             <bindParam name="keyCode" value="BLUE"/>
           </bind>
           <bind component="ctxUnidades" role="stop"/>
           <bind component="vdoComercialRef3" interface="bounds" role="set">
-            <bindParam name="var" value="0, 0, 640, 480"/>
+            <bindParam name="var" value="0, 0, 100%, 100%"/>
           </bind>
           <bind component="focusNodeUnidades" interface="fullScreen" role="set">
             <bindParam name="var" value="true"/>
@@ -550,35 +609,6 @@
         </link>
 
       </context>
-
-      <!-- ### Vai para a tela de unidades a partir da tela de condicoes ### -->
-      <link xconnector="onKeySelectionStopNStartN">
-        <bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
-          <bindParam name="keyCode" value="YELLOW"/>
-        </bind>
-        <bind component="ctxCondicoes" role="stop"/>
-        <bind component="ctxUnidades" role="start"/>
-      </link>
-
-      <!-- ### Vai para tela de condicoes a partir da tela de unidades ### -->
-      <link xconnector="onKeySelectionStopNStartN">
-        <bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
-          <bindParam name="keyCode" value="GREEN"/>
-        </bind>
-        <bind component="ctxUnidades" role="stop"/>
-        <bind component="ctxCondicoes" role="start"/>
-      </link>
-
-      <!-- ### Vai para o mapa ### -->
-      <link xconnector="onKeySelectionStopNStartN">
-        <bind component="imgBtnLocalizacaoSel" role="onSelection">
-          <bindParam name="keyCode" value="RED"/>
-        </bind>
-        <bind component="imgBtnLocalizacaoSel" role="stop"/>
-        <bind component="imgBtnUnidadesSel" role="stop"/>
-        <bind component="imgBtnCondicoesSel" role="stop"/>
-        <bind component="ctxMapa" role="start"/>
-      </link>
 
 
       <!-- ###################################
@@ -588,6 +618,7 @@
            ################################### -->
 
            <!-- POSSIVEL MOTIVO DO PQ O MENU CAUSA PROBLEMAS NA TELA DE ENCERRAMENTO -->
+           <!-- Não está funcionando. Não sei se essa interface no contexto ainda é válida-->
            <link xconnector="onOrEndTestStartN">
              <bind component="ctxCondicoes" interface="ptoCtxRef1TelaInter" role="onEnd"/>
              <bind component="ctxUnidades" interface="ptoCtxRef2TelaInter" role="onEnd"/>
@@ -599,39 +630,7 @@
              <bind component="imgBtnLocalizacaoSel" role="start"/>
            </link>
 
-           <!-- ### Vai para a tela de condicoes a partir do menu principal ### -->
-           <link xconnector="onKeySelectionSetNStopNStartN">
-             <bind component="imgBtnCondicoesSel" role="onSelection">
-               <bindParam name="keyCode" value="GREEN"/>
-             </bind>
-             <bind component="imgBtnCondicoesSel" role="stop"/>
-             <bind component="imgBtnUnidadesSel" role="stop"/>
-             <bind component="imgBtnLocalizacaoSel" role="stop"/>
-             <bind component="ctxCondicoes" role="start"/>
-             <bind component="vdoComercialRef1" interface="bounds" role="set">
-               <bindParam name="var" value="346, 126, 256, 192"/>
-             </bind>
-             <bind component="focusNodeCondominio" interface="fullScreen" role="set">
-               <bindParam name="var" value="false"/>
-             </bind>
-           </link>
-
-           <!-- ### Vai para tela de unidades a partir do menu principal ### -->
-           <link xconnector="onKeySelectionSetNStopNStartN">
-             <bind component="imgBtnUnidadesSel" role="onSelection">
-               <bindParam name="keyCode" value="YELLOW"/>
-             </bind>
-             <bind component="imgBtnCondicoesSel" role="stop"/>
-             <bind component="imgBtnUnidadesSel" role="stop"/>
-             <bind component="imgBtnLocalizacaoSel" role="stop"/>
-             <bind component="ctxUnidades" role="start"/>
-             <bind component="vdoComercialRef1" interface="bounds" role="set">
-               <bindParam name="var" value="346, 126, 256, 192"/>
-             </bind>
-             <bind component="focusNodeCondominio" interface="fullScreen" role="set">
-               <bindParam name="var" value="false"/>
-             </bind>
-           </link>
+           
          </context>
 
          <!-- ###################################
