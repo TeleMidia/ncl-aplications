@@ -2322,7 +2322,8 @@
         <bind role="stop" component="iDengue_2"/>
       </link>
     </context>
-
+    
+    <!-- Os links abaixo não estão funcionando. -->
     <!-- botao SAIR -->
     <link xconnector="onKeySelectionAbortN">
       <linkParam name="keyCode" value="INFO"/>
