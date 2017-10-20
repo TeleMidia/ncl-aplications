@@ -2323,36 +2323,42 @@
       </link>
     </context>
     
-    <!-- Os links abaixo não estão funcionando. -->
+    
     <!-- botao SAIR -->
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="onSelection" component="ctPrincipal" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctPrincipal"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctUpa" interface="pTitulo"/>
+      <bind role="onSelection" component="ctUpa" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pTitulo"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctUnidades" interface="pTitulo"/>
+      <bind role="onSelection" component="ctUnidades" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="ctDengue" interface="pTitulo"/>
+      <bind role="onSelection" component="ctDengue" interface="pTitulo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
     </link>
 
@@ -2378,10 +2384,11 @@
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-
+    
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="INFO"/>
-      <bind role="onSelection" component="interativo"/>
+      <bind role="onSelection" component="interativo">
+        <bindParam name="keyCode" value="INFO"/>
+      </bind>
       <bind role="abort" component="interativo"/>
       <bind role="start" component="ctEfeito"/>
     </link>
@@ -2426,34 +2433,39 @@
     <!-- <bind role="onSelection" component="interativo"/> -->
     <!-- <bind role="abort" component="interativo"/> -->
     <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-
+    
+    
     <!-- DIREITA ou ENTER no Botao Emergencias -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_RIGHT"/>
-      <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON"/>
+      <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
+        <bindParam name="keyCode" value="CURSOR_RIGHT"/>
+      </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="ENTER"/>
-      <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON"/>
+      <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
+        <bindParam name="keyCode" value="ENTER"/>
+      </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
-
+    
     <!-- DIREITA ou ENTER no Botao Dengue -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_RIGHT"/>
-      <bind role="onSelection" component="ctPrincipal" interface="pDengueON"/>
+      <bind role="onSelection" component="ctPrincipal" interface="pDengueON">
+        <bindParam name="keyCode" value="CURSOR_RIGHT"/>
+      </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctDengue" interface="pPrevenirON"/>
       <bind role="start" component="ctDengue" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="ENTER"/>
-      <bind role="onSelection" component="ctPrincipal" interface="pDengueON"/>
+      <bind role="onSelection" component="ctPrincipal" interface="pDengueON">
+        <bindParam name="keyCode" value="ENTER"/>
+      </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctDengue" interface="pPrevenirON"/>
       <bind role="start" component="ctDengue" interface="pTitulo"/>
@@ -2461,15 +2473,17 @@
 
     <!-- DIREITA no UPA -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_RIGHT"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
+        <bindParam name="keyCode" value="CURSOR_RIGHT"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctUpa" interface="pOqueON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="ENTER"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
+        <bindParam name="keyCode" value="ENTER"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctUpa" interface="pOqueON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
@@ -2477,63 +2491,72 @@
 
     <!-- DIREITA no Upa para Especialidades -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_RIGHT"/>
-      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
+        <bindParam name="keyCode" value="CURSOR_RIGHT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEspecialidades" interface="pGeralON"/>
       <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="ENTER"/>
-      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
+        <bindParam name="keyCode" value="ENTER"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEspecialidades" interface="pGeralON"/>
       <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
     </link>
-
+  
+    <!-- Os links abaixo não estão funcionando. -->
     <!-- DIREITA no Upa para Unidades -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_RIGHT"/>
-      <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
+        <bindParam name="keyCode" value="CURSOR_RIGHT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctUnidades" interface="pBanguON"/>
       <bind role="start" component="ctUnidades" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="ENTER"/>
-      <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
+        <bindParam name="keyCode" value="ENTER"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctUnidades" interface="pBanguON"/>
       <bind role="start" component="ctUnidades" interface="pTitulo"/>
     </link>
-
+    
     <!-- VOLTA no Emergencias -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pSamuON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pSamuON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
-
+  
     <!-- VOLTA com back Emergencias -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pSamuON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pSamuON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEmergencias" interface="pUpaON"/>
+      <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
@@ -2541,29 +2564,33 @@
 
     <!-- VOLTA no Dengue -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctDengue" interface="pPrevenirON"/>
+      <bind role="onSelection" component="ctDengue" interface="pPrevenirON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctDengue" interface="pSintomasON"/>
+      <bind role="onSelection" component="ctDengue" interface="pSintomasON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctDengue" interface="pHemoON"/>
+      <bind role="onSelection" component="ctDengue" interface="pHemoON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctDengue" interface="pFazerON"/>
+      <bind role="onSelection" component="ctDengue" interface="pFazerON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
@@ -2571,29 +2598,33 @@
 
     <!-- VOLTA CoM BACK Dengue -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctDengue" interface="pPrevenirON"/>
+      <bind role="onSelection" component="ctDengue" interface="pPrevenirON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctDengue" interface="pSintomasON"/>
+      <bind role="onSelection" component="ctDengue" interface="pSintomasON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctDengue" interface="pHemoON"/>
+      <bind role="onSelection" component="ctDengue" interface="pHemoON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctDengue" interface="pFazerON"/>
+      <bind role="onSelection" component="ctDengue" interface="pFazerON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="pTitulo"/>
@@ -2601,29 +2632,33 @@
 
     <!-- Volta no Upa -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUpa" interface="pOqueON"/>
+      <bind role="onSelection" component="ctUpa" interface="pOqueON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUpa" interface="pFuncionaON"/>
+      <bind role="onSelection" component="ctUpa" interface="pFuncionaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
@@ -2631,29 +2666,33 @@
 
     <!-- Volta CoM BACK Upa -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUpa" interface="pOqueON"/>
+      <bind role="onSelection" component="ctUpa" interface="pOqueON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUpa" interface="pFuncionaON"/>
+      <bind role="onSelection" component="ctUpa" interface="pFuncionaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUpa" interface="pUnidadesON"/>
+      <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
       <bind role="start" component="ctEmergencias" interface="pTitulo"/>
@@ -2661,29 +2700,33 @@
 
     <!-- Volta no Especialidades para o Upa -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pGeralON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pGeralON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
@@ -2691,29 +2734,33 @@
 
     <!-- Volta no Especialidades para o Upa COM BACK-->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pGeralON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pGeralON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON"/>
+      <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
@@ -2721,43 +2768,49 @@
 
     <!-- Volta no Unidades -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pBanguON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pBanguON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pIrajaON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pIrajaON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pMareON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pMareON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pStaCruzON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pStaCruzON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="CURSOR_LEFT"/>
-      <bind role="onSelection" component="ctUnidades" interface="pBelfordON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pBelfordON">
+        <bindParam name="keyCode" value="CURSOR_LEFT"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
@@ -2765,43 +2818,49 @@
 
     <!-- Volta no Unidades COM BACK -->
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pBanguON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pBanguON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pIrajaON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pIrajaON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pMareON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pMareON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pStaCruzON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pStaCruzON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
-      <linkParam name="keyCode" value="BACK"/>
-      <bind role="onSelection" component="ctUnidades" interface="pBelfordON"/>
+      <bind role="onSelection" component="ctUnidades" interface="pBelfordON">
+        <bindParam name="keyCode" value="BACK"/>
+      </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
       <bind role="start" component="ctUpa" interface="pTitulo"/>
