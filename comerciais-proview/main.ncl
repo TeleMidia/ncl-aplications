@@ -8,7 +8,7 @@
         <region height="58" id="rgInteratividade" left="3.75%" top="3.33%" width="56" zIndex="4"/>
 
         <!-- ### Regiao para o menu de interatividade ### -->
-        <region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%">
+        <region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%" zIndex="4">
           <region height="29.3%" id="rgLocalizacao" zIndex="4"/>
           <region height="29.3%" id="rgCondicoes" top="33%" zIndex="4"/>
           <region height="29.3%" id="rgUnidades" top="66%" zIndex="4"/>
@@ -22,7 +22,7 @@
       </region>
 
       <!-- ### Define a Tela de Interacao dos comerciais e as regioes de suas imagens ### -->
-      <region top="0" left="0" height="480" id="rgTelaInteracao" width="640" zIndex="1">
+      <region top="0" left="0" height="100%" id="rgTelaInteracao" width="100%" zIndex="1">
         <region id="rgFundo" width="100%" height="100%" zIndex="1"/>
         <region id="rgProviewLogo" height="10.15%" width="19.04%" top="5%" left="5%" zIndex="2"/>
         <region id="rgGinga" width="23.04%" height="5.98%" right="5%" top="5%" zIndex="2"/>
@@ -247,7 +247,8 @@
          #  Declaracao das midias de Abertura e Comercial
          ############################# -->
     <media descriptor="dsFullScreen" id="imgTelaAbertura" src="media/imagens/tela_abertura.png">
-      <area begin="5s" id="areaDur"/>
+      <!-- <area begin="5s" id="areaDur"/> -->
+      <area begin="0s" id="areaDur"/> <!-- remove delete this -->
     </media>
     <media descriptor="dsFullScreen" id="imgTelaEncerramento" src="media/imagens/tela_encerramento.png"/>
     <media descriptor="dsFullScreen" id="imgTelaApresentacao" src="media/imagens/tela_apresentacao.png"/>
@@ -255,9 +256,11 @@
 
     <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente aos diferentes comerciais ### -->
-      <area begin="16s" end="76s" id="areaInter"/>
+      <!-- <area begin="16s" end="76s" id="areaInter"/> -->
+      <area begin="0s" end="76s" id="areaInter"/> <!-- remove delete this -->
       <area begin="77s" end="106s" id="areaOutback"/>
       <property name="bounds"/> <!-- ### Propriedade de mÃ­dia relacionada com o tamanho da midia ### -->
+      <property name="soundLevel" value="0"/> <!-- Remove this -->
     </media>
 
 
@@ -365,9 +368,9 @@
          #    CtxOutBack:    OutBack
          ######################################### -->
     <context id="ctxCondominio">
+      <port component="imgBtnLocalizacaoSel" id="ptoImgBtnLocalizacaoSel"/>
       <port component="imgBtnCondicoesSel" id="ptoImgBtnCondicoesSel"/>
       <port component="imgBtnUnidadesSel" id="ptoImgBtnUnidadesSel"/>
-      <port component="imgBtnLocalizacaoSel" id="ptoImgBtnLocalizacaoSel"/>
 
       <media descriptor="dsLocalizacao" id="imgBtnLocalizacaoSel" src="media/imagens/menu/localizacaoMenu.png"/> <!-- Red -->
       <media descriptor="dsCondicoes" id="imgBtnCondicoesSel" src="media/imagens/menu/condicoesMenu.png"/> <!-- Green -->
@@ -412,7 +415,7 @@
         <bind component="imgBtnLocalizacaoSel" role="stop"/>
         <bind component="ctxCondicoes" role="start"/>
         <bind component="vdoComercialRef1" interface="bounds" role="set">
-          <bindParam name="var" value="346, 126, 256, 192"/>
+          <bindParam name="var" value="56.8%, 26.1%, 40.5%, 40.2%"/>
         </bind>
         <bind component="focusNodeCondominio" interface="fullScreen" role="set">
           <bindParam name="var" value="false"/>
@@ -429,7 +432,7 @@
         <bind component="imgBtnLocalizacaoSel" role="stop"/>
         <bind component="ctxUnidades" role="start"/>
         <bind component="vdoComercialRef1" interface="bounds" role="set">
-          <bindParam name="var" value="346, 126, 256, 192"/>
+          <bindParam name="var" value="56.8%, 26.1%, 40.5%, 40.2%"/>
         </bind>
         <bind component="focusNodeCondominio" interface="fullScreen" role="set">
           <bindParam name="var" value="false"/>
@@ -497,17 +500,17 @@
 
         <media id="focusNodeCondicoes" instance="instSame" refer="setNode"/>
         <media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
-
+        <!-- <context id="telaInterRef1" refer="ctxTelaInteracao"/> -->
         <context id="telaInterRef1">
-          <port id="ptoImgFundoInter" component="imgFundoInter"/>
-          <port id="ptoImgVideoArea" component="imgVideoArea"/>
-          <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-          <port id="ptoImgProview" component="imgProview"/>
+          <port id="ptoImgFundoInterRef1" component="imgFundoInterRef1"/>
+          <port id="ptoImgVideoAreaRef1" component="imgVideoAreaRef1"/>
+          <port id="ptoImgGingaLogoRef1" component="imgGingaLogoRef1"/>
+          <port id="ptoImgProviewRef1" component="imgProviewRef1"/>
 
-          <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-          <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-          <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-          <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+          <media id="imgFundoInterRef1" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+          <media id="imgProviewRef1" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+          <media id="imgGingaLogoRef1" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+          <media id="imgVideoAreaRef1" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
         <link xconnector="onBeginSetN">
@@ -583,19 +586,18 @@
 
         <media id="focusNodeUnidades" instance="instSame" refer="setNode"/>
         <media id="vdoComercialRef3" instance="instSame" refer="vdoComercial"/>
-
+        <!-- <context id="telaInterRef2" refer="ctxTelaInteracao"/> -->
         <context id="telaInterRef2">
-          <port id="ptoImgFundoInter" component="imgFundoInter"/>
-          <port id="ptoImgVideoArea" component="imgVideoArea"/>
-          <port id="ptoImgGingaLogo" component="imgGingaLogo"/>
-          <port id="ptoImgProview" component="imgProview"/>
+          <port id="ptoImgFundoInterRef2" component="imgFundoInterRef2"/>
+          <port id="ptoImgVideoAreaRef2" component="imgVideoAreaRef2"/>
+          <port id="ptoImgGingaLogoRef2" component="imgGingaLogoRef2"/>
+          <port id="ptoImgProviewRef2" component="imgProviewRef2"/>
 
-          <media id="imgFundoInter" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
-          <media id="imgProview" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
-          <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
-          <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
+          <media id="imgFundoInterRef2" src="media/imagens/telaInter/fundo.png" descriptor="dsFundo"/>
+          <media id="imgProviewRef2" src="media/imagens/telaInter/proview.png" descriptor="dsProviewLogo"/>
+          <media id="imgGingaLogoRef2" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
+          <media id="imgVideoAreaRef2" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
-
         <!-- ### Volta para o menu anterior com o video 100% ### -->
         <link xconnector="onKeySelectionSetNStopN">
           <bind component="imgBtnUnidadesVolta" role="onSelection">

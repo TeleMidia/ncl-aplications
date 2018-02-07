@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ncl xsi:schemaLocation="http://www.ncl.org.br/NCL3.0/EDTVProfile http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile" id="MainProderj">
   <head>
-
-    <!-- <transitionBase>
+    
+    <!-- Transition não funcionando. -->
+    <transitionBase>
       <transition id="rightToLeft" type="barWipe" subtype="leftToRight" direction="reverse" dur="0.5s"/>
       <transition id="leftToRight" type="barWipe" subtype="leftToRight" dur="1s"/>
       <transition id="topToBottom" type="barWipe" subtype="topToBottom" dur="1s"/>
@@ -10,7 +11,7 @@
       <transition id="bottomUpPilha" type="barWipe" subtype="topToBottom" direction="reverse" dur="0.5s"/>
       <transition id="fadeTransition" type="fade" dur="0.7s"/>
       <transition id="fadeTransitionReverse" type="fade" dur="1s"/>
-    </transitionBase> -->
+    </transitionBase>
 
     <regionBase>
       <!--### Main ###-->
@@ -2323,7 +2324,7 @@
       </link>
     </context>
     
-    
+    <!-- Os links abaixo não estão funcionando. Abort não implementado no Ginga. -->
     <!-- botao SAIR -->
     <link xconnector="onKeySelectionAbortN">
       <bind role="onSelection" component="ctPrincipal" interface="pTitulo">
@@ -2507,7 +2508,6 @@
       <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
     </link>
   
-    <!-- Os links abaixo não estão funcionando. -->
     <!-- DIREITA no Upa para Unidades -->
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
