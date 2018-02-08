@@ -351,7 +351,7 @@
             <compositeRule id="RXLoseDia2" operator="or">
               <rule id="rXLoseDia1_pos2" var="_pos2" comparator="ne"
                     value="x" />
-              <rule id="rXLoseDia1_pos4" var="_pos4" comparator="ne"
+              <rule id="rXLoseDia1_pos5" var="_pos4" comparator="ne"
                     value="x" />
               <rule id="rXLoseDia1_pos6" var="_pos6" comparator="ne"
                     value="x" />
@@ -465,8 +465,7 @@
       <!-- context initialization -->
       <link xconnector="conn#onBeginSet">
         <bind component="empty0" role="onBegin"/>
-        <bind component="noSettings" interface="service.currentFocus"
-              role="set">
+        <bind component="noSettings" interface="service.currentFocus" role="set">
           <bindParam name="val" value="0"/>
         </bind>
         <bind component="noSettings" interface="_pos0" role="set">
@@ -523,9 +522,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos0" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty0" descriptor="dPos0" role="stop"/>
+        <bind component="empty0" role="stop"/>
       </link>
 
       <!-- pos0 > o -->
@@ -541,9 +540,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos0" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty0" descriptor="dPos0" role="stop"/>
+        <bind component="empty0" role="stop"/>
       </link>
 
       <!-- pos1 > x -->
@@ -559,9 +558,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos1" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty1" descriptor="dPos1" role="stop"/>
+        <bind component="empty1" role="stop"/>
       </link>
 
       <!-- pos1 > o -->
@@ -577,9 +576,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos1" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty1" descriptor="dPos1" role="stop"/>
+        <bind component="empty1" role="stop"/>
       </link>
 
       <!-- pos2 > x -->
@@ -595,9 +594,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos2" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty2" descriptor="dPos2" role="stop"/>
+        <bind component="empty2" role="stop"/>
       </link>
 
       <!-- pos2 > o -->
@@ -613,9 +612,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos2" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty2" descriptor="dPos2" role="stop"/>
+        <bind component="empty2" role="stop"/>
       </link>
 
       <!-- pos3 > x -->
@@ -631,9 +630,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos3" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty3" descriptor="dPos3" role="stop"/>
+        <bind component="empty3" role="stop"/>
       </link>
 
       <!-- pos3 > o -->
@@ -649,9 +648,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos3" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty3" descriptor="dPos3" role="stop"/>
+        <bind component="empty3" role="stop"/>
       </link>
 
       <!-- pos4 > x -->
@@ -667,9 +666,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos4" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty4" descriptor="dPos4" role="stop"/>
+        <bind component="empty4" role="stop"/>
       </link>
 
       <!-- pos4 > o -->
@@ -685,9 +684,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos4" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty4" descriptor="dPos4" role="stop"/>
+        <bind component="empty4" role="stop"/>
       </link>
 
       <!-- pos5 > x -->
@@ -703,9 +702,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos5" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty5" descriptor="dPos5" role="stop"/>
+        <bind component="empty5" role="stop"/>
       </link>
 
       <!-- pos5 > o -->
@@ -721,9 +720,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos5" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty5" descriptor="dPos5" role="stop"/>
+        <bind component="empty5" role="stop"/>
       </link>
 
       <!-- pos6 > x -->
@@ -739,9 +738,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos6" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty6" descriptor="dPos6" role="stop"/>
+        <bind component="empty6" role="stop"/>
       </link>
 
       <!-- pos6 > o -->
@@ -757,9 +756,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos6" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty6" descriptor="dPos6" role="stop"/>
+        <bind component="empty6" role="stop"/>
       </link>
 
       <!-- pos7 > x -->
@@ -775,9 +774,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos7" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty7" descriptor="dPos7" role="stop"/>
+        <bind component="empty7" role="stop"/>
       </link>
 
       <!-- pos7 > o -->
@@ -793,9 +792,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos7" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty7" descriptor="dPos7" role="stop"/>
+        <bind component="empty7" role="stop"/>
       </link>
 
       <!-- pos8 > x -->
@@ -811,9 +810,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" descriptor="dPos8" role="start"/>
+        <bind component="x" role="start"/>
         <bind component="search_winner" role="start"/>
-        <bind component="empty8" descriptor="dPos8" role="stop"/>
+        <bind component="empty8" role="stop"/>
       </link>
 
       <!-- pos8 > o -->
@@ -829,9 +828,9 @@
         <bind component="noSettings" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" descriptor="dPos8" role="start"/>
+        <bind component="o" role="start"/>
        <bind component="search_winner" role="start"/>
-        <bind component="empty8" descriptor="dPos8" role="stop"/>
+        <bind component="empty8" role="stop"/>
       </link>
 
     </context>

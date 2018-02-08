@@ -60,7 +60,6 @@
 
 	<media id="video" src="Peso.mp4" descriptor="dsVideo">
     <area id="interact" begin="18s"/>
-    <property name="soundLevel" value="0"/> <!-- remove delete this -->
 	</media>
 	<media id="box"  src="3dbox.png"      descriptor="dsBox"/>
 	<media id="lua"  src="peso.lua"       descriptor="dsLua"/>
