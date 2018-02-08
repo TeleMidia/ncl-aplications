@@ -80,9 +80,7 @@
     <port id="entrada" component="btInteratividade"/>
 
     <port id="videoextra" component="videoFormula1"/>
-    <media descriptor="desc_fullScreen" src="media/f1.mov" id="videoFormula1">
-      <property name="soundLevel" value="0"/> <!-- remove delete this -->
-    </media>
+    <media descriptor="desc_fullScreen" src="media/f1.mov" id="videoFormula1" />
 
     <media descriptor="btInteratividade_Descriptor" src="media/interatividade.gif" id="btInteratividade"/>
     <media descriptor="btClassi_Descriptor" src="media/classi.gif" id="btClassi"/>

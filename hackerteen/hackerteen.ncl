@@ -4,9 +4,9 @@
   <head>
     <regionBase>
       <region id="rgFullScreen" top="60" left="80" width="640" height="480">
-	<region id="rgVideo" zIndex="3" left="26" top="42" width="250" height="141"/>
-	<region id="rgGame" width="640" height="480" zIndex="1"/>
-	<region id="rgIntro" zIndex="2"/>
+      	<region id="rgVideo" zIndex="3" left="26" top="42" width="250" height="141"/>
+      	<region id="rgGame" width="640" height="480" zIndex="1"/>
+      	<region id="rgIntro" zIndex="2"/>
       </region>
     </regionBase>
     <transitionBase>
@@ -19,12 +19,12 @@
     </descriptorBase>
     <connectorBase>
       <causalConnector id="onBeginStart">
-	<simpleCondition role="onBegin"/>
-	<simpleAction role="start"/>
+      	<simpleCondition role="onBegin"/>
+      	<simpleAction role="start"/>
       </causalConnector>
       <causalConnector id="onEndStart">
-	<simpleCondition role="onEnd"/>
-	<simpleAction role="start"/>
+      	<simpleCondition role="onEnd"/>
+      	<simpleAction role="start"/>
       </causalConnector>
     </connectorBase>
   </head>
