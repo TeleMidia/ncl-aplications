@@ -247,7 +247,7 @@
          #  Declaracao das midias de Abertura e Comercial
          ############################# -->
     <media descriptor="dsFullScreen" id="imgTelaAbertura" src="media/imagens/tela_abertura.png">
-      <!-- <area begin="5s" id="areaDur"/> -->
+      <!-- <area begin="5s" id="areaDur"/> --> <!-- discomment  -->
       <area begin="0s" id="areaDur"/> <!-- remove delete this -->
     </media>
     <media descriptor="dsFullScreen" id="imgTelaEncerramento" src="media/imagens/tela_encerramento.png"/>
@@ -256,11 +256,11 @@
 
     <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente aos diferentes comerciais ### -->
-      <!-- <area begin="16s" end="76s" id="areaInter"/> -->
+      <!-- <area begin="16s" end="76s" id="areaInter"/> --> <!-- discomment  -->
       <area begin="0s" end="76s" id="areaInter"/> <!-- remove delete this -->
       <area begin="77s" end="106s" id="areaOutback"/>
       <property name="bounds"/> <!-- ### Propriedade de mÃ­dia relacionada com o tamanho da midia ### -->
-      <property name="soundLevel" value="0"/> <!-- Remove this -->
+      <property name="soundLevel" value="0"/> <!-- remove delete this -->
     </media>
 
 
