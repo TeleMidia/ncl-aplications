@@ -25,7 +25,7 @@
       <region top="0" left="0" height="100%" id="rgTelaInteracao" width="100%" zIndex="1">
         <region id="rgFundo" width="100%" height="100%" zIndex="1"/>
         <region id="rgProviewLogo" height="10.15%" width="19.04%" top="5%" left="5%" zIndex="2"/>
-        <region id="rgGinga" width="23.04%" height="5.98%" right="5%" top="5%" zIndex="2"/>
+        <region id="rgGinga" width="23.04%" height="5.98%" left="71.96%" top="5%" zIndex="2"/>
 
         <region height="5.33%" id="rgMenuQuartos" left="5%" top="25%" width="29.29%" zIndex="2">
           <region id="rgQuarto1" width="32%" zIndex="2"/>
@@ -36,8 +36,8 @@
         <region height="56.51%" id="rgConteudoFundo" left="5%" top="30.5%" width="29.29%" zIndex="2">
           <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%" zIndex="3"/>
         </region>
-        <region id="rgVideo" height="42.71%" width="41.85%" top="25%" right="5.1%" zIndex="2"/>
-        <region bottom="0%" height="16.79%" id="rgCondicoesBotoes" right="2.5%" width="18.94%" zIndex="2"/>
+        <region id="rgVideo" height="42.71%" width="41.85%" top="25%" left="56.25%" zIndex="2"/>
+        <region bottom="0%" height="16.79%" id="rgCondicoesBotoes" left="78.56%" width="18.94%" zIndex="2"/>
       </region>
     </regionBase>
 

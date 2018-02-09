@@ -47,13 +47,13 @@
       <!-- <region left="0" top="0" zIndex="0" width="720" height="576" id="rgScreen"> -->
        <region left="0" top="0" zIndex="0" width="100%" height="100%" id="rgScreen">
   	    <region height="100%" width="100%" id="fullScreen" zIndex="0"/>
-	      <region zIndex="2" left="8%" bottom="6.6667%" width="15%" height="16.6667%" id="rgBtInteratividade"/>
-	      <region zIndex="3" left="31%" bottom="6.6667%" width="15%" height="16.6667%" id="rgBotao1"/>
-	      <region zIndex="3" left="54%" bottom="6.6667%" width="15%" height="16.6667%" id="rgBotao2"/>
-  	    <region zIndex="3" left="77%" bottom="6.6667%" width="15%" height="16.6667%" id="rgBotao3"/>
-	      <region right="1.25%" bottom="1.6667%" width="50%" height="41%" id="rgInfo"/>
-        <region right="12.5%" bottom="0%" width="75%" height="33.3333%" id="rgTempo"/>
-        <region right="13.625%" bottom="0%" width="72.875%" height="41.5%" id="rgClassi"/>
+	      <region zIndex="2" left="8%" top="76.6667%" width="15%" height="16.6667%" id="rgBtInteratividade"/>
+	      <region zIndex="3" left="31%" top="76.6667%" width="15%" height="16.6667%" id="rgBotao1"/>
+	      <region zIndex="3" left="54%" top="76.6667%" width="15%" height="16.6667%" id="rgBotao2"/>
+  	    <region zIndex="3" left="77%" top="76.6667%" width="15%" height="16.6667%" id="rgBotao3"/>
+	      <region left="48.75%" top="57.3333%" width="50%" height="41%" id="rgInfo"/>
+        <region left="12.5%" top="66.6667%" width="75%" height="33.3333%" id="rgTempo"/>
+        <region left="13.5%" top="58.5%" width="72.875%" height="41.5%" id="rgClassi"/>
       </region>
     </regionBase>
     <descriptorBase>

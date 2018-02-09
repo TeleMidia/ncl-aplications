@@ -7,9 +7,9 @@
 <head>
 	<regionBase>
 		<region id="rgVideo" width="100%"    height="100%"    top="0"     left="0"/>
-		<region id="rgBox"   width="68.75%"  height="20.83%"  bottom="5%" left="15.6%" zIndex="1"/>
-		<region id="rgLua"   width="64.75%"  height="16.85%"  bottom="7%" left="18%"   zIndex="2"/>
-		<region id="rgInfo"  width="29.5%"   height="6.5%"    top="3.1%"  right="2.4%"/>
+		<region id="rgBox"   width="68.75%"  height="20.83%"  top="74.17%" left="15.6%" zIndex="1"/>
+		<region id="rgLua"   width="64.75%"  height="16.85%"  top="76.15%" left="18%"   zIndex="2"/>
+		<region id="rgInfo"  width="29.5%"   height="6.5%"    top="3.1%"  left="68.1%"/>
 	</regionBase>
 
 	<descriptorBase>
