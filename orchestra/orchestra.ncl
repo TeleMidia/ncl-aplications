@@ -5,26 +5,26 @@
   <head>
     <regionBase>
       <region id="rg" width="100%" height="100%" top="0%" left="0%">
-	<region id="rgVideoOrchestra" width="100%" height="100%" top="0%" left="0%" zIndex="2"/>
+	      <region id="rgVideoOrchestra" width="100%" height="100%" top="0%" left="0%" zIndex="2"/>
 
-	<region id="rgBackground" width="100%" height="100%" top="0%" left="0%" zIndex="1"/>
+        <region id="rgBackground" width="100%" height="100%" top="0%" left="0%" zIndex="1"/>
 
-	<region id="rgIconInteractive" width="38%" height="8%" top="4%" right="1.875%" zIndex="3"/>
+      	<region id="rgIconInteractive" width="38%" height="8%" top="4%" right="1.875%" zIndex="3"/>
 
-	<region id="rgIconFullscreen" width="14%" height="22%" top="76%" left="0%" zIndex="3"/>
-	<region id="rgIconOrchestra" width="14%" height="22%" top="76%" left="14%" zIndex="3"/>
-	<region id="rgIconConductor" width="14%" height="22%" top="76%" left="28%" zIndex="3"/>
-	<region id="rgIconStrings" width="14%" height="22%" top="76%" left="42%" zIndex="3"/>
-	<region id="rgIconBrass" width="14%" height="22%" top="76%" left="56%" zIndex="3"/>
-	<region id="rgIconWoodwind" width="14%" height="22%" top="76%" left="70%" zIndex="3"/>
-	<region id="rgIconInfo" width="14%" height="22%" top="76%" left="86%" zIndex="3"/>
+      	<region id="rgIconFullscreen" width="14%" height="22%" top="76%" left="0%" zIndex="3"/>
+      	<region id="rgIconOrchestra" width="14%" height="22%" top="76%" left="14%" zIndex="3"/>
+    	  <region id="rgIconConductor" width="14%" height="22%" top="76%" left="28%" zIndex="3"/>
+      	<region id="rgIconStrings" width="14%" height="22%" top="76%" left="42%" zIndex="3"/>
+      	<region id="rgIconBrass" width="14%" height="22%" top="76%" left="56%" zIndex="3"/>
+      	<region id="rgIconWoodwind" width="14%" height="22%" top="76%" left="70%" zIndex="3"/>
+    	  <region id="rgIconInfo" width="14%" height="22%" top="76%" left="86%" zIndex="3"/>
       </region>
     </regionBase>
 
     <descriptorBase>
       <descriptor id="dVideoOrchestra" region="rgVideoOrchestra" player="VideoChannelPlayerAdapter">
-	<descriptorParam name="selectedObject" value="videoOrchestra"/>
-	<descriptorParam name="x-intraTransition" value="false"/>
+      	<descriptorParam name="selectedObject" value="videoOrchestra"/>
+      	<descriptorParam name="x-intraTransition" value="false"/>
       </descriptor>
 
       <descriptor id="dVideoOrchestraSections"/>
@@ -66,44 +66,44 @@
 
     <connectorBase>
       <causalConnector id="onBeginStart">
-	<simpleCondition role="onBegin"/>
-	<simpleAction role="start" max="unbounded"/>
+      	<simpleCondition role="onBegin"/>
+      	<simpleAction role="start" max="unbounded"/>
       </causalConnector>
 
       <causalConnector id="onEndStop">
-	<simpleCondition role="onEnd"/>
-	<simpleAction role="stop" max="unbounded"/>
+      	<simpleCondition role="onEnd"/>
+      	<simpleAction role="stop" max="unbounded"/>
       </causalConnector>
 
       <causalConnector id="onEndStart">
-	<simpleCondition role="onEnd"/>
-	<simpleAction role="start" max="unbounded"/>
+      	<simpleCondition role="onEnd"/>
+      	<simpleAction role="start" max="unbounded"/>
       </causalConnector>
       <causalConnector id="onEndSetStart">
-	<simpleCondition role="onEnd" />
-	<compoundAction operator="par">
-	  <simpleAction role="set" value="$value" max="unbounded"/>
-	  <simpleAction role="start" max="unbounded" qualifier="seq"/>
-	</compoundAction>
+      	<simpleCondition role="onEnd" />
+      	<compoundAction operator="par">
+      	  <simpleAction role="set" value="$value" max="unbounded"/>
+	        <simpleAction role="start" max="unbounded" qualifier="seq"/>
+      	</compoundAction>
 
       </causalConnector>
 
       <causalConnector id="onSelectionSet">
-	<connectorParam name="value"/>
-	<simpleCondition role="onSelection"/>
-	<simpleAction role="set" value="$value" max="unbounded"/>
+      	<connectorParam name="value"/>
+      	<simpleCondition role="onSelection"/>
+      	<simpleAction role="set" value="$value" max="unbounded"/>
       </causalConnector>
 
 
       <causalConnector id="onSelectionSetStopStart">
-	<connectorParam name="key" />
-	<connectorParam name="value" />
-	<simpleCondition role="onSelection" key="$key"/>
-	<compoundAction operator="par">
-	  <simpleAction role="set" value="$value" max="unbounded"/>
-	  <simpleAction role="stop"  max="unbounded"/>
-	  <simpleAction role="start" max="unbounded" qualifier="seq"/>
-	</compoundAction>
+      	<connectorParam name="key" />
+      	<connectorParam name="value" />
+      	<simpleCondition role="onSelection" key="$key"/>
+      	<compoundAction operator="par">
+      	  <simpleAction role="set" value="$value" max="unbounded"/>
+      	  <simpleAction role="stop"  max="unbounded"/>
+      	  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+      	</compoundAction>
       </causalConnector>
     </connectorBase>
   </head>
@@ -111,7 +111,7 @@
   <body>
     <port id="pVideoOrchestra" component="contextOrchestra"/>
 
-    <context id="contextOrchestra" descriptor="dVideoOrchestra">
+    <context id="contextOrchestra">
       <property name="selectedObject"/>
       <property name="bounds"/>
 
@@ -147,11 +147,11 @@
 
     <link xconnector="onSelectionSetStopStart">
       <bind role="onSelection" component="iconInteractive">
-	<bindParam name="key" value="INFO"/>
+      	<bindParam name="key" value="INFO"/>
       </bind>
 
       <bind role="set" component="contextOrchestra" interface="bounds">
-	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
       </bind>
 
       <bind role="stop" component="iconInteractive"/>
@@ -171,7 +171,7 @@
       <bind role="onSelection" component="iconStrings"/>
 
       <bind role="set" component="contextOrchestra" interface="selectedObject">
-	<bindParam name="value" value="videoStrings"/>
+      	<bindParam name="value" value="videoStrings"/>
       </bind>
     </link>
 
@@ -179,7 +179,7 @@
       <bind role="onSelection" component="iconConductor"/>
 
       <bind role="set" component="contextOrchestra" interface="selectedObject">
-	<bindParam name="value" value="videoConductor"/>
+      	<bindParam name="value" value="videoConductor"/>
       </bind>
     </link>
 
@@ -187,7 +187,7 @@
       <bind role="onSelection" component="iconOrchestra"/>
 
       <bind role="set" component="contextOrchestra" interface="selectedObject">
-	<bindParam name="value" value="videoOrchestra"/>
+      	<bindParam name="value" value="videoOrchestra"/>
       </bind>
     </link>
 
@@ -195,7 +195,7 @@
       <bind role="onSelection" component="iconBrass"/>
 
       <bind role="set" component="contextOrchestra" interface="selectedObject">
-	<bindParam name="value" value="videoBrass"/>
+      	<bindParam name="value" value="videoBrass"/>
       </bind>
     </link>
 
@@ -203,7 +203,7 @@
       <bind role="onSelection" component="iconWoodwinds"/>
 
       <bind role="set" component="contextOrchestra" interface="selectedObject">
-	<bindParam name="value" value="videoWoodwinds"/>
+      	<bindParam name="value" value="videoWoodwinds"/>
       </bind>
     </link>
 
@@ -211,7 +211,7 @@
       <bind role="onSelection" component="iconFullscreen"/>
 
       <bind role="set" component="contextOrchestra" interface="bounds">
-	<bindParam name="value" value="0%, 0%, 114.32%, 151.58%"/>
+      	<bindParam name="value" value="0%, 0%, 114.32%, 151.58%"/>
       </bind>
 
       <bind role="stop" component="iconFullscreen"/>
@@ -231,7 +231,7 @@
       <bind role="onSelection" component="iconInfo"/>
 
       <bind role="set" component="contextOrchestra" interface="bounds">
-	<bindParam name="value" value="56%, 7.8%, 54.8%, 68%"/>
+      	<bindParam name="value" value="56%, 7.8%, 54.8%, 68%"/>
       </bind>
 
       <bind role="stop" component="iconFullscreen"/>
@@ -271,7 +271,7 @@
       <bind role="onEnd" component="infoCreditos"/>
 
       <bind role="set" component="contextOrchestra" interface="bounds">
-	<bindParam name="value" value="13.5%, 14.5%, 183%, 147.7%"/>
+      	<bindParam name="value" value="13.5%, 14.5%, 183%, 147.7%"/>
       </bind>
 
       <bind role="start" component="background"/>

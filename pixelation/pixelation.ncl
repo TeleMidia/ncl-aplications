@@ -18,14 +18,14 @@
           <region id="regiaoBotaoCidade" left="10%" top="85%" width="20.3125%" height="11%"/>
         </region>
 
-        <region id="side2Region" right="0%" width="10%" zIndex="1">
+        <region id="side2Region" left="90%" width="10%" zIndex="1">
           <region id="regiaoBotaoRoupaVermelha" left="10%" top="5%" width="80%" height="10%"/>
           <region id="regiaoBotaoRoupaBranca" left="10%" top="25%" width="80%" height="10%"/>
           <region id="regiaoBotaoAudioTrilha" left="10%" top="65%" width="80%" height="10%"/>
           <region id="regiaoBotaoAudioExplic" left="10%" top="85%" width="80%" height="10%"/>
         </region>
 
-        <region id="rgLogoDADPuc" right="5%" bottom="6.6667%" width="5%" height="6.6667%" zIndex="7"/>
+        <region id="rgLogoDADPuc" left="95%" top="86.6666" width="5%" height="6.6667%" zIndex="7"/>
 
       </region>
     </regionBase>
@@ -216,7 +216,7 @@
 
   <body>
     <port id="entrada" component="videoPraiaAbertura"/>
-    <!--<port id="entrada" component="videoPraiaAbertura" interface="ancPreparacao"/>-->
+    <!--<port id="entrada" component="videoPraiaAbertura" interface="videoPraiaAberturaancPreparacao"/>-->
     <!--port id="entrada" component="canaisSequencias"/-->
 
     <media id="audioTrilha" src="audios/trilha.mp3"/>
@@ -224,10 +224,10 @@
 
     <!--media descriptor="videoDesc" id="videoPraiaAbertura" src="videos/praia.mov"-->
     <media descriptor="videoDescTrOut" id="videoPraiaAbertura" src="videos/beach_mute_mount.mov">
-      <area id="ancPreparacao" begin="0s" end="300s"/>
+      <area id="videoPraiaAberturaancPreparacao" begin="0s" end="3s"/>
     </media>
 
-    <context id="canaisSequencias" descriptor="descCanaisSeq">
+    <context id="canaisSequencias" >
       <media descriptor="videoDesc" id="videoPraia" src="videos/beach_mute_anime.mov"/>
       <media descriptor="videoDesc" id="videoMatoVermelho" src="videos/mato_vermelho.mov"/>
       <media descriptor="videoDesc" id="videoMatoBranco" src="videos/mato_branco.mov"/>
@@ -263,7 +263,7 @@
     </media>
 
     <link id="linkInicio" xconnector="onBeginStart">
-      <bind component="videoPraiaAbertura" interface="ancPreparacao" role="onBegin"/>
+      <bind component="videoPraiaAbertura" interface="videoPraiaAberturaancPreparacao" role="onBegin"/>
       <bind component="audioTrilha" role="start"/>
     </link>
 
@@ -274,7 +274,7 @@
     </link>
 
     <link id="linkLogoDADPucInicio" xconnector="onBeginStart">
-      <bind component="videoPraiaAbertura" interface="ancPreparacao" role="onBegin"/>
+      <bind component="videoPraiaAbertura" interface="videoPraiaAberturaancPreparacao" role="onBegin"/>
       <bind component="logoDADPuc" role="start"/>
     </link>
 
@@ -298,7 +298,7 @@
     </link>
 
     <link id="linkInicioInteratividade" xconnector="onEndStart">
-      <!--bind component="videoPraiaAbertura" interface="ancPreparacao" role="onEnd"/-->
+      <!--bind component="videoPraiaAbertura" interface="videoPraiaAberturaancPreparacao" role="onEnd"/-->
       <bind component="videoPraiaAbertura" role="onEnd"/>
       <!--link id="linkInicioInteratividade" xconnector="onBeginStart">
       <bind component="canaisSequencias" role="onBegin"/-->

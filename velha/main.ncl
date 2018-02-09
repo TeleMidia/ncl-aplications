@@ -369,6 +369,22 @@
 
   <body>
     <port id="pStart" component="board"/>
+    
+    <media id="noSettings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="0"/>
+      <property name="_pos0" value="empty"/>
+      <property name="_pos1" value="empty"/>
+      <property name="_pos2" value="empty"/>
+      <property name="_pos3" value="empty"/>
+      <property name="_pos4" value="empty"/>
+      <property name="_pos5" value="empty"/>
+      <property name="_pos6" value="empty"/>
+      <property name="_pos7" value="empty"/>
+      <property name="_pos8" value="empty"/>
+
+      <!-- x plays first -->
+      <property name="turn" value="x"/>
+    </media>
 
     <!-- red: quit -->
     <link xconnector="conn#onKeySelectionAbort">
@@ -408,8 +424,7 @@
       <port id="pPos8" component="empty8"/>
 
       <media id="exit" src="media/exit.png" descriptor="dExit"/>
-      <media id="play_again" src="media/play_again.png"
-             descriptor="dPlayAgain"/>
+      <media id="play_again" src="media/play_again.png" descriptor="dPlayAgain"/>
       <media id="title" src="media/title.png" descriptor="dTitle"/>
 
       <!-- empty board -->
@@ -429,21 +444,7 @@
       <media id="o" src="media/o.png"/>
 
       <!-- settings -->
-      <media id="noSettings" type="application/x-ginga-settings">
-        <property name="service.currentFocus" value="0"/>
-        <property name="_pos0" value="empty"/>
-        <property name="_pos1" value="empty"/>
-        <property name="_pos2" value="empty"/>
-        <property name="_pos3" value="empty"/>
-        <property name="_pos4" value="empty"/>
-        <property name="_pos5" value="empty"/>
-        <property name="_pos6" value="empty"/>
-        <property name="_pos7" value="empty"/>
-        <property name="_pos8" value="empty"/>
-
-        <!-- x plays first -->
-        <property name="turn" value="x"/>
-      </media>
+      <media id="noSettingsRefer1" instance="instSame" refer="noSettings"/>
 
       <!-- search for a winner after each move -->
       <switch id="search_winner">
@@ -465,37 +466,37 @@
       <!-- context initialization -->
       <link xconnector="conn#onBeginSet">
         <bind component="empty0" role="onBegin"/>
-        <bind component="noSettings" interface="service.currentFocus" role="set">
+        <bind component="noSettingsRefer1" interface="service.currentFocus" role="set">
           <bindParam name="val" value="0"/>
         </bind>
-        <bind component="noSettings" interface="_pos0" role="set">
+        <bind component="noSettingsRefer1" interface="_pos0" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos1" role="set">
+        <bind component="noSettingsRefer1" interface="_pos1" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos2" role="set">
+        <bind component="noSettingsRefer1" interface="_pos2" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos3" role="set">
+        <bind component="noSettingsRefer1" interface="_pos3" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos4" role="set">
+        <bind component="noSettingsRefer1" interface="_pos4" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos5" role="set">
+        <bind component="noSettingsRefer1" interface="_pos5" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos6" role="set">
+        <bind component="noSettingsRefer1" interface="_pos6" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos7" role="set">
+        <bind component="noSettingsRefer1" interface="_pos7" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="_pos8" role="set">
+        <bind component="noSettingsRefer1" interface="_pos8" role="set">
           <bindParam name="val" value="empty"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
       </link>
@@ -503,7 +504,7 @@
       <!-- game over, change focus to play_again -->
       <link xconnector="conn#onBeginSet">
         <bind component="search_winner" role="onBegin"/>
-        <bind component="noSettings" interface="service.currentFocus"
+        <bind component="noSettingsRefer1" interface="service.currentFocus"
               role="set">
           <bindParam name="val" value="ixPlayAgain"/>
         </bind>
@@ -512,14 +513,14 @@
       <!-- pos0 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty0" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos0" role="set">
+        <bind component="noSettingsRefer1" interface="_pos0" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -530,14 +531,14 @@
       <!-- pos0 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty0" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos0" role="set">
+        <bind component="noSettingsRefer1" interface="_pos0" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -548,14 +549,14 @@
       <!-- pos1 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty1" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos1" role="set">
+        <bind component="noSettingsRefer1" interface="_pos1" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -566,14 +567,14 @@
       <!-- pos1 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty1" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos1" role="set">
+        <bind component="noSettingsRefer1" interface="_pos1" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -584,14 +585,14 @@
       <!-- pos2 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty2" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos2" role="set">
+        <bind component="noSettingsRefer1" interface="_pos2" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -602,14 +603,14 @@
       <!-- pos2 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty2" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos2" role="set">
+        <bind component="noSettingsRefer1" interface="_pos2" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -620,14 +621,14 @@
       <!-- pos3 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty3" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos3" role="set">
+        <bind component="noSettingsRefer1" interface="_pos3" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -638,14 +639,14 @@
       <!-- pos3 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty3" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos3" role="set">
+        <bind component="noSettingsRefer1" interface="_pos3" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -656,14 +657,14 @@
       <!-- pos4 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty4" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos4" role="set">
+        <bind component="noSettingsRefer1" interface="_pos4" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -674,14 +675,14 @@
       <!-- pos4 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty4" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos4" role="set">
+        <bind component="noSettingsRefer1" interface="_pos4" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -692,14 +693,14 @@
       <!-- pos5 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty5" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos5" role="set">
+        <bind component="noSettingsRefer1" interface="_pos5" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -710,14 +711,14 @@
       <!-- pos5 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty5" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos5" role="set">
+        <bind component="noSettingsRefer1" interface="_pos5" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -728,14 +729,14 @@
       <!-- pos6 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty6" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos6" role="set">
+        <bind component="noSettingsRefer1" interface="_pos6" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -746,14 +747,14 @@
       <!-- pos6 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty6" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos6" role="set">
+        <bind component="noSettingsRefer1" interface="_pos6" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -764,14 +765,14 @@
       <!-- pos7 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty7" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos7" role="set">
+        <bind component="noSettingsRefer1" interface="_pos7" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -782,14 +783,14 @@
       <!-- pos7 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty7" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos7" role="set">
+        <bind component="noSettingsRefer1" interface="_pos7" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
@@ -800,14 +801,14 @@
       <!-- pos8 > x -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty8" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos8" role="set">
+        <bind component="noSettingsRefer1" interface="_pos8" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x" role="start"/>
@@ -818,14 +819,14 @@
       <!-- pos8 > o -->
       <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty8" role="onSelection"/>
-        <bind component="noSettings" interface="turn" role="propertyTest">
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="o"/>
         </bind>
 
-        <bind component="noSettings" interface="_pos8" role="set">
+        <bind component="noSettingsRefer1" interface="_pos8" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="noSettings" interface="turn" role="set">
+        <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o" role="start"/>
