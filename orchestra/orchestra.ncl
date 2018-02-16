@@ -9,7 +9,7 @@
 
         <region id="rgBackground" width="100%" height="100%" top="0%" left="0%" zIndex="1"/>
 
-      	<region id="rgIconInteractive" width="38%" height="8%" top="4%" right="1.875%" zIndex="3"/>
+      	<region id="rgIconInteractive" width="38%" height="8%" top="4%" left="60.125%" zIndex="3"/>
 
       	<region id="rgIconFullscreen" width="14%" height="22%" top="76%" left="0%" zIndex="3"/>
       	<region id="rgIconOrchestra" width="14%" height="22%" top="76%" left="14%" zIndex="3"/>

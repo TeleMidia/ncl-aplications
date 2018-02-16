@@ -25,11 +25,11 @@
         <region id="rgFullScreen"/>
 
         <!-- Para resolucao 1920 X 1280 = Barra 1628 X 65 -->
-        <region id="rgBarraTitulo" right="16%" width="83.5%" bottom="22%" height="5%">
+        <region id="rgBarraTitulo" left="0.5%" width="83.5%" top="73%" height="5%">
           <region id="rgMenu1" left="0%" width="20%" zIndex="2"/>
           <region id="rgMenu2" left="20%" width="20%" zIndex="2"/>
           <region id="rgMenu3" left="40%" width="20%" zIndex="2"/>
-          <region id="rgSair" right="0%" width="15%" zIndex="2"/>
+          <region id="rgSair" left="85%" width="15%" zIndex="2"/>
         </region>
 
         <!-- Para resolucao 1920 X 1280 = 360 X 58 -->
@@ -1096,7 +1096,7 @@
     <!--port id="mainInterativo" component="interativo"/-->
     <media id="interativo" src="UPA/Interativo.png" descriptor="dInterativo"/>
 
-    <!-- <port id="mainPort2" component="ctPrincipal" interface="pTitulo"/> -->
+    <!-- <port id="mainPort2" component="ctPrincipal" interface="ctPrincipalpTitulo"/> -->
     <!-- <port id="mainPort3" component="ctPrincipal" interface="pDengueON"/> -->
 
     <!--### Contexto Principal ###-->
@@ -1108,7 +1108,7 @@
       <port component="DengueOFF" id="pDengueOFF"/>
       <port component="EmergenciaOFF" id="pEmergenciaOFF"/>
       <port component="SangueOFF" id="pSangueOFF"/>
-      <port component="tituloPrincipal" id="pTitulo"/>
+      <port component="tituloPrincipal" id="ctPrincipalpTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueOFF.png" id="DengueOFF"/>
@@ -1226,7 +1226,7 @@
     <context id="ctEmergencias">
       <port component="SamuON" id="pSamuON"/>
       <port component="UpaON" id="pUpaON"/>
-      <port component="tituloEmergencia" id="pTitulo"/>
+      <port component="tituloEmergencia" id="ctEmergenciaspTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctEmergencias/SamuON.png" id="SamuON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctEmergencias/SamuOFF.png" id="SamuOFF"/>
@@ -1307,7 +1307,7 @@
       <port component="FuncionaON" id="pFuncionaON"/>
       <port component="EspecialidadesON" id="pEspecialidadesON"/>
       <port component="UnidadesON" id="pUnidadesON"/>
-      <port component="tituloUpa" id="pTitulo"/>
+      <port component="tituloUpa" id="ctUpapTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctUpa/OqueON.png" id="OqueON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctUpa/OqueOFF.png" id="OqueOFF"/>
@@ -1563,7 +1563,7 @@
       <port component="pediatriaON" id="pPediatriaON"/>
       <port component="ortopediaON" id="pOrtopediaON"/>
       <port component="odontologiaON" id="pOdontologiaON"/>
-      <port component="tituloEspecialidade" id="pTitulo"/>
+      <port component="tituloEspecialidade" id="ctEspecialidadespTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctEspecialidades/GeralON.png" id="geralON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctEspecialidades/GeralOFF.png" id="geralOFF"/>
@@ -1831,7 +1831,7 @@
       <port component="MareOFF" id="pMareOFF"/>
       <port component="StaCruzON" id="pStaCruzON"/>
       <port component="StaCruzOFF" id="pStaCruzOFF"/>
-      <port component="tituloUnidade" id="pTitulo"/>
+      <port component="tituloUnidade" id="ctUnidadespTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctUnidades/BanguON.png" id="BanguON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctUnidades/BanguOFF.png" id="BanguOFF"/>
@@ -2126,7 +2126,7 @@
       <port component="SintomasON" id="pSintomasON"/>
       <port component="HemoON" id="pHemoON"/>
       <port component="FazerON" id="pFazerON"/>
-      <port component="tituloDengue" id="pTitulo"/>
+      <port component="tituloDengue" id="ctDenguepTitulo"/>
 
       <media descriptor="dColuna1_Botao1" src="UPA/ctDengue/PrevenirON.png" id="PrevenirON"/>
       <media descriptor="dColuna1_Botao1" src="UPA/ctDengue/PrevenirOFF.png" id="PrevenirOFF"/>
@@ -2327,37 +2327,37 @@
     <!-- Os links abaixo não estão funcionando. Abort não implementado no Ginga. -->
     <!-- botao SAIR -->
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctPrincipal" interface="pTitulo">
+      <bind role="onSelection" component="ctPrincipal" interface="ctPrincipalpTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctEmergencias" interface="pTitulo">
+      <bind role="onSelection" component="ctEmergencias" interface="ctEmergenciaspTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctEmergencias"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctUpa" interface="pTitulo">
+      <bind role="onSelection" component="ctUpa" interface="ctUpapTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctUpa"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctEspecialidades" interface="pTitulo">
+      <bind role="onSelection" component="ctEspecialidades" interface="ctEspecialidadespTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctUnidades" interface="pTitulo">
+      <bind role="onSelection" component="ctUnidades" interface="ctUnidadespTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctUnidades"/>
     </link>
     <link xconnector="onKeySelectionAbortN">
-      <bind role="onSelection" component="ctDengue" interface="pTitulo">
+      <bind role="onSelection" component="ctDengue" interface="ctDenguepTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctDengue"/>
@@ -2383,7 +2383,7 @@
     <link xconnector="onEndStartN">
       <bind role="onEnd" component="ctEfeito"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     
     <link xconnector="onKeySelectionAbortNStartN">
@@ -2443,7 +2443,7 @@
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
@@ -2451,7 +2451,7 @@
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     
     <!-- DIREITA ou ENTER no Botao Dengue -->
@@ -2461,7 +2461,7 @@
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctDengue" interface="pPrevenirON"/>
-      <bind role="start" component="ctDengue" interface="pTitulo"/>
+      <bind role="start" component="ctDengue" interface="ctDenguepTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pDengueON">
@@ -2469,7 +2469,7 @@
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctDengue" interface="pPrevenirON"/>
-      <bind role="start" component="ctDengue" interface="pTitulo"/>
+      <bind role="start" component="ctDengue" interface="ctDenguepTitulo"/>
     </link>
 
     <!-- DIREITA no UPA -->
@@ -2479,7 +2479,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctUpa" interface="pOqueON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
@@ -2487,7 +2487,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctUpa" interface="pOqueON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
 
     <!-- DIREITA no Upa para Especialidades -->
@@ -2497,7 +2497,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEspecialidades" interface="pGeralON"/>
-      <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
+      <bind role="start" component="ctEspecialidades" interface="ctEspecialidadespTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
@@ -2505,7 +2505,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEspecialidades" interface="pGeralON"/>
-      <bind role="start" component="ctEspecialidades" interface="pTitulo"/>
+      <bind role="start" component="ctEspecialidades" interface="ctEspecialidadespTitulo"/>
     </link>
   
     <!-- DIREITA no Upa para Unidades -->
@@ -2515,7 +2515,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctUnidades" interface="pBanguON"/>
-      <bind role="start" component="ctUnidades" interface="pTitulo"/>
+      <bind role="start" component="ctUnidades" interface="ctUnidadespTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
@@ -2523,7 +2523,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctUnidades" interface="pBanguON"/>
-      <bind role="start" component="ctUnidades" interface="pTitulo"/>
+      <bind role="start" component="ctUnidades" interface="ctUnidadespTitulo"/>
     </link>
     
     <!-- VOLTA no Emergencias -->
@@ -2533,7 +2533,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
@@ -2541,7 +2541,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
   
     <!-- VOLTA com back Emergencias -->
@@ -2551,7 +2551,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
@@ -2559,7 +2559,7 @@
       </bind>
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
 
     <!-- VOLTA no Dengue -->
@@ -2569,7 +2569,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pSintomasON">
@@ -2577,7 +2577,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pHemoON">
@@ -2585,7 +2585,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pFazerON">
@@ -2593,7 +2593,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
 
     <!-- VOLTA CoM BACK Dengue -->
@@ -2603,7 +2603,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pSintomasON">
@@ -2611,7 +2611,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pHemoON">
@@ -2619,7 +2619,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctDengue" interface="pFazerON">
@@ -2627,7 +2627,7 @@
       </bind>
       <bind role="abort" component="ctDengue"/>
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
-      <bind role="start" component="ctPrincipal" interface="pTitulo"/>
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
 
     <!-- Volta no Upa -->
@@ -2637,7 +2637,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pFuncionaON">
@@ -2645,7 +2645,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
@@ -2653,7 +2653,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
@@ -2661,7 +2661,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
 
     <!-- Volta CoM BACK Upa -->
@@ -2671,7 +2671,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pFuncionaON">
@@ -2679,7 +2679,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
@@ -2687,7 +2687,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
@@ -2695,7 +2695,7 @@
       </bind>
       <bind role="abort" component="ctUpa"/>
       <bind role="start" component="ctEmergencias" interface="pUpaON"/>
-      <bind role="start" component="ctEmergencias" interface="pTitulo"/>
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
     </link>
 
     <!-- Volta no Especialidades para o Upa -->
@@ -2705,7 +2705,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON">
@@ -2713,7 +2713,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON">
@@ -2721,7 +2721,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON">
@@ -2729,7 +2729,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
 
     <!-- Volta no Especialidades para o Upa COM BACK-->
@@ -2739,7 +2739,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pPediatriaON">
@@ -2747,7 +2747,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pOrtopediaON">
@@ -2755,7 +2755,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEspecialidades" interface="pOdontologiaON">
@@ -2763,7 +2763,7 @@
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
       <bind role="start" component="ctUpa" interface="pEspecialidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
 
     <!-- Volta no Unidades -->
@@ -2773,7 +2773,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON">
@@ -2781,7 +2781,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pIrajaON">
@@ -2789,7 +2789,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pMareON">
@@ -2797,7 +2797,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pStaCruzON">
@@ -2805,7 +2805,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pBelfordON">
@@ -2813,7 +2813,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
 
     <!-- Volta no Unidades COM BACK -->
@@ -2823,7 +2823,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pCpoGrandeON">
@@ -2831,7 +2831,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pIrajaON">
@@ -2839,7 +2839,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pMareON">
@@ -2847,7 +2847,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pStaCruzON">
@@ -2855,7 +2855,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUnidades" interface="pBelfordON">
@@ -2863,7 +2863,7 @@
       </bind>
       <bind role="abort" component="ctUnidades"/>
       <bind role="start" component="ctUpa" interface="pUnidadesON"/>
-      <bind role="start" component="ctUpa" interface="pTitulo"/>
+      <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
   </body>
 </ncl>
