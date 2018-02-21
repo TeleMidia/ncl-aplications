@@ -5,8 +5,6 @@
   <head>
     <regionBase>
       <region id="rg" width="100%" height="100%" top="0%" left="0%">
-	      <region id="rgVideoOrchestra" width="100%" height="100%" top="0%" left="0%" zIndex="2"/>
-
         <region id="rgBackground" width="100%" height="100%" top="0%" left="0%" zIndex="1"/>
 
       	<region id="rgIconInteractive" width="38%" height="8%" top="4%" left="60.125%" zIndex="3"/>
@@ -22,13 +20,6 @@
     </regionBase>
 
     <descriptorBase>
-      <descriptor id="dVideoOrchestra" region="rgVideoOrchestra" player="VideoChannelPlayerAdapter">
-      	<descriptorParam name="selectedObject" value="videoOrchestra"/>
-      	<descriptorParam name="x-intraTransition" value="false"/>
-      </descriptor>
-
-      <descriptor id="dVideoOrchestraSections"/>
-
       <descriptor id="dBackground" region="rgBackground"/>
 
       <descriptor id="dIconInteractive" region="rgIconInteractive"/>
@@ -94,8 +85,17 @@
       	<simpleAction role="set" value="$value" max="unbounded"/>
       </causalConnector>
 
-
       <causalConnector id="onSelectionSetStopStart">
+      	<connectorParam name="value"/>
+      	<simpleCondition role="onSelection"/>
+        <compoundAction operator="par">
+      	  <simpleAction role="set" value="$value" max="unbounded"/>
+      	  <simpleAction role="stop"  max="unbounded"/>
+      	  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+      	</compoundAction>
+      </causalConnector>
+
+      <causalConnector id="onKeySelectionSetStopStart">
       	<connectorParam name="key" />
       	<connectorParam name="value" />
       	<simpleCondition role="onSelection" key="$key"/>
@@ -109,18 +109,39 @@
   </head>
 
   <body>
-    <port id="pVideoOrchestra" component="contextOrchestra"/>
+    <port id="pVideoOrchestra" component="videoOrchestra"/>
+    <port id="pVideoConductor" component="videoConductor"/>
+    <port id="pVideoStrings" component="videoStrings"/>
+    <port id="pVideoBrass" component="videoBrass"/>
+    <port id="pVideoWoodWinds" component="videoWoodwinds"/>
 
-    <context id="contextOrchestra">
-      <property name="selectedObject"/>
+    <!-- Videos -->
+    <media id="videoOrchestra" src="media/video/main.mp4">
+      <property name="zIndex" value="2"/>
+      <property name='soundLevel' value='1'/>
       <property name="bounds"/>
-
-      <media id="videoOrchestra" descriptor="dVideoOrchestraSections" src="media/video/main.mp4"/>
-      <media id="videoConductor" descriptor="dVideoOrchestraSections" src="media/video/conductor.mp4"/>
-      <media id="videoStrings" descriptor="dVideoOrchestraSections" src="media/video/strings.mp4"/>
-      <media id="videoBrass" descriptor="dVideoOrchestraSections" src="media/video/brass.mp4"/>
-      <media id="videoWoodwinds" descriptor="dVideoOrchestraSections" src="media/video/woodwinds.mp4"/>
-    </context>
+    </media>
+    <media id="videoConductor" src="media/video/conductor.mp4">
+      <property name="zIndex" value="0"/>
+      <property name='soundLevel' value='0'/>
+      <property name="bounds"/>
+    </media>
+    <media id="videoStrings" src="media/video/strings.mp4">
+      <property name="zIndex" value="0"/>
+      <property name='soundLevel' value='0'/>
+      <property name="bounds"/>
+    </media>    
+    <media id="videoBrass" src="media/video/brass.mp4">
+      <property name="zIndex" value="0"/>
+      <property name='soundLevel' value='0'/>
+      <property name="bounds"/>
+    </media>
+    <media id="videoWoodwinds" src="media/video/woodwinds.mp4">
+      <property name="zIndex" value="0"/>
+      <property name='soundLevel' value='0'/>
+      <property name="bounds"/>
+    </media>
+    <!-- Videos -->
 
     <media id="background" descriptor="dBackground" src="media/images/background.png"/>
 
@@ -141,16 +162,28 @@
     <media id="iconInfo" descriptor="dIconInfo" src="media/images/info.png"/>
 
     <link xconnector="onBeginStart">
-      <bind role="onBegin" component="contextOrchestra"/>
+      <bind role="onBegin" component="videoOrchestra"/>
       <bind role="start" component="iconInteractive"/>
     </link>
 
-    <link xconnector="onSelectionSetStopStart">
+    <link xconnector="onKeySelectionSetStopStart">
       <bind role="onSelection" component="iconInteractive">
       	<bindParam name="key" value="INFO"/>
       </bind>
 
-      <bind role="set" component="contextOrchestra" interface="bounds">
+      <bind role="set" component="videoOrchestra" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="bounds">
       	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
       </bind>
 
@@ -166,52 +199,207 @@
       <bind role="start" component="iconWoodwinds"/>
       <bind role="start" component="iconInfo"/>
     </link>
-
+    
+    <!-- Selection Videos -->
     <link xconnector="onSelectionSet">
       <bind role="onSelection" component="iconStrings"/>
 
-      <bind role="set" component="contextOrchestra" interface="selectedObject">
-      	<bindParam name="value" value="videoStrings"/>
+      <bind role="set" component="videoStrings" interface="zIndex">
+      	<bindParam name="value" value="2"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="soundLevel">
+      	<bindParam name="value" value="1"/>
+      </bind>
+
+      <bind role="set" component="videoOrchestra" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoOrchestra" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
       </bind>
     </link>
 
     <link xconnector="onSelectionSet">
       <bind role="onSelection" component="iconConductor"/>
 
-      <bind role="set" component="contextOrchestra" interface="selectedObject">
-      	<bindParam name="value" value="videoConductor"/>
+      <bind role="set" component="videoConductor" interface="zIndex">
+      	<bindParam name="value" value="2"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="soundLevel">
+      	<bindParam name="value" value="1"/>
+      </bind>
+
+      <bind role="set" component="videoOrchestra" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoOrchestra" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
       </bind>
     </link>
 
     <link xconnector="onSelectionSet">
       <bind role="onSelection" component="iconOrchestra"/>
 
-      <bind role="set" component="contextOrchestra" interface="selectedObject">
-      	<bindParam name="value" value="videoOrchestra"/>
+      <bind role="set" component="videoOrchestra" interface="zIndex">
+      	<bindParam name="value" value="2"/>
+      </bind>
+      <bind role="set" component="videoOrchestra" interface="soundLevel">
+      	<bindParam name="value" value="1"/>
+      </bind>
+
+      <bind role="set" component="videoStrings" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
       </bind>
     </link>
 
     <link xconnector="onSelectionSet">
       <bind role="onSelection" component="iconBrass"/>
 
-      <bind role="set" component="contextOrchestra" interface="selectedObject">
-      	<bindParam name="value" value="videoBrass"/>
+      <bind role="set" component="videoBrass" interface="zIndex">
+      	<bindParam name="value" value="2"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="soundLevel">
+      	<bindParam name="value" value="1"/>
+      </bind>
+
+      <bind role="set" component="videoOrchestra" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoOrchestra" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
       </bind>
     </link>
 
     <link xconnector="onSelectionSet">
       <bind role="onSelection" component="iconWoodwinds"/>
 
-      <bind role="set" component="contextOrchestra" interface="selectedObject">
-      	<bindParam name="value" value="videoWoodwinds"/>
+      <bind role="set" component="videoWoodwinds" interface="zIndex">
+      	<bindParam name="value" value="2"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="soundLevel">
+      	<bindParam name="value" value="1"/>
+      </bind>
+
+      <bind role="set" component="videoOrchestra" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoOrchestra" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="zIndex">
+      	<bindParam name="value" value="0"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="soundLevel">
+      	<bindParam name="value" value="0"/>
       </bind>
     </link>
-
+    <!-- Fim Selection Videos -->
+    
+    <!-- Selection Full Screen-->
     <link xconnector="onSelectionSetStopStart">
       <bind role="onSelection" component="iconFullscreen"/>
 
-      <bind role="set" component="contextOrchestra" interface="bounds">
-      	<bindParam name="value" value="0%, 0%, 114.32%, 151.58%"/>
+      <bind role="set" component="videoOrchestra" interface="bounds">
+      	<bindParam name="value" value="0%, 0%, 100%, 100%"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="bounds">
+      	<bindParam name="value" value="0%, 0%, 100%, 100%"/>
+      </bind>  
+      <bind role="set" component="videoStrings" interface="bounds">
+      	<bindParam name="value" value="0%, 0%, 100%, 100%"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="bounds">
+      	<bindParam name="value" value="0%, 0%, 100%, 100%"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="bounds">
+      	<bindParam name="value" value="0%, 0%, 100%, 100%"/>
       </bind>
 
       <bind role="stop" component="iconFullscreen"/>
@@ -230,8 +418,20 @@
     <link xconnector="onSelectionSetStopStart">
       <bind role="onSelection" component="iconInfo"/>
 
-      <bind role="set" component="contextOrchestra" interface="bounds">
-      	<bindParam name="value" value="56%, 7.8%, 54.8%, 68%"/>
+      <bind role="set" component="videoOrchestra" interface="bounds">
+      	<bindParam name="value" value="49.5%, 4.8%, 46.4%, 45%"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="bounds">
+      	<bindParam name="value" value="49.5%, 4.8%, 46.4%, 45%"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="bounds">
+      	<bindParam name="value" value="49.5%, 4.8%, 46.4%, 45%"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="bounds">
+      	<bindParam name="value" value="49.5%, 4.8%, 46.4%, 45%"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="bounds">
+      	<bindParam name="value" value="49.5%, 4.8%, 46.4%, 45%"/>
       </bind>
 
       <bind role="stop" component="iconFullscreen"/>
@@ -246,7 +446,9 @@
 
       <bind role="start" component="infoObra"/>
     </link>
+    <!-- Fim Selection Full Screen -->
 
+    <!-- Info -->
     <link xconnector="onEndStart">
       <bind role="onEnd" component="infoObra"/>
       <bind role="start" component="infoCompositor"/>
@@ -270,8 +472,20 @@
     <link xconnector="onEndSetStart">
       <bind role="onEnd" component="infoCreditos"/>
 
-      <bind role="set" component="contextOrchestra" interface="bounds">
-      	<bindParam name="value" value="13.5%, 14.5%, 183%, 147.7%"/>
+      <bind role="set" component="videoOrchestra" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoConductor" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoStrings" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoBrass" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
+      </bind>
+      <bind role="set" component="videoWoodwinds" interface="bounds">
+      	<bindParam name="value" value="6.5%, 6.5%, 87.5%, 66%"/>
       </bind>
 
       <bind role="start" component="background"/>
@@ -284,9 +498,10 @@
       <bind role="start" component="iconWoodwinds"/>
       <bind role="start" component="iconInfo"/>
     </link>
+    <!-- Info -->
 
     <link xconnector="onEndStop">
-      <bind role="onEnd" component="contextOrchestra"/>
+      <bind role="onEnd" component="videoOrchestra"/>
 
       <bind role="stop" component="iconFullscreen"/>
       <bind role="stop" component="iconOrchestra"/>
