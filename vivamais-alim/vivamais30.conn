@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="connBase" xmlns="http://www.ncl.org.br/NCL3.0/CausalConnectorProfile"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.ncl.org.br/NCL3.0/CausalConnectorProfile
+http://www.ncl.org.br/NCL3.0/profiles/NCL30CausalConnector.xsd">
+
+<head>
+
+<connectorBase>
+
+<causalConnector id="onBeginStart">
+  <simpleCondition role="onBegin"/>
+  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onEndStart">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onCondBeginStart">
+  <connectorParam name="value"/>
+  <compoundCondition operator="and">
+    <simpleCondition role="onBegin"/>
+    <assessmentStatement comparator="eq">
+      <attributeAssessment role="attTest" eventType="attribution" attributeType="nodeProperty"/>
+      <valueAssessment value="$value"/>
+    </assessmentStatement>
+  </compoundCondition>
+  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onCondBeginStartStop">
+  <connectorParam name="value"/>
+  <compoundCondition operator="and">
+    <simpleCondition role="onBegin"/>
+    <assessmentStatement comparator="eq">
+      <attributeAssessment role="attTest" eventType="attribution" attributeType="nodeProperty"/>
+      <valueAssessment value="$value"/>
+    </assessmentStatement>
+  </compoundCondition>
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onEndResume">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="resume" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onEndStop">
+  <simpleCondition role="onEnd"/>
+  <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onEndSetStop">
+  <connectorParam name="var"/>
+  <simpleCondition role="onEnd"/>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" />
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionSetStartStop">
+  <connectorParam name="keyCode" />
+  <connectorParam name="var" />
+  <simpleCondition role="onSelection" key="$keyCode"/>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionSetVarStop">
+  <connectorParam name="keyCode" />
+  <connectorParam name="var" />
+  <simpleCondition role="onSelection" key="$keyCode"/>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" />
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionSetVarStopStart">
+  <connectorParam name="keyCode" />
+  <connectorParam name="var" />
+  <simpleCondition role="onSelection" key="$keyCode"/>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" />
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionSetVarResizeStartStop">
+  <connectorParam name="keyCode" />
+  <connectorParam name="var" />
+  <simpleCondition role="onSelection" key="$keyCode"/>
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="set" value="$var" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onCondEndResizeStop">
+  <connectorParam name="value"/>
+  <connectorParam name="bounds"/>
+  <compoundCondition operator="and">
+    <simpleCondition role="onEnd"/>
+    <assessmentStatement comparator="eq">
+      <attributeAssessment role="attTest" eventType="attribution" attributeType="nodeProperty"/>
+      <valueAssessment value="$value"/>
+    </assessmentStatement>
+  </compoundCondition>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$bounds" />
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onBeginSetVarStart">
+  <connectorParam name="var"/>
+  <simpleCondition role="onBegin"/>
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" />
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onBeginSet">
+  <connectorParam name="var"/>
+  <simpleCondition role="onBegin"/>
+  <simpleAction role="set" value="$var" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onCondOrKeySelectionStart">
+  <connectorParam name="keyCode"/>
+  <connectorParam name="value"/>
+  <compoundCondition operator="and">
+    <simpleCondition role="onSelection" key="$keyCode" max="unbounded" qualifier="or" />
+    <assessmentStatement comparator="eq">
+      <attributeAssessment role="attTest" eventType="attribution" attributeType="nodeProperty"/>
+      <valueAssessment value="$value"/>
+    </assessmentStatement>
+  </compoundCondition>
+  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onKeySelectionStartStop">
+  <connectorParam name="keyCode"/>
+  <simpleCondition role="onSelection" key="$keyCode" max="unbounded" qualifier="or" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onCondKeySelectionStartStop">
+  <connectorParam name="keyCode"/>
+  <connectorParam name="valueTest"/>
+  <compoundCondition operator="and">
+    <simpleCondition role="onSelection" key="$keyCode" max="unbounded" qualifier="or" />
+    <assessmentStatement comparator="eq">
+      <attributeAssessment role="attTest" eventType="attribution" attributeType="nodeProperty"/>
+      <valueAssessment value="$valueTest"/>
+    </assessmentStatement>
+  </compoundCondition>
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionStart">
+  <connectorParam name="keyCode"/>
+  <simpleCondition role="onSelection" key="$keyCode" max="unbounded" qualifier="or" />
+  <simpleAction role="start" max="unbounded" qualifier="seq"/>
+</causalConnector>
+
+<causalConnector id="onEndDelayStopStop">
+  <simpleCondition role="onEnd" />
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="delayStop" eventType="presentation" actionType="stop" max="unbounded" delay="1s" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onBeginSetVarDelayStop">
+  <connectorParam name="delay" />
+  <connectorParam name="var" />
+  <simpleCondition role="onBegin" />
+  <compoundAction operator="seq">
+    <simpleAction role="set" value="$var" max="unbounded" qualifier="seq"/>
+    <simpleAction role="stop" max="unbounded" delay="$delay" qualifier="par"/>
+  </compoundAction>
+</causalConnector>
+
+<causalConnector id="onKeySelectionStopStart">
+  <connectorParam name="keyCode" />
+  <simpleCondition role="onSelection" key="$keyCode" max="unbounded" qualifier="or"/>
+  <compoundAction operator="seq">
+    <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+    <simpleAction role="start" max="unbounded" qualifier="seq"/>
+  </compoundAction>
+</causalConnector>
+
+</connectorBase>
+</head>
+</ncl>
