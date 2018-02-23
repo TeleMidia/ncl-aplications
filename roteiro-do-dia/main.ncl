@@ -34,7 +34,7 @@
 		</connectorBase>
 	</head>
 	<body id="corpo">
-		<port component="ctxInicio" id="ptInicio"/>
+    <port component="ctxInicio" id="ptInicio"/>
 		<!-- settings -->
 		<media id="noSettings" type="application/x-ginga-settings">
 			<property name="proxVdo" value="opt2"/>
@@ -118,14 +118,15 @@
 		
 		<!-- Contexto com interacao do usuario -->
 		<context id="ctxInteragir">
+      <!-- Interaction 1 -->
 			<!-- comeca com o video B3 (Abertura com interacao) -->
       <port component="vdoB3" id="ptB3"/>
       
       <media descriptor="fullScreen" id="vdoB3" src="media/videos/B3.mp4"/>
-      <media descriptor="fullScreen" id="vdoC2" src="media/videos/C2.mp4"/>
-      <media descriptor="fullScreen" id="vdoC3" src="media/videos/C3.mp4"/>
-      <media descriptor="fullScreen" id="vdoE1" src="media/videos/E1.mp4"/>
-      <media descriptor="fullScreen" id="vdoE2" src="media/videos/E2.mp4"/>
+      <media descriptor="fullScreen" id="vdoC2" src="media/videos/C2.mp4"/> <!-- Central -->
+      <media descriptor="fullScreen" id="vdoC3" src="media/videos/C3.mp4"/> <!-- Copacabana -->
+      <media descriptor="fullScreen" id="vdoE1" src="media/videos/E1.mp4"/> <!-- Estudantina -->
+      <media descriptor="fullScreen" id="vdoE2" src="media/videos/E2.mp4"/> <!-- Jardim Botânico -->
 
       <media descriptor="fundoMenu" id="fundoMenuB3" src="media/imagens/menufundo.png"/>
       <media descriptor="bto1" id="botaoCentral" src="media/imagens/central.png"/>
@@ -145,7 +146,7 @@
           <bindParam name="delay" value="45s" />
         </bind>
 			</link>
-      <!-- Ao Terminar B3, inicia ProxVideo conforme variavel proxVideo e para contexto menuB3-->
+      <!-- Ao Terminar B3, inicia ProxVideo conforme variavel proxVideo -->
       <!-- Ao selecionar botao copa -> Para os outros botoes e seta o prox destino como C3 (Copacabana) -->
 			<link xconnector="conn#onSelectionStopSetWithDur">
 				<bind component="botaoCopa" role="onSelection"/>
@@ -155,7 +156,7 @@
 					<bindParam name="dur" value="0"/>
 				</bind>
 			</link>
-       <!-- Ao selecionar botao central -> Para os outros botoes e seta o prox destino como C2 (Central do Brasil) -->
+      <!-- Ao selecionar botao central -> Para os outros botoes e seta o prox destino como C2 (Central do Brasil) -->
 			<link xconnector="conn#onSelectionStopSetWithDur">
 				<bind component="botaoCentral" role="onSelection"/>
 				<bind component="botaoCopa" role="stop"/>
@@ -184,13 +185,12 @@
         <bind role="start" component="vdoC2"/>
       </link>
 
-
-      
+      <!-- Interaction 2 -->
       <media descriptor="fundoMenu" id="fundoMenuC2" src="media/imagens/menufundo.png"/>i
       <media descriptor="bto1" id="botaoEstudantinaC2" src="media/imagens/estudantina.png"/>
       <media descriptor="bto2" id="botaoJardimBotanicoC2" src="media/imagens/jardimbotanico.png"/>
 
-<!-- Ao iniciar C2, inicia menu C2 com delay de 43 segundos -->
+      <!-- Ao iniciar C2, inicia menu C2 com delay de 43 segundos -->
 			<link xconnector="conn#onBeginStartDelay">
 				<bind component="vdoC2" role="onBegin"/>
         <bind component="fundoMenuC2" role="start">
@@ -203,7 +203,8 @@
           <bindParam name="delay" value="43s" />
         </bind>
       </link>
-      
+
+      <!-- Ao iniciar C3, inicia menu C3 com delay de 43 segundos -->
       <link xconnector="conn#onBeginStartDelay">
 				<bind component="vdoC3" role="onBegin"/>
         <bind component="fundoMenuC2" role="start">
@@ -216,7 +217,9 @@
           <bindParam name="delay" value="43s" />
         </bind>
       </link>
-
+      
+      <!-- Ao Terminar C2 ou C3, inicia ProxVideo conforme variavel proxVideo -->
+      <!-- Ao selecionar botao Gafieira Estudantina -> Para os outros botoes e seta o prox destino como E1 (Estudantina) -->
       <link xconnector="conn#onSelectionStopSetWithDur">
   			<bind component="botaoEstudantinaC2" role="onSelection"/>
 				<bind component="botaoJardimBotanicoC2" role="stop"/>
@@ -225,10 +228,10 @@
 					<bindParam name="dur" value="0"/>
 				</bind>
 			</link>
-      
+      <!-- Ao selecionar botao Jardim Botânico -> Para os outros botoes e seta o prox destino como E2 (Jardim Botânico) -->
       <link xconnector="conn#onSelectionStopSetWithDur">
-				<bind component="botaoEstudantinaC2" role="stop"/>
 				<bind component="botaoJardimBotanicoC2" role="onSelection"/>
+				<bind component="botaoEstudantinaC2" role="stop"/>
 				<bind component="rNoSettingsInteragir" interface="proxVdo" role="set">
 		  		<bindParam name="val" value="opt2"/> <!-- E2 -->
 					<bindParam name="dur" value="0"/>
@@ -260,7 +263,6 @@
         <bind role="var" component="rNoSettingsInteragir" interface="proxVdo"/>
         <bind role="start" component="vdoE2"/>
       </link>
-   
 		</context>
 	</body>
 </ncl>
