@@ -17,7 +17,7 @@
       <!--### Main ###-->
       <region id="rgMainTV">
         <region id="rgMainVideo" zIndex="1"/>
-        <region id="rgInterativo" zIndex="3" right="3%" top="9%" width="400" height="150"/>
+        <region id="rgInterativo" right="3%" top="9%" width="400" height="150" zIndex="3"/>
       </region>
 
       <!--### Regiao do Menu ###-->
@@ -25,7 +25,7 @@
         <region id="rgFullScreen"/>
 
         <!-- Para resolucao 1920 X 1280 = Barra 1628 X 65 -->
-        <region id="rgBarraTitulo" left="0.5%" width="83.5%" top="73%" height="5%">
+        <region id="rgBarraTitulo" left="0.5%" width="83.5%" top="73%" height="5%" zIndex="3">
           <region id="rgMenu1" left="0%" width="20%" zIndex="2"/>
           <region id="rgMenu2" left="20%" width="20%" zIndex="2"/>
           <region id="rgMenu3" left="40%" width="20%" zIndex="2"/>
@@ -1102,8 +1102,8 @@
     <!--### Contexto Principal ###-->
     <context id="ctPrincipal">
       <port component="DengueON" id="pDengueON"/>
-      <port component="EmergenciaON" id="pEmergenciaON"/>
-      <port component="SangueON" id="pSangueON"/>
+      <!--<port component="EmergenciaON" id="pEmergenciaON"/>-->
+      <!--<port component="SangueON" id="pSangueON"/>-->
 
       <port component="DengueOFF" id="pDengueOFF"/>
       <port component="EmergenciaOFF" id="pEmergenciaOFF"/>
@@ -1126,11 +1126,11 @@
       <media descriptor="dTexto" src="UPA/ctPrincipal/SangueTEXT.png" id="tSangue"/>
       <media descriptor="dIcone" src="UPA/ctPrincipal/SangueIMAGE.png" id="iSangue"/>
 
-      <!-- <media descriptor="dCaixa" src="UPA/borda.png" id="borda"/> -->
-      <!-- <link xconnector="onBeginStart"> -->
-      <!--   <bind role="onBegin" component="titulo"/> -->
-      <!--   <bind role="start" component="borda"/> -->
-      <!-- </link> -->
+      <!--<media descriptor="dCaixa" src="UPA/borda.png" id="borda"/> -->
+      <!--<link xconnector="onBeginStart"> -->
+      <!--  <bind role="onBegin" component="titulo"/> -->
+      <!--  <bind role="start" component="borda"/> -->
+      <!--</link> -->
 
       <!-- ao exibir o botao com foco, exibe o texto e icones relacionados-->
       <link xconnector="onBeginStopNStartN" id="lDengueON">
@@ -2324,7 +2324,7 @@
       </link>
     </context>
     
-    <!-- Os links abaixo não estão funcionando. Abort não implementado no Ginga. -->
+    <!-- Os links abaixo não estão funcionando. Inteface de port não implementado. -->
     <!-- botao SAIR -->
     <link xconnector="onKeySelectionAbortN">
       <bind role="onSelection" component="ctPrincipal" interface="ctPrincipalpTitulo">
@@ -2391,7 +2391,8 @@
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="interativo"/>
-      <bind role="start" component="ctEfeito"/>
+      <bind role="start" component="ctPrincipal"/>
+      <!--<bind role="start" component="ctEfeito"/>-->
     </link>
 
     <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
@@ -2437,22 +2438,22 @@
     
     
     <!-- DIREITA ou ENTER no Botao Emergencias -->
-    <link xconnector="onKeySelectionAbortNStartN">
+    <!--<link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
       <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
-    </link>
-    <link xconnector="onKeySelectionAbortNStartN">
+    </link>-->
+    <!--<link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
         <bindParam name="keyCode" value="ENTER"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
       <bind role="start" component="ctEmergencias" interface="pSamuON"/>
       <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/>
-    </link>
+    </link>-->
     
     <!-- DIREITA ou ENTER no Botao Dengue -->
     <link xconnector="onKeySelectionAbortNStartN">
@@ -2472,7 +2473,7 @@
       <bind role="start" component="ctDengue" interface="ctDenguepTitulo"/>
     </link>
 
-    <!-- DIREITA no UPA -->
+    <!-- DIREITA ou ENTER no Emergencias -->
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pUpaON">
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
@@ -2490,7 +2491,7 @@
       <bind role="start" component="ctUpa" interface="ctUpapTitulo"/>
     </link>
 
-    <!-- DIREITA no Upa para Especialidades -->
+    <!-- DIREITA ou ENTER no Upa para Especialidades -->
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pEspecialidadesON">
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
@@ -2508,7 +2509,7 @@
       <bind role="start" component="ctEspecialidades" interface="ctEspecialidadespTitulo"/>
     </link>
   
-    <!-- DIREITA no Upa para Unidades -->
+    <!-- DIREITA ou ENTER no Upa para Unidades -->
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctUpa" interface="pUnidadesON">
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
@@ -2527,7 +2528,7 @@
     </link>
     
     <!-- VOLTA no Emergencias -->
-    <link xconnector="onKeySelectionAbortNStartN">
+    <!--<link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pSamuON">
         <bindParam name="keyCode" value="CURSOR_LEFT"/>
       </bind>
@@ -2542,10 +2543,10 @@
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
-    </link>
+    </link>-->
   
     <!-- VOLTA com back Emergencias -->
-    <link xconnector="onKeySelectionAbortNStartN">
+    <!--<link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctEmergencias" interface="pSamuON">
         <bindParam name="keyCode" value="BACK"/>
       </bind>
@@ -2560,7 +2561,7 @@
       <bind role="abort" component="ctEmergencias"/>
       <bind role="start" component="ctPrincipal" interface="pEmergenciaON"/>
       <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
-    </link>
+    </link>-->
 
     <!-- VOLTA no Dengue -->
     <link xconnector="onKeySelectionAbortNStartN">

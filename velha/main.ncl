@@ -368,8 +368,11 @@
 
 
   <body>
-    <port id="pStart" component="board"/>
-    
+    <port id="pTitle" component="title"/>
+    <port id="pExit" component="exit" />
+    <port id="pPlayAgain" component="play_again" />
+    <port id="pBoard" component="board"/>
+
     <media id="noSettings" type="application/x-ginga-settings">
       <property name="service.currentFocus" value="0"/>
       <property name="_pos0" value="empty"/>
@@ -385,22 +388,25 @@
       <!-- x plays first -->
       <property name="turn" value="x"/>
     </media>
+    
+    <media id="exit" src="media/exit.png" descriptor="dExit"/>
+    <media id="play_again" src="media/play_again.png" descriptor="dPlayAgain"/>
+    <media id="title" src="media/title.png" descriptor="dTitle"/>
 
     <!-- red: quit -->
     <link xconnector="conn#onKeySelectionAbort">
-      <bind component="board" interface="pExit" role="onSelection"/>
-      <bind component="board" interface="pExit" role="onKeySelection">
+      <bind component="exit" role="onSelection">
         <bindParam name="key" value="RED"/>
       </bind>
       <bind component="board" role="abort"/>
+      <bind component="exit" role="abort"/>
+      <bind component="play_again" role="abort"/>
+      <bind component="title" role="abort"/>      
     </link>
-
+    
     <!-- green: restart game -->
     <link xconnector="conn#onKeySelectionStopStart">
-      <bind component="board" interface="pPlayAgain"
-            role="onSelection"/>
-      <bind component="board" interface="pPlayAgain"
-            role="onKeySelection">
+      <bind component="play_again" role="onSelection">
         <bindParam name="key" value="GREEN"/>
       </bind>
       <bind component="board" role="stop"/>
@@ -409,9 +415,6 @@
 
     <!-- board -->
     <context id="board">
-      <port id="pTitle" component="title"/>
-      <port id="pExit" component="exit" />
-      <port id="pPlayAgain" component="play_again" />
       <port id="pGrid" component="grid"/>
       <port id="pPos0" component="empty0"/>
       <port id="pPos1" component="empty1"/>
@@ -422,10 +425,6 @@
       <port id="pPos6" component="empty6"/>
       <port id="pPos7" component="empty7"/>
       <port id="pPos8" component="empty8"/>
-
-      <media id="exit" src="media/exit.png" descriptor="dExit"/>
-      <media id="play_again" src="media/play_again.png" descriptor="dPlayAgain"/>
-      <media id="title" src="media/title.png" descriptor="dTitle"/>
 
       <!-- empty board -->
       <media id="grid" src="media/grid.png" descriptor="dGrid"/>
@@ -440,8 +439,28 @@
       <media id="empty8" src="media/empty.png" descriptor="dPos8"/>
 
       <!-- symbols -->
-      <media id="x" src="media/x.png"/>
-      <media id="o" src="media/o.png"/>
+      <!--<media id="x" src="media/x.png"/>
+      <media id="o" src="media/o.png"/>-->
+
+      <media id="x0" src="media/x.png" descriptor="dPos0"/>
+      <media id="x1" src="media/x.png" descriptor="dPos1"/>
+      <media id="x2" src="media/x.png" descriptor="dPos2"/>
+      <media id="x3" src="media/x.png" descriptor="dPos3"/>
+      <media id="x4" src="media/x.png" descriptor="dPos4"/>
+      <media id="x5" src="media/x.png" descriptor="dPos5"/>
+      <media id="x6" src="media/x.png" descriptor="dPos6"/>
+      <media id="x7" src="media/x.png" descriptor="dPos7"/>
+      <media id="x8" src="media/x.png" descriptor="dPos8"/>
+
+      <media id="o0" src="media/o.png" descriptor="dPos0"/>
+      <media id="o1" src="media/o.png" descriptor="dPos1"/>
+      <media id="o2" src="media/o.png" descriptor="dPos2"/>
+      <media id="o3" src="media/o.png" descriptor="dPos3"/>
+      <media id="o4" src="media/o.png" descriptor="dPos4"/>
+      <media id="o5" src="media/o.png" descriptor="dPos5"/>
+      <media id="o6" src="media/o.png" descriptor="dPos6"/>
+      <media id="o7" src="media/o.png" descriptor="dPos7"/>
+      <media id="o8" src="media/o.png" descriptor="dPos8"/>
 
       <!-- settings -->
       <media id="noSettingsRefer1" instance="instSame" refer="noSettings"/>
@@ -465,15 +484,15 @@
       <!-- LINKS -->
       <!-- context initialization -->
       <link xconnector="conn#onBeginSet">
-        <bind component="empty0" role="onBegin"/>
+        <bind component="grid" role="onBegin"/>
         <bind component="noSettingsRefer1" interface="service.currentFocus" role="set">
           <bindParam name="val" value="0"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos0" role="set">
-          <bindParam name="val" value="empty"/>
+          <bindParam name="val" value="o"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos1" role="set">
-          <bindParam name="val" value="empty"/>
+          <bindParam name="val" value="x"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos2" role="set">
           <bindParam name="val" value="empty"/>
@@ -504,8 +523,7 @@
       <!-- game over, change focus to play_again -->
       <link xconnector="conn#onBeginSet">
         <bind component="search_winner" role="onBegin"/>
-        <bind component="noSettingsRefer1" interface="service.currentFocus"
-              role="set">
+        <bind component="noSettingsRefer1" interface="service.currentFocus" role="set">
           <bindParam name="val" value="ixPlayAgain"/>
         </bind>
       </link>
@@ -523,17 +541,15 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
-        <bind component="search_winner" role="start"/>
+        <bind component="x0" role="start"/>
+        <!--<bind component="search_winner" role="start"/>-->
         <bind component="empty0" role="stop"/>
       </link>
 
       <!-- pos0 > o -->
-      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
+      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart_o">
         <bind component="empty0" role="onSelection"/>
-        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
-          <bindParam name="val" value="o"/>
-        </bind>
+        <bind role="var" component="noSettingsRefer1" interface="turn"/>
 
         <bind component="noSettingsRefer1" interface="_pos0" role="set">
           <bindParam name="val" value="o"/>
@@ -541,17 +557,15 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="o0" role="start"/>
+        <!--<bind component="search_winner" role="start"/>-->
         <bind component="empty0" role="stop"/>
       </link>
 
       <!-- pos1 > x -->
-      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
+      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart_x">
         <bind component="empty1" role="onSelection"/>
-        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
-          <bindParam name="val" value="x"/>
-        </bind>
+        <bind role="var" component="noSettingsRefer1" interface="turn"/>
 
         <bind component="noSettingsRefer1" interface="_pos1" role="set">
           <bindParam name="val" value="x"/>
@@ -559,8 +573,8 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
-        <bind component="search_winner" role="start"/>
+        <bind component="x1" role="start"/>
+        <!--<bind component="search_winner" role="start"/>-->
         <bind component="empty1" role="stop"/>
       </link>
 
@@ -577,8 +591,8 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="o1" role="start"/>
+        <!--<bind component="search_winner" role="start"/>-->
         <bind component="empty1" role="stop"/>
       </link>
 
@@ -595,7 +609,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x2" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty2" role="stop"/>
       </link>
@@ -613,7 +627,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o2" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty2" role="stop"/>
       </link>
@@ -631,7 +645,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x3" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty3" role="stop"/>
       </link>
@@ -649,7 +663,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o3" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty3" role="stop"/>
       </link>
@@ -667,7 +681,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x4" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty4" role="stop"/>
       </link>
@@ -685,7 +699,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o4" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty4" role="stop"/>
       </link>
@@ -703,7 +717,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x5" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty5" role="stop"/>
       </link>
@@ -721,7 +735,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o5" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty5" role="stop"/>
       </link>
@@ -739,7 +753,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x6" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty6" role="stop"/>
       </link>
@@ -757,7 +771,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o6" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty6" role="stop"/>
       </link>
@@ -775,7 +789,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x7" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty7" role="stop"/>
       </link>
@@ -793,7 +807,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o7" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty7" role="stop"/>
       </link>
@@ -811,7 +825,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="o"/>
         </bind>
-        <bind component="x" role="start"/>
+        <bind component="x8" role="start"/>
         <bind component="search_winner" role="start"/>
         <bind component="empty8" role="stop"/>
       </link>
@@ -829,7 +843,7 @@
         <bind component="noSettingsRefer1" interface="turn" role="set">
           <bindParam name="val" value="x"/>
         </bind>
-        <bind component="o" role="start"/>
+        <bind component="o8" role="start"/>
        <bind component="search_winner" role="start"/>
         <bind component="empty8" role="stop"/>
       </link>

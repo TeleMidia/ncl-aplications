@@ -19,11 +19,7 @@
       <!-- onKeySelection -->
       <causalConnector id="onKeySelectionAbort">
         <connectorParam name="key"/>
-        <compoundCondition operator="or">
-          <simpleCondition role="onKeySelection" eventType="selection"
-                           transition="starts" key="$key"/>
-          <simpleCondition role="onSelection" key="$key" />
-        </compoundCondition>
+        <simpleCondition role="onSelection" key="$key" max="unbounded" qualifier="or" />
         <simpleAction role="abort" max="unbounded" qualifier="seq"/>
       </causalConnector>
 
@@ -34,27 +30,62 @@
         <compoundCondition operator="and">
           <simpleCondition role="onSelection" key="$key"/>
           <assessmentStatement comparator="eq">
-            <attributeAssessment role="propertyTest"
-                                 eventType="attribution"
-                                 attributeType="nodeProperty"/>
+            <attributeAssessment role="propertyTest"/>
             <valueAssessment value="$val"/>
           </assessmentStatement>
         </compoundCondition>
         <!-- action -->
-	<compoundAction operator="seq">
+    	  <compoundAction operator="seq">
           <simpleAction role="stop" max="unbounded" qualifier="seq"/>
           <simpleAction role="set" value="$val" max="unbounded" qualifier="seq"/>
           <simpleAction role="start" max="unbounded" qualifier="seq"/>
         </compoundAction>
       </causalConnector>
 
+      <causalConnector id="onKeySelectionPropertyTestStopSetStart_x">
+        <connectorParam name="key"/>
+        <connectorParam name="val"/>
+        <!-- condition -->
+        <compoundCondition operator="and">
+          <simpleCondition role="onSelection" key="$key"/>
+          <assessmentStatement comparator="eq">
+            <attributeAssessment role="var" 
+              attributeType="nodeProperty" eventType="attribution"/>
+            <valueAssessment value="x"/>
+          </assessmentStatement>
+        </compoundCondition>
+        <!-- action -->
+    	  <compoundAction operator="seq">
+          <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+          <simpleAction role="set" value="$val" max="unbounded" qualifier="seq"/>
+          <simpleAction role="start" max="unbounded" qualifier="seq"/>
+        </compoundAction>
+      </causalConnector>
+
+      <causalConnector id="onKeySelectionPropertyTestStopSetStart_o">
+        <connectorParam name="key"/>
+        <connectorParam name="val"/>
+        <!-- condition -->
+        <compoundCondition operator="and">
+          <simpleCondition role="onSelection" key="$key"/>
+          <assessmentStatement comparator="eq">
+            <attributeAssessment role="var" 
+              attributeType="nodeProperty" eventType="attribution"/>
+            <valueAssessment value="o"/>
+          </assessmentStatement>
+        </compoundCondition>
+        <!-- action -->
+    	  <compoundAction operator="seq">
+          <simpleAction role="stop" max="unbounded" qualifier="seq"/>
+          <simpleAction role="set" value="$val" max="unbounded" qualifier="seq"/>
+          <simpleAction role="start" max="unbounded" qualifier="seq"/>
+        </compoundAction>
+      </causalConnector>
+
+
       <causalConnector id="onKeySelectionStopStart">
         <connectorParam name="key"/>
-        <compoundCondition operator="or">
-          <simpleCondition role="onKeySelection" eventType="selection"
-                           transition="starts" key="$key"/>
-          <simpleCondition role="onSelection" key="$key"/>
-        </compoundCondition>
+        <simpleCondition role="onSelection" key="$key" max="unbounded" qualifier="or" />
         <compoundAction operator="seq">
           <simpleAction role="stop" max="unbounded" qualifier="seq"/>
           <simpleAction role="start" max="unbounded" qualifier="seq"/>
