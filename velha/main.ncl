@@ -395,7 +395,8 @@
 
     <!-- red: quit -->
     <link xconnector="conn#onKeySelectionAbort">
-      <bind component="exit" role="onSelection">
+      <bind component="exit" role="onSelection"/>
+      <bind component="exit" role="onKeySelection">
         <bindParam name="key" value="RED"/>
       </bind>
       <bind component="board" role="abort"/>
@@ -403,17 +404,18 @@
       <bind component="play_again" role="abort"/>
       <bind component="title" role="abort"/>      
     </link>
-    
+  
     <!-- green: restart game -->
     <link xconnector="conn#onKeySelectionStopStart">
-      <bind component="play_again" role="onSelection">
+      <bind component="play_again" role="onSelection"/>
+      <bind component="play_again" role="onKeySelection">
         <bindParam name="key" value="GREEN"/>
       </bind>
       <bind component="board" role="stop"/>
       <bind component="board" role="start"/>
     </link>
 
-    <!-- board -->
+   <!-- board -->
     <context id="board">
       <port id="pGrid" component="grid"/>
       <port id="pPos0" component="empty0"/>
@@ -547,9 +549,11 @@
       </link>
 
       <!-- pos0 > o -->
-      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart_o">
+      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty0" role="onSelection"/>
-        <bind role="var" component="noSettingsRefer1" interface="turn"/>
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
+          <bindParam name="val" value="o"/>
+        </bind>
 
         <bind component="noSettingsRefer1" interface="_pos0" role="set">
           <bindParam name="val" value="o"/>
@@ -563,9 +567,11 @@
       </link>
 
       <!-- pos1 > x -->
-      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart_x">
+      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
         <bind component="empty1" role="onSelection"/>
-        <bind role="var" component="noSettingsRefer1" interface="turn"/>
+        <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
+          <bindParam name="val" value="x"/>
+        </bind>
 
         <bind component="noSettingsRefer1" interface="_pos1" role="set">
           <bindParam name="val" value="x"/>
