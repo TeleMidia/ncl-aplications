@@ -20,7 +20,7 @@
         <region id="rgExit" width="50%" height="15.82%"
                 top="84.17%" left="50%" zIndex="2"/>
         <region id="rgMessages" width="75%" height="65.93%"
-                top="18.24%" left="12.5%" zIndex="4"/>
+                top="18.24%" left="12.5%" zIndex="5"/>
 
         <!-- board -->
         <region id="rgGrid" width="75%" height="65.93%"
@@ -441,9 +441,6 @@
       <media id="empty8" src="media/empty.png" descriptor="dPos8"/>
 
       <!-- symbols -->
-      <!--<media id="x" src="media/x.png"/>
-      <media id="o" src="media/o.png"/>-->
-
       <media id="x0" src="media/x.png" descriptor="dPos0"/>
       <media id="x1" src="media/x.png" descriptor="dPos1"/>
       <media id="x2" src="media/x.png" descriptor="dPos2"/>
@@ -469,7 +466,6 @@
 
       <!-- search for a winner after each move -->
       <switch id="search_winner">
-
         <!-- x wins -->
         <bindRule rule="rXWin" constituent="xwin"/>
         <media id="xwin" src="media/xwin.png" descriptor="dMessages"/>
@@ -491,10 +487,10 @@
           <bindParam name="val" value="0"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos0" role="set">
-          <bindParam name="val" value="o"/>
+          <bindParam name="val" value="empty"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos1" role="set">
-          <bindParam name="val" value="x"/>
+          <bindParam name="val" value="empty"/>
         </bind>
         <bind component="noSettingsRefer1" interface="_pos2" role="set">
           <bindParam name="val" value="empty"/>
@@ -531,7 +527,7 @@
       </link>
 
       <!-- pos0 > x -->
-      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">
+      <link xconnector="conn#onKeySelectionPropertyTestStopSetStart">        
         <bind component="empty0" role="onSelection"/>
         <bind component="noSettingsRefer1" interface="turn" role="propertyTest">
           <bindParam name="val" value="x"/>
@@ -544,7 +540,7 @@
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x0" role="start"/>
-        <!--<bind component="search_winner" role="start"/>-->
+        <bind component="search_winner" role="start"/>
         <bind component="empty0" role="stop"/>
       </link>
 
@@ -562,7 +558,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o0" role="start"/>
-        <!--<bind component="search_winner" role="start"/>-->
+        <bind component="search_winner" role="start"/>
         <bind component="empty0" role="stop"/>
       </link>
 
@@ -580,7 +576,7 @@
           <bindParam name="val" value="o"/>
         </bind>
         <bind component="x1" role="start"/>
-        <!--<bind component="search_winner" role="start"/>-->
+        <bind component="search_winner" role="start"/>
         <bind component="empty1" role="stop"/>
       </link>
 
@@ -598,7 +594,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o1" role="start"/>
-        <!--<bind component="search_winner" role="start"/>-->
+        <bind component="search_winner" role="start"/>
         <bind component="empty1" role="stop"/>
       </link>
 
@@ -634,7 +630,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o2" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty2" role="stop"/>
       </link>
 
@@ -670,7 +666,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o3" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty3" role="stop"/>
       </link>
 
@@ -706,7 +702,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o4" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty4" role="stop"/>
       </link>
 
@@ -742,7 +738,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o5" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty5" role="stop"/>
       </link>
 
@@ -778,7 +774,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o6" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty6" role="stop"/>
       </link>
 
@@ -814,7 +810,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o7" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty7" role="stop"/>
       </link>
 
@@ -850,7 +846,7 @@
           <bindParam name="val" value="x"/>
         </bind>
         <bind component="o8" role="start"/>
-       <bind component="search_winner" role="start"/>
+        <bind component="search_winner" role="start"/>
         <bind component="empty8" role="stop"/>
       </link>
 
