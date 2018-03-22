@@ -17,7 +17,7 @@
       <!--### Main ###-->
       <region id="rgMainTV">
         <region id="rgMainVideo" zIndex="1"/>
-        <region id="rgInterativo" right="3%" top="9%" width="400" height="150" zIndex="3"/>
+        <region id="rgInterativo" right="3%" top="9%" width="400" height="150" zIndex="2"/>
       </region>
 
       <!--### Regiao do Menu ###-->
@@ -25,29 +25,29 @@
         <region id="rgFullScreen"/>
 
         <!-- Para resolucao 1920 X 1280 = Barra 1628 X 65 -->
-        <region id="rgBarraTitulo" left="0.5%" width="83.5%" top="73%" height="5%" zIndex="3">
-          <region id="rgMenu1" left="0%" width="20%" zIndex="2"/>
-          <region id="rgMenu2" left="20%" width="20%" zIndex="2"/>
-          <region id="rgMenu3" left="40%" width="20%" zIndex="2"/>
-          <region id="rgSair" left="85%" width="15%" zIndex="2"/>
+        <region id="rgBarraTitulo" left="0.5%" width="83.5%" top="73%" height="5%" zIndex="4">
+          <region id="rgMenu1" left="0%" width="20%" zIndex="3"/>
+          <region id="rgMenu2" left="20%" width="20%" zIndex="3"/>
+          <region id="rgMenu3" left="40%" width="20%" zIndex="3"/>
+          <region id="rgSair" left="85%" width="15%" zIndex="3"/>
         </region>
 
         <!-- Para resolucao 1920 X 1280 = 360 X 58 -->
         <region id="rgColuna1" left="0.5%" top="78%" width="18%" height="20%">
-          <region id="rgColuna1_Botao1" top="0%" height="25%" zIndex="2"/>
-          <region id="rgColuna1_Botao2" top="25%" height="25%" zIndex="2"/>
-          <region id="rgColuna1_Botao3" top="50%" height="25%" zIndex="2"/>
-          <region id="rgColuna1_Botao4" top="75%" height="25%" zIndex="2"/>
-          <region id="rgColuna1_BotaoC" top="37.5%" height="25%" zIndex="2"/>
+          <region id="rgColuna1_Botao1" top="0%" height="25%" zIndex="3"/>
+          <region id="rgColuna1_Botao2" top="25%" height="25%" zIndex="3"/>
+          <region id="rgColuna1_Botao3" top="50%" height="25%" zIndex="3"/>
+          <region id="rgColuna1_Botao4" top="75%" height="25%" zIndex="3"/>
+          <region id="rgColuna1_BotaoC" top="37.5%" height="25%" zIndex="3"/>
         </region>
 
         <!-- Para resolucao 1920 X 1280 = Texto 1279 X 193 -->
-        <region id="rgTexto" left="19%" top="76.4%" width="65%" height="21.8%" zIndex="2"/>
+        <region id="rgTexto" left="19%" top="76.4%" width="65%" height="21.8%" zIndex="3"/>
 
         <!-- Para resolucao 1920 X 1280 = 1257 X 192 -->
-        <region id="rgIcone" left="84.7%" top="73%" width="14.5%" height="25%" zIndex="2"/>
+        <region id="rgIcone" left="84.7%" top="73%" width="14.5%" height="25%" zIndex="3"/>
 
-        <region id="rgCaixa" left="0.5%" top="72.3%" width="83.5%" height="26%" zIndex="5"/>
+        <region id="rgCaixa" left="0.5%" top="72.3%" width="99.2%" height="26%" zIndex="2"/>
       </region>
     </regionBase>
 
@@ -102,8 +102,9 @@
         <descriptorParam name="chromakey" value="black"/>
         <descriptorParam name="transparency" value="0.15"/>
       </descriptor>
-    </descriptorBase>
 
+      <descriptor id="dCaixa" region="rgCaixa"/>
+    </descriptorBase>
 
     <!-- A sintaxe dos nomes dos conectores causais segue a seguinte terminologia: -->
     <!-- * Primeiro sao definidas as condicoes (conditions), sempre precedidas do termo "on"; -->
@@ -938,103 +939,6 @@
       </causalConnector>
 
 
-      <!-- A sintaxe dos nomes dos conectores de retricao segue a seguinte terminologia: -->
-      <!-- * Em seguida sao definidas as avaliacoes (assessments), sempre seguidas do termo $ e depois Test, -->
-      <!--   onde $ eh um numeral qualquer para identificar papeis com mesmos testes de avaliacao; -->
-      <!--   - TrNomeDaTransicao$Test: para testes efetuados sobre valores de tempos de transicao; -->
-      <!--   - AttState$Test: para testes efetuados sobre valores de estado dos eventos; -->
-      <!--   - AttRepeat$Test: para testes efetuados sobre valores do atributo repeat de um evento. -->
-      <!--   - AttOccurences$Test: para testes efetuados sobre valores do atributo occurences de um evento. -->
-      <!--   - AttNode$Test: para testes efetuados sobre valores de atributos dos nos. -->
-      <!-- * Avaliacoes sao sempre seguidas de 1 ou N: -->
-      <!--   - 1 significa que apenas um ator pode exercer aquele papel; -->
-      <!--   - N significa que qualquer numero de atores pode exercer o papel. -->
-      <!-- * Sobre os qualificadores (qualifiers), a menos que explicitamente comentado, eh assumido o valor "all". -->
-      <!-- * Sobre os comparadores para teste, a menos que explicitamente comentado, eh assumido "eq". -->
-      <!-- * Expressoes compostas sao ligadas pelo conectivo & (operador AND) e | (operador OR) -->
-
-
-      <!-- Conectores de Restricao 1 para 1 / comparador "eq" -->
-
-      <!-- <constraintConnector id="trStopsTest1trStartsTest1" > -->
-      <!--    <assessmentRole id="trStopsTest" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStartsTest" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <constraintGlue> -->
-      <!--       <assessmentStatement comparator="eq" firstAssessmentRole="trStopsTest" -->
-      <!--        secondAssessmentRole="trStartsTest"/> -->
-      <!--    </constraintGlue> -->
-      <!-- </constraintConnector > -->
-
-      <!-- <constraintConnector id="trStarts1Test1trStarts2Test1" > -->
-      <!--    <assessmentRole id="trStarts1Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStarts2Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <constraintGlue> -->
-      <!--       <assessmentStatement comparator="eq" firstAssessmentRole="trStarts1Test" -->
-      <!--        secondAssessmentRole="trStarts2Test"/> -->
-      <!--    </constraintGlue> -->
-      <!-- </constraintConnector > -->
-
-      <!-- <constraintConnector id="trStops1Test1trStops2Test1" > -->
-      <!--    <assessmentRole id="trStops1Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStops2Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <constraintGlue> -->
-      <!--       <assessmentStatement comparator="eq" firstAssessmentRole="trStops1Test" -->
-      <!--        secondAssessmentRole="trStops2Test"/> -->
-      <!--    </constraintGlue> -->
-      <!-- </constraintConnector > -->
-
-      <!-- <constraintConnector id="trStarts1Test1trStarts2Test1_AND_trStops1Test1trStops2Test1"> -->
-      <!--    <assessmentRole id="trStarts1Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStops1Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStarts2Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStops2Test" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <constraintGlue> -->
-      <!--       <compoundStatement operator="and"> -->
-      <!--          <assessmentStatement -->
-      <!--           firstAssessmentRole="trStarts1Test" secondAssessmentRole="trStarts2Test" comparator="eq"/> -->
-      <!--          <assessmentStatement -->
-      <!--          firstAssessmentRole="trStops1Test" secondAssessmentRole="trStops2Test" comparator="eq"/> -->
-      <!--       </compoundStatement> -->
-      <!--    </constraintGlue> -->
-      <!-- </constraintConnector> -->
-
-
-      <!-- Conectores de Restricao 1 para 1 / comparadores diferentes de "eq" -->
-
-      <!-- <constraintConnector id="trStopsTestLTtrStartsTest" > -->
-      <!--    <assessmentRole id="trStopsTest" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="stops"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <assessmentRole id="trStartsTest" eventType="presentation"> -->
-      <!--       <eventStateTransitionAssessment transition="starts"/> -->
-      <!--    </assessmentRole> -->
-      <!--    <constraintGlue> -->
-      <!--       <assessmentStatement comparator="lt" firstAssessmentRole="trStopsTest" -->
-      <!--        secondAssessmentRole="trStartsTest"/> -->
-      <!--    </constraintGlue> -->
-      <!-- </constraintConnector> -->
-
-
       <!-- novos conectores criados para aplicacao PRODERJ -->
       <causalConnector id="onKeySelectionAbortNStartN">
         <connectorParam name="keyCode" />
@@ -1042,6 +946,15 @@
         <compoundAction operator="seq">
           <simpleAction role="abort" max="unbounded" qualifier="seq"/>
           <simpleAction role="start" max="unbounded" qualifier="seq"/>
+        </compoundAction>
+      </causalConnector>
+
+      <causalConnector id="onKeySelectionAbortNStopN">
+        <connectorParam name="keyCode" />
+        <simpleCondition role="onSelection" key="$keyCode" />
+        <compoundAction operator="seq">
+          <simpleAction role="abort" max="unbounded" qualifier="seq"/>
+          <simpleAction role="stop" max="unbounded" qualifier="seq"/>
         </compoundAction>
       </causalConnector>
 
@@ -1092,9 +1005,6 @@
     <!--port id="mainInterativo" component="interativo"/-->
     <media id="interativo" src="UPA/Interativo.png" descriptor="dInterativo"/>
 
-    <!-- <port id="mainPort2" component="ctPrincipal" interface="ctPrincipalpTitulo"/> -->
-    <!-- <port id="mainPort3" component="ctPrincipal" interface="pDengueON"/> -->
-
     <!-- inicia a interatividade -->
     <link xconnector="onBeginStart">
       <bind role="onBegin" component="video" interface="aInterativo"/>
@@ -1103,7 +1013,7 @@
 
     <!-- loop da interatividade -->
     <link xconnector="onEndStart">
-      <bind role="onEnd" component="interativo"/>
+      <bind role="onEnd" component="ctEfeito"/>
       <bind role="start" component="interativo"/>
     </link>
     <link xconnector="onEndAbort">
@@ -1116,18 +1026,11 @@
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="interativo"/>
-      <bind role="start" component="ctPrincipal"/>
-      <!-- <bind role="start" component="ctPrincipal" interface="pDengueON"/> -->
-      <!-- <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/> -->
-      <!-- <bind role="start" component="ctEfeito"/> -->
-    </link>
-
-    <!--ativa interatividade -->
-    <!-- <link xconnector="onEndStartN">
-      <bind role="onEnd" component="ctEfeito"/>
+      <!-- <bind role="start" component="ctPrincipal"/> -->
       <bind role="start" component="ctPrincipal" interface="pDengueON"/>
       <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
-    </link> -->
+      <bind role="start" component="ctEfeito"/>
+    </link>
 
     <!--### Contexto Principal ###-->
     <context id="ctPrincipal">
@@ -1155,13 +1058,6 @@
       <media descriptor="dIcone" src="UPA/ctPrincipal/EmergenciaIMAGE.png" id="iEmergencia"/>
       <media descriptor="dTexto" src="UPA/ctPrincipal/SangueTEXT.png" id="tSangue"/>
       <media descriptor="dIcone" src="UPA/ctPrincipal/SangueIMAGE.png" id="iSangue"/>
-
-      <!-- Fix this descriptor  -->
-      <!-- <media descriptor="dCaixa" src="UPA/borda.png" id="borda"/>
-      <link xconnector="onBeginStart">
-       <bind role="onBegin" component="titulo"/>
-       <bind role="start" component="borda"/>
-      </link> -->
 
       <!-- ao exibir o botao com foco, exibe o texto e icones relacionados-->
       <link xconnector="onBeginStopNStartN" id="lDengueON">
@@ -2183,7 +2079,7 @@
       <media descriptor="dIcone" src="UPA/ctDengue/HemoIMAGE.png" id="iHemo"/>
       <media descriptor="dTexto" src="UPA/ctDengue/FazerTEXT.png" id="tFazer"/>
       <media descriptor="dIcone" src="UPA/ctDengue/FazerIMAGE.png" id="iFazer"/>
-
+      
       <link xconnector="onBeginStopNStartN" id="lPrevenirON">
         <bind role="onBegin" component="PrevenirON"/>
         <bind role="stop" component="PrevenirOFF"/>
@@ -2331,108 +2227,62 @@
     </context>
 
     <!--### Contexto Efeito ###-->
-    <!-- <context id="ctEfeito">
+    <context id="ctEfeito">
       <port id="p1" component="tituloEfeito"/>
-      <port id="p2" component="DengueON_2"/>
+      <port id="p2" component="DengueOFF_2"/>
       <port id="p3" component="EmergenciaOFF_2"/>
       <port id="p4" component="SangueOFF_2"/>
-      <port id="p5" component="tDengue_2"/>
-      <port id="p6" component="iDengue_2"/>
+      <port id="p5" component="borda"/>
       <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloEfeito"/>
-      <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueON.png" id="DengueON_2"/>
+      <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueOFF.png" id="DengueOFF_2"/>
       <media descriptor="dColuna1_Botao2" src="UPA/ctPrincipal/EmergenciaOFF.png" id="EmergenciaOFF_2"/>
       <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF_2"/>
-      <media descriptor="dTexto" src="UPA/ctPrincipal/DengueTEXT.png" id="tDengue_2"/>
-      <media descriptor="dIcone" src="UPA/ctPrincipal/DengueIMAGE.png" id="iDengue_2"/>
-
-      <link xconnector="onEndStopN">
-        <bind role="onEnd" component="tituloEfeito"/>
-        <bind role="stop" component="DengueON_2"/>
-        <bind role="stop" component="EmergenciaOFF_2"/>
-        <bind role="stop" component="SangueOFF_2"/>
-        <bind role="stop" component="tDengue_2"/>
-        <bind role="stop" component="iDengue_2"/>
-      </link>
-    </context> -->
+      <media descriptor="dCaixa" src="UPA/borda.png" id="borda"/>      
+    </context>
     
     <!-- botao SAIR -->
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctPrincipal" interface="ctPrincipalpTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctEmergencias" interface="ctEmergenciaspTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctEmergencias"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctUpa" interface="ctUpapTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctUpa"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctEspecialidades" interface="ctEspecialidadespTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctEspecialidades"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctUnidades" interface="ctUnidadespTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctUnidades"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-    <link xconnector="onKeySelectionAbortN">
+    <link xconnector="onKeySelectionAbortNStopN">
       <bind role="onSelection" component="ctDengue" interface="ctDenguepTitulo">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
       <bind role="abort" component="ctDengue"/>
+      <bind role="stop" component="ctEfeito"/>
     </link>
-
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="RED"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="YELLOW"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="GREEN"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="BLUE"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="CURSOR_LEFT"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="CURSOR_RIGHT"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="CURSOR_DOWN"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
-    <!-- <link xconnector="onKeySelectionAbortNStartN"> -->
-    <!-- <linkParam name="keyCode" value="CURSOR_UP"/> -->
-    <!-- <bind role="onSelection" component="interativo"/> -->
-    <!-- <bind role="abort" component="interativo"/> -->
-    <!-- <bind role="start" component="ctEfeito"/>              </link> -->
 
     <!-- ctx Principal -->   
     <!-- DIREITA ou ENTER no Botao Dengue -->
@@ -2441,16 +2291,16 @@
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
-      <bind role="start" component="ctDengue" /> <!-- interface="pPrevenirON" -->
-      <bind role="start" component="ctDengue" /> <!-- interface="ctDenguepTitulo" -->
+      <bind role="start" component="ctDengue" interface="pPrevenirON" /> <!--  -->
+      <bind role="start" component="ctDengue" interface="ctDenguepTitulo" /> <!--  -->
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pDengueON">
         <bindParam name="keyCode" value="ENTER"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
-      <bind role="start" component="ctDengue" /> <!-- interface="pPrevenirON" -->
-      <bind role="start" component="ctDengue" /> <!-- interface="ctDenguepTitulo" -->
+      <bind role="start" component="ctDengue" interface="pPrevenirON" /> <!--  -->
+      <bind role="start" component="ctDengue" interface="ctDenguepTitulo" /> <!--  -->
     </link>
 
     <!-- ctx Principal -->   
@@ -2460,16 +2310,16 @@
         <bindParam name="keyCode" value="CURSOR_RIGHT"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
-      <bind role="start" component="ctEmergencias" /> <!-- interface="pSamuON" -->
-      <bind role="start" component="ctEmergencias" /> <!--interface="ctEmergenciaspTitulo" -->
+      <bind role="start" component="ctEmergencias" interface="pSamuON"/> <!--  -->
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/> <!--  -->
     </link>
     <link xconnector="onKeySelectionAbortNStartN">
       <bind role="onSelection" component="ctPrincipal" interface="pEmergenciaON">
         <bindParam name="keyCode" value="ENTER"/>
       </bind>
       <bind role="abort" component="ctPrincipal"/>
-      <bind role="start" component="ctEmergencias" /> <!-- interface="pSamuON" -->
-      <bind role="start" component="ctEmergencias" /> <!-- interface="ctEmergenciaspTitulo" -->
+      <bind role="start" component="ctEmergencias" interface="pSamuON"/> <!--  -->
+      <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/> <!--  -->
     </link>
     
     <!-- ctx Principal -->   
