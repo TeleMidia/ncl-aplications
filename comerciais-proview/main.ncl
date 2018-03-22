@@ -80,150 +80,11 @@
       <descriptor id="dsHeadUnidades" region="rgHeadUnidades"/>
       <descriptor focusIndex="ixLua" id="dsLua" region="rgLuaCep"/>
     </descriptorBase>
+    
     <connectorBase>
-
-      <!-- ################################
-           #  OnEnd CONNECTORS
-           ################################-->
-
-      <causalConnector id="onEndAttributionTestStopNStartN">
-        <connectorParam name="varTest"/>
-        <compoundCondition operator="and">
-          <simpleCondition role="onEndAttribution"/>
-          <assessmentStatement comparator="eq">
-            <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="attNodeTest"/>
-            <valueAssessment value="$varTest"/>
-          </assessmentStatement>
-        </compoundCondition>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="stop"/>
-          <simpleAction max="unbounded" qualifier="par" role="start"/>
-        </compoundAction>
-      </causalConnector>
-
-      <causalConnector id="onEndStartN">
-        <simpleCondition role="onEnd"/>
-        <simpleAction role="start" max="unbounded" qualifier="seq"/>
-      </causalConnector>
-
-      <causalConnector id="onEndStopN">
-        <simpleCondition role="onEnd"/>
-        <simpleAction max="unbounded" qualifier="par" role="stop"/>
-      </causalConnector>
-
-      <causalConnector id="onOrEndTestStartN">
-        <compoundCondition operator="and">
-          <simpleCondition max="unbounded" delay="0.3s" qualifier="or" role="onEnd"/>
-          <compoundStatement operator="and">
-            <assessmentStatement comparator="eq">
-              <attributeAssessment role="testFullScreen" eventType="attribution" attributeType="nodeProperty"/>
-              <valueAssessment value="true"/>
-            </assessmentStatement>
-            <assessmentStatement comparator="eq">
-              <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testInicioOutBack"/>
-              <valueAssessment value="false"/>
-            </assessmentStatement>
-          </compoundStatement>
-        </compoundCondition>
-        <simpleAction max="unbounded" qualifier="seq" role="start"/>
-      </causalConnector>
-
-      <causalConnector id="onEndTestStartNStopN">
-        <compoundCondition operator="and">
-          <simpleCondition role="onEnd"/>
-          <assessmentStatement comparator="eq">
-            <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testFullScreen"/>
-            <valueAssessment value="true"/>
-          </assessmentStatement>
-        </compoundCondition>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="start"/>
-          <simpleAction max="unbounded" qualifier="par" role="stop"/>
-        </compoundAction>
-      </causalConnector>
-
-      <!-- #######################################
-           #  OnKeySelection CONNECTORS
-           ######################################-->
-
-
-      <causalConnector id="onKeySelectionStartNSetNStopN">
-        <connectorParam name="var"/>
-        <connectorParam name="keyCode"/>
-        <simpleCondition key="$keyCode" role="onSelection"/>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="start"/>
-          <simpleAction role="set" max="unbounded" qualifier="seq" value="$var"/>
-          <simpleAction role="stop" max="unbounded" qualifier="seq"/>
-        </compoundAction>
-      </causalConnector>
-
-      <causalConnector id="onKeySelectionStopN">
-        <connectorParam name="keyCode"/>
-        <simpleCondition key="$keyCode" role="onSelection"/>
-        <simpleAction max="unbounded" qualifier="par" role="stop"/>
-      </causalConnector>
-
-      <causalConnector id="onKeySelectionStopNStartN">
-        <connectorParam name="keyCode"/>
-        <simpleCondition key="$keyCode" role="onSelection"/>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="stop"/>
-          <simpleAction max="unbounded" qualifier="par" role="start"/>
-        </compoundAction>
-      </causalConnector>
-
-      <causalConnector id="onKeySelectionSetNStopNStartN">
-        <connectorParam name="keyCode"/>
-        <connectorParam name="var"/>
-        <simpleCondition key="$keyCode" role="onSelection"/>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="seq" role="stop"/>
-          <simpleAction max="unbounded" qualifier="seq" role="start"/>
-          <simpleAction max="unbounded" qualifier="seq" role="set" value="$var"/>
-        </compoundAction>
-      </causalConnector>
-
-      <causalConnector id="onKeySelectionSetNStopN">
-        <connectorParam name="keyCode"/>
-        <connectorParam name="var"/>
-        <simpleCondition key="$keyCode" role="onSelection"/>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="set" value="$var"/>
-          <simpleAction max="unbounded" qualifier="par" role="stop"/>
-        </compoundAction>
-      </causalConnector>
-
-      <!-- ####################################
-           #  OnBegin CONNECTORS
-           ###################################-->
-
-      <causalConnector id="onBeginStartNStopN">
-        <simpleCondition role="onBegin"/>
-        <compoundAction operator="seq">
-          <simpleAction max="unbounded" qualifier="par" role="start"/>
-          <simpleAction max="unbounded" qualifier="par" role="stop"/>
-        </compoundAction>
-      </causalConnector>
-
-      <causalConnector id="onBeginStart">
-        <simpleCondition role="onBegin"/>
-        <simpleAction role="start"/>
-      </causalConnector>
-
-      <causalConnector id="onBeginSet">
-        <connectorParam name="val"/>
-        <simpleCondition role="onBegin" />
-        <simpleAction role="set" value="$val" />
-      </causalConnector>
-
-      <causalConnector id="onBeginSetN">
-        <connectorParam name="var"/>
-        <simpleCondition role="onBegin"/>
-        <simpleAction role="set" value="$var" delay="0.3s" qualifier="seq" max="unbounded"/>
-      </causalConnector>
-
+      <importBase alias="conn" documentURI="connbase.ncl"/>
     </connectorBase>
+
   </head>
   <body>
 
@@ -236,7 +97,7 @@
          #  VÃ¡riveis Globais
          ############################ -->
     <media id="setNode" type="application/x-ginga-settings">
-      <property name="service.currentFocus"/> <!-- #### VÃ¡riavel de Sistema que seta o Foco atual #### -->
+      <property name="service.currentFocus" value="0"/> <!-- #### VÃ¡riavel de Sistema que seta o Foco atual #### -->
       <property name="service.currentKeyMaster" value="ixLua"/> <!-- ## VÃ¡riavel de Sistema que seta quem recebe eventos de Controle Remoto ## -->
       <property name="fullScreen" value="true"/> <!-- ### Flag utilizado para determinar se o video estar em FullScreen ### -->
       <property name="inicioOutBack" value="false"/> <!-- ### Flag utilizado para sinalizar o inicio do comercial do OutBack -->
@@ -268,12 +129,13 @@
         #  Elos que irao dar inicio a aplicacao
         ##############################-->
 
-    <link xconnector="onBeginStartNStopN">
+    <link xconnector="conn#onBeginStartNStopN">
       <bind component="imgTelaAbertura" interface="areaDur" role="onBegin"/>
       <bind component="imgTelaApresentacao" role="start"/>
       <bind component="imgTelaAbertura" role="stop"/>
     </link>
-    <link xconnector="onKeySelectionStartNSetNStopN">
+    
+    <link xconnector="conn#onKeySelectionStartNSetNStopN">
       <bind component="imgTelaApresentacao" role="onSelection">
         <bindParam name="keyCode" value="YELLOW"/>
       </bind>
@@ -286,11 +148,13 @@
       </bind>
       <bind component="imgTelaApresentacao" role="stop"/>
     </link>
-    <link xconnector="onBeginStart">
+    
+    <link xconnector="conn#onBeginStart">
       <bind component="vdoComercial" interface="areaInter" role="onBegin"/>
       <bind component="imgInteratividade" role="start"/>
     </link>
-    <link xconnector="onKeySelectionStopNStartN">
+
+    <link xconnector="conn#onKeySelectionStopNStartN">
       <bind component="imgInteratividade" role="onSelection">
         <bindParam name="keyCode" value="INFO"/>
       </bind>
@@ -303,7 +167,7 @@
          #  Se tiver fullScreen dispara a interacao do OutBack
          #  caso contrario a interacao do usuario continua
          ###################################-->
-    <link xconnector="onEndTestStartNStopN">
+    <link xconnector="conn#onEndTestStartNStopN">
       <bind component="vdoComercial" interface="areaInter" role="onEnd"/>
       <bind component="setNode" interface="fullScreen" role="testFullScreen"/>
       <bind component="ctxOutBack" role="start"/>
@@ -315,7 +179,7 @@
          #  Seta o Flag: inicioOutBack com true
          #  Notificando que o comercial do OutBack iniciou
          #################################### -->
-    <link xconnector="onBeginSetN">
+    <link xconnector="conn#onBeginSetN">
       <bind component="vdoComercial" interface="areaOutback" role="onBegin"/>
       <bind component="setNode" interface="inicioOutBack" role="set">
         <bindParam name="var" value="true"/>
@@ -327,7 +191,7 @@
          #################################### -->
 
     <!-- FECHAR O MENU ANTES DE ABRIR A TELA DE ENCERRAMENTO -->
-    <link xconnector="onEndStartN">
+    <link xconnector="conn#onEndStartN">
       <bind component="vdoComercial" role="onEnd"/>
       <bind component="imgTelaEncerramento" role="start"/>
     </link>
@@ -337,7 +201,7 @@
          #  AMARELO: reeinicia a aplicacao
          #  AZUL: encerra a aplicacao
          #################################### -->
-    <link xconnector="onKeySelectionStartNSetNStopN">
+    <link xconnector="conn#onKeySelectionStartNSetNStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
         <bindParam name="keyCode" value="YELLOW"/>
       </bind>
@@ -350,7 +214,8 @@
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
     </link>
-    <link xconnector="onKeySelectionStopN">
+
+    <link xconnector="conn#onKeySelectionStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
         <bindParam name="keyCode" value="BLUE"/>
       </bind>
@@ -395,7 +260,7 @@
       </context>
       
       <!-- ### Vai para o mapa a partir do menu principal ### -->
-      <link xconnector="onKeySelectionStopNStartN">
+      <link xconnector="conn#onKeySelectionStopNStartN">
         <bind component="imgBtnLocalizacaoSel" role="onSelection">
           <bindParam name="keyCode" value="RED"/>
         </bind>
@@ -406,7 +271,7 @@
       </link>
       
       <!-- ### Vai para a tela de condicoes a partir do menu principal ### -->
-      <link xconnector="onKeySelectionSetNStopNStartN">
+      <link xconnector="conn#onKeySelectionSetNStopNStartN">
         <bind component="imgBtnCondicoesSel" role="onSelection">
           <bindParam name="keyCode" value="GREEN"/>
         </bind>
@@ -423,7 +288,7 @@
       </link>
 
       <!-- ### Vai para tela de unidades a partir do menu principal ### -->
-      <link xconnector="onKeySelectionSetNStopNStartN">
+      <link xconnector="conn#onKeySelectionSetNStopNStartN">
         <bind component="imgBtnUnidadesSel" role="onSelection">
           <bindParam name="keyCode" value="YELLOW"/>
         </bind>
@@ -440,8 +305,7 @@
       </link>
 
       <!-- ### Vai para tela de condicoes a partir da tela de unidades ### -->
-      <!-- Não está funcionando. Provavelmente por causa dessa interface -->
-      <link xconnector="onKeySelectionStopNStartN">
+      <link xconnector="conn#onKeySelectionStopNStartN">
         <bind component="ctxUnidades" interface="ptoBtnUnidadesVolta" role="onSelection">
           <bindParam name="keyCode" value="GREEN"/>
         </bind>
@@ -450,8 +314,7 @@
       </link>
       
       <!-- ### Vai para a tela de unidades a partir da tela de condicoes ### -->
-      <!-- Não está funcionando. Provavelmente por causa dessa interface -->
-      <link xconnector="onKeySelectionStopNStartN">
+      <link xconnector="conn#onKeySelectionStopNStartN">
         <bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
           <bindParam name="keyCode" value="YELLOW"/>
         </bind>
@@ -468,8 +331,7 @@
 
         <media descriptor="dsMapa" id="imgMapa" src="media/imagens/condominio/mapa/mapa.png"/>
         <media descriptor="dsSairMapa" id="imgSairMapa" src="media/imagens/condominio/mapa/sairMapa.png"/>
-        <!-- Não tá funcionando o link -->        
-        <link xconnector="onKeySelectionStopN">
+        <link xconnector="conn#onKeySelectionStopN">
           <bind component="imgSairMapa" role="onSelection">
             <bindParam name="keyCode" value="RED"/>
           </bind>
@@ -513,7 +375,7 @@
           <media id="imgVideoAreaRef1" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
-        <link xconnector="onBeginSetN">
+        <link xconnector="conn#onBeginSetN">
           <bind component="imgBtnQuarto1" role="onBegin"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="set">
             <bindParam name="var" value="1"/>
@@ -526,17 +388,17 @@
              #  Evita utilizar o botao OK
              ###########################################-->
         <!-- Não está funcionando -->
-        <link xconnector="onEndAttributionTestStopNStartN">
+        <link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
-          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
+          <!--<bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="1"/>
-          </bind>
+          </bind>-->
           <bind component="imgConteudoQuarto2" role="stop"/>
           <bind component="imgConteudoQuarto3" role="stop"/>
           <bind component="imgConteudoQuarto1" role="start"/>
         </link>
 
-        <link xconnector="onEndAttributionTestStopNStartN">
+        <!--<link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="2"/>
@@ -544,9 +406,9 @@
           <bind component="imgConteudoQuarto1" role="stop"/>
           <bind component="imgConteudoQuarto3" role="stop"/>
           <bind component="imgConteudoQuarto2" role="start"/>
-        </link>
+        </link>-->
 
-        <link xconnector="onEndAttributionTestStopNStartN">
+        <!--<link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="3"/>
@@ -554,10 +416,10 @@
           <bind component="imgConteudoQuarto1" role="stop"/>
           <bind component="imgConteudoQuarto2" role="stop"/>
           <bind component="imgConteudoQuarto3" role="start"/>
-        </link>
+        </link>-->
 
         <!-- ### Volta para o menu anterior com o video 100% ### -->
-        <link xconnector="onKeySelectionSetNStopN">
+        <link xconnector="conn#onKeySelectionSetNStopN">
           <bind component="imgBtnCondicoesVolta" role="onSelection">
             <bindParam name="keyCode" value="BLUE"/>
           </bind>
@@ -599,7 +461,7 @@
           <media id="imgVideoAreaRef2" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
         <!-- ### Volta para o menu anterior com o video 100% ### -->
-        <link xconnector="onKeySelectionSetNStopN">
+        <link xconnector="conn#onKeySelectionSetNStopN">
           <bind component="imgBtnUnidadesVolta" role="onSelection">
             <bindParam name="keyCode" value="BLUE"/>
           </bind>
@@ -622,8 +484,7 @@
            ################################### -->
 
            <!-- POSSIVEL MOTIVO DO PQ O MENU CAUSA PROBLEMAS NA TELA DE ENCERRAMENTO -->
-           <!-- Não está funcionando. Não sei se essa interface no contexto ainda é válida-->
-           <link xconnector="onOrEndTestStartN">
+           <link xconnector="conn#onOrEndTestStartN">
              <bind component="ctxCondicoes" interface="ptoCtxRef1TelaInter" role="onEnd"/>
              <bind component="ctxUnidades" interface="ptoCtxRef2TelaInter" role="onEnd"/>
              <bind component="ctxMapa" role="onEnd"/>
@@ -634,9 +495,7 @@
              <bind component="imgBtnLocalizacaoSel" role="start"/>
            </link>
 
-           
-         </context>
-
+      </context>
          <!-- ###################################
               #  Contexto responsavel pela interatividade
               #  do comercial do OutBack
@@ -653,7 +512,7 @@
            <media id="setNodeOutBack" refer="setNode" instance="instSame"/>
 
            <!-- #### Inicia o LUA que ira perguntar o CEP do usuario #### -->
-           <link xconnector="onKeySelectionStartNSetNStopN">
+           <link xconnector="conn#onKeySelectionStartNSetNStopN">
              <bind component="imgBtnLocalizacaoOut" role="onSelection">
                <bindParam name="keyCode" value="RED"/>
              </bind>
@@ -673,7 +532,7 @@
            <!-- </link> -->
 
            <!-- ### Termina o outback encerra tudo ### -->
-           <link xconnector="onEndStopN">
+           <link xconnector="conn#onEndStopN">
              <bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
              <bind component="imgBtnLocalizacaoOut" role="stop"/>
              <bind component="luaCep" role="stop"/>
