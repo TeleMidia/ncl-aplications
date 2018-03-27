@@ -2306,10 +2306,6 @@
       <bind role="start" component="ctEmergencias" interface="ctEmergenciaspTitulo"/> <!--  -->
     </link>
     
-    <!-- ctx Principal -->   
-    <!-- DIREITA ou ENTER no Botao Upa -->
-
-
     <!-- ctx Emergencias -->   
     <!-- DIREITA ou ENTER no Emergencias -->
     <link xconnector="onKeySelectionAbortNStartN">
