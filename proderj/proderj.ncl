@@ -976,20 +976,11 @@
     </connectorBase>
   </head>
 
-  <!-- <importNCL documentURI="pPrincipal.ncl" alias="principal"/> -->
-  <!-- <importNCL documentURI="pEmergencias.ncl" alias="emergencias"/> -->
-  <!-- <importNCL documentURI="pUpas.ncl" alias="upa"/> -->
-  <!-- <importNCL documentURI="pEspecialidades.ncl" alias="especialidades"/> -->
-  <!-- <importNCL documentURI="pUnidades.ncl" alias="unidades"/> -->
-  <!-- <importNCL documentURI="pDengue.ncl" alias="dengue"/> -->
-  <!-- <importNCL documentURI="pEfeito.ncl" alias="efeitoFile"/> -->
-
   <body>
     <port id="mainPort" component="video"/>
 
     <media id="video" src="proderj480p.mov" descriptor="dMainVideo">
       <area id="aInterativo" begin="1.2s" end="12s"/>
-      <property name="soundLevel" value="0"/>
     </media>
 
     <!--port id="mainInterativo" component="interativo"/-->
