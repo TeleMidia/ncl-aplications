@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ncl xsi:schemaLocation="http://www.ncl.org.br/NCL3.0/EDTVProfile http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile" id="MainProderj">
   <head>
-    
-    <!-- Transition não funcionando. -->
-    <transitionBase>
-      <transition id="rightToLeft" type="barWipe" subtype="leftToRight" direction="reverse" dur="0.5s"/>
-      <transition id="leftToRight" type="barWipe" subtype="leftToRight" dur="1s"/>
-      <transition id="topToBottom" type="barWipe" subtype="topToBottom" dur="1s"/>
-      <transition id="bottomUp" type="barWipe" subtype="topToBottom" direction="reverse" dur="1s"/>
-      <transition id="bottomUpPilha" type="barWipe" subtype="topToBottom" direction="reverse" dur="0.5s"/>
-      <transition id="fadeTransition" type="fade" dur="0.7s"/>
-      <transition id="fadeTransitionReverse" type="fade" dur="1s"/>
-    </transitionBase>
 
     <regionBase>
       <!--### Main ###-->
@@ -1000,6 +989,7 @@
 
     <media id="video" src="proderj480p.mov" descriptor="dMainVideo">
       <area id="aInterativo" begin="1.2s" end="12s"/>
+      <property name="soundLevel" value="0"/>
     </media>
 
     <!--port id="mainInterativo" component="interativo"/-->
@@ -2228,15 +2218,9 @@
 
     <!--### Contexto Efeito ###-->
     <context id="ctEfeito">
-      <port id="p1" component="tituloEfeito"/>
-      <port id="p2" component="DengueOFF_2"/>
-      <port id="p3" component="EmergenciaOFF_2"/>
-      <port id="p4" component="SangueOFF_2"/>
+      <port id="p1" component="tituloEfeito"/>      
       <port id="p5" component="borda"/>
-      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloEfeito"/>
-      <media descriptor="dColuna1_Botao1" src="UPA/ctPrincipal/DengueOFF.png" id="DengueOFF_2"/>
-      <media descriptor="dColuna1_Botao2" src="UPA/ctPrincipal/EmergenciaOFF.png" id="EmergenciaOFF_2"/>
-      <media descriptor="dColuna1_Botao3" src="UPA/ctPrincipal/SangueOFF.png" id="SangueOFF_2"/>
+      <media descriptor="dTitulo" src="UPA/ctPrincipal/Titulo.png" id="tituloEfeito"/>      
       <media descriptor="dCaixa" src="UPA/borda.png" id="borda"/>      
     </context>
     
@@ -2425,8 +2409,8 @@
         <bindParam name="keyCode" value="CURSOR_LEFT"/>
       </bind>
       <bind role="abort" component="ctDengue"/>
-      <bind role="start" component="ctPrincipal" /> <!-- interface="pDengueON" -->
-      <bind role="start" component="ctPrincipal" /> <!-- interface="ctPrincipalpTitulo" -->
+      <bind role="start" component="ctPrincipal" interface="pDengueON" />
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>    
 
     <!-- VOLTA CoM BACK Dengue -->
@@ -2435,8 +2419,8 @@
         <bindParam name="keyCode" value="BACK"/>
       </bind>
       <bind role="abort" component="ctDengue"/>
-      <bind role="start" component="ctPrincipal" /> <!-- interface="pDengueON" -->
-      <bind role="start" component="ctPrincipal" /> <!-- interface="ctPrincipalpTitulo" -->
+      <bind role="start" component="ctPrincipal" interface="pDengueON" />
+      <bind role="start" component="ctPrincipal" interface="ctPrincipalpTitulo"/>
     </link>
 
     <!-- Volta no Upa -->
