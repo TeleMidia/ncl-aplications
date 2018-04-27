@@ -48,9 +48,7 @@
 			<!-- settings -->
 			<media id="noSettingsInicio" instance="instSame" refer="noSettings"/>
 			<!-- medias -->
-      <media descriptor="fullScreen" id="vdoLivreInteragir" src="media/videos/A.mp4">
-        <property name="volume" value="0"/>
-      </media>
+      <media descriptor="fullScreen" id="vdoLivreInteragir" src="media/videos/A.mp4" />
       <media descriptor="btoSim" id="botaoSim" src="media/imagens/sim.png" />
       <media descriptor="btoNao" id="botaoNao" src="media/imagens/nao.png" />
 			<!-- Ao terminar o video termina os dois botoes -->
@@ -101,15 +99,9 @@
 				Usuario nao pode interagir!
 			-->
 			<port component="vidB2" id="ptVdoB2"/>
-      <media descriptor="fullScreen" id="vidB2" src="media/videos/B2.mp4">
-        <property name="volume" value="0"/>
-      </media>
-      <media descriptor="fullScreen" id="vidC2" src="media/videos/C2.mp4">
-        <property name="volume" value="0"/>
-      </media>       
-      <media descriptor="fullScreen" id="vidE2" src="media/videos/E2.mp4">
-        <property name="volume" value="0"/>
-      </media>     
+      <media descriptor="fullScreen" id="vidB2" src="media/videos/B2.mp4" />
+      <media descriptor="fullScreen" id="vidC2" src="media/videos/C2.mp4" />
+      <media descriptor="fullScreen" id="vidE2" src="media/videos/E2.mp4" />
 			<link xconnector="conn#onEndStart">
 				<bind component="vidB2" role="onEnd"/>
 				<bind component="vidC2" role="start"/>
@@ -130,21 +122,11 @@
 			<!-- comeca com o video B3 (Abertura com interacao) -->
       <port component="vdoB3" id="ptB3"/>
       
-      <media descriptor="fullScreen" id="vdoB3" src="media/videos/B3.mp4">
-        <property name="volume" value="0"/>
-      </media>
-      <media descriptor="fullScreen" id="vdoC2" src="media/videos/C2.mp4"> <!-- Central -->
-        <property name="volume" value="0"/>
-      </media>
-      <media descriptor="fullScreen" id="vdoC3" src="media/videos/C3.mp4"> <!-- Copacabana -->
-        <property name="volume" value="0"/>
-      </media>
-      <media descriptor="fullScreen" id="vdoE1" src="media/videos/E1.mp4"> <!-- Estudantina -->
-        <property name="volume" value="0"/>
-      </media>       
-      <media descriptor="fullScreen" id="vdoE2" src="media/videos/E2.mp4"> <!-- Jardim Botânico -->
-        <property name="volume" value="0"/>
-      </media>       
+      <media descriptor="fullScreen" id="vdoB3" src="media/videos/B3.mp4" />
+      <media descriptor="fullScreen" id="vdoC2" src="media/videos/C2.mp4" /> <!-- Central -->
+      <media descriptor="fullScreen" id="vdoC3" src="media/videos/C3.mp4" /> <!-- Copacabana -->
+      <media descriptor="fullScreen" id="vdoE1" src="media/videos/E1.mp4" /> <!-- Estudantina -->
+      <media descriptor="fullScreen" id="vdoE2" src="media/videos/E2.mp4" /> <!-- Jardim Botânico -->
 
       <media descriptor="fundoMenu" id="fundoMenuB3" src="media/imagens/menufundo.png"/>
       <media descriptor="bto1" id="botaoCentral" src="media/imagens/central.png"/>
