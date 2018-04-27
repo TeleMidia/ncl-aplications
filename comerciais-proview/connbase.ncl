@@ -10,14 +10,14 @@
            ################################-->
 
       <causalConnector id="onEndAttributionTestStopNStartN">
-        <!--<connectorParam name="varTest"/>
-        <compoundCondition operator="and">-->
+        <connectorParam name="varTest"/>
+        <compoundCondition operator="and">
           <simpleCondition role="onEndAttribution"/>
-          <!-- <assessmentStatement comparator="eq">
+          <assessmentStatement comparator="eq">
             <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="attNodeTest"/>
             <valueAssessment value="$varTest"/>
           </assessmentStatement>
-        </compoundCondition>-->
+        </compoundCondition>
         <compoundAction operator="seq">
           <simpleAction max="unbounded" qualifier="par" role="stop"/>
           <simpleAction max="unbounded" qualifier="par" role="start"/>

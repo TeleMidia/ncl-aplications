@@ -80,7 +80,7 @@
       <descriptor id="dsHeadUnidades" region="rgHeadUnidades"/>
       <descriptor focusIndex="ixLua" id="dsLua" region="rgLuaCep"/>
     </descriptorBase>
-    
+
     <connectorBase>
       <importBase alias="conn" documentURI="connbase.ncl"/>
     </connectorBase>
@@ -134,7 +134,7 @@
       <bind component="imgTelaApresentacao" role="start"/>
       <bind component="imgTelaAbertura" role="stop"/>
     </link>
-    
+
     <link xconnector="conn#onKeySelectionStartNSetNStopN">
       <bind component="imgTelaApresentacao" role="onSelection">
         <bindParam name="keyCode" value="YELLOW"/>
@@ -148,7 +148,7 @@
       </bind>
       <bind component="imgTelaApresentacao" role="stop"/>
     </link>
-    
+
     <link xconnector="conn#onBeginStart">
       <bind component="vdoComercial" interface="areaInter" role="onBegin"/>
       <bind component="imgInteratividade" role="start"/>
@@ -258,7 +258,7 @@
         <media id="imgGingaLogo" src="media/imagens/telaInter/ginga.png" descriptor="dsGingaLogo"/>
         <media id="imgVideoArea" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
       </context>
-      
+
       <!-- ### Vai para o mapa a partir do menu principal ### -->
       <link xconnector="conn#onKeySelectionStopNStartN">
         <bind component="imgBtnLocalizacaoSel" role="onSelection">
@@ -269,7 +269,7 @@
         <bind component="imgBtnCondicoesSel" role="stop"/>
         <bind component="ctxMapa" role="start"/>
       </link>
-      
+
       <!-- ### Vai para a tela de condicoes a partir do menu principal ### -->
       <link xconnector="conn#onKeySelectionSetNStopNStartN">
         <bind component="imgBtnCondicoesSel" role="onSelection">
@@ -312,7 +312,7 @@
         <bind component="ctxUnidades" role="stop"/>
         <bind component="ctxCondicoes" role="start"/>
       </link>
-      
+
       <!-- ### Vai para a tela de unidades a partir da tela de condicoes ### -->
       <link xconnector="conn#onKeySelectionStopNStartN">
         <bind component="ctxCondicoes" interface="ptoCondicoesBtn" role="onSelection">
@@ -321,7 +321,7 @@
         <bind component="ctxCondicoes" role="stop"/>
         <bind component="ctxUnidades" role="start"/>
       </link>
-      
+
       <!-- ###################################
            #  Contexto que gerencia a exibicao do mapa
            #################################### -->
@@ -375,12 +375,12 @@
           <media id="imgVideoAreaRef1" src="media/imagens/telaInter/video.png" descriptor="dsVideo"/>
         </context>
 
-        <link xconnector="conn#onBeginSetN">
+        <!-- <link xconnector="conn#onBeginSetN">
           <bind component="imgBtnQuarto1" role="onBegin"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="set">
             <bindParam name="var" value="1"/>
           </bind>
-        </link>
+        </link> -->
 
         <!-- ##########################################
              #  Navegacao pelos tipos de apartamentos disponiveis
@@ -390,15 +390,15 @@
         <!-- Não está funcionando -->
         <link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
-          <!--<bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
+          <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="1"/>
-          </bind>-->
+          </bind>
           <bind component="imgConteudoQuarto2" role="stop"/>
           <bind component="imgConteudoQuarto3" role="stop"/>
           <bind component="imgConteudoQuarto1" role="start"/>
         </link>
 
-        <!--<link xconnector="conn#onEndAttributionTestStopNStartN">
+        <link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="2"/>
@@ -408,7 +408,7 @@
           <bind component="imgConteudoQuarto2" role="start"/>
         </link>-->
 
-        <!--<link xconnector="conn#onEndAttributionTestStopNStartN">
+        <link xconnector="conn#onEndAttributionTestStopNStartN">
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="onEndAttribution"/>
           <bind component="focusNodeCondicoes" interface="service.currentFocus" role="attNodeTest">
             <bindParam name="varTest" value="3"/>
@@ -416,7 +416,7 @@
           <bind component="imgConteudoQuarto1" role="stop"/>
           <bind component="imgConteudoQuarto2" role="stop"/>
           <bind component="imgConteudoQuarto3" role="start"/>
-        </link>-->
+        </link>
 
         <!-- ### Volta para o menu anterior com o video 100% ### -->
         <link xconnector="conn#onKeySelectionSetNStopN">
