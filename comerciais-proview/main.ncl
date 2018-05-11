@@ -502,17 +502,17 @@
               ################################### -->
          <context id="ctxOutBack">
 
-           <port id="ptoLocalizacaoOutBack" component="imgBtnLocalizacaoOut"/>
+           <!-- <port id="ptoLocalizacaoOutBack" component="imgBtnLocalizacaoOut"/>
            <media descriptor="dsLocalizacao" id="imgBtnLocalizacaoOut" src="media/imagens/outback/localizacaoMenu.png"/>
            <media descriptor="dsLua" id="luaCep" src="media/lua/cep.lua">
              <property name="location" />
            </media>
 
            <media id="vdoComercialRef4" refer="vdoComercial" instance="instSame"/>
-           <media id="setNodeOutBack" refer="setNode" instance="instSame"/>
+           <media id="setNodeOutBack" refer="setNode" instance="instSame"/> -->
 
            <!-- #### Inicia o LUA que ira perguntar o CEP do usuario #### -->
-           <link xconnector="conn#onKeySelectionStartNSetNStopN">
+           <!-- <link xconnector="conn#onKeySelectionStartNSetNStopN">
              <bind component="imgBtnLocalizacaoOut" role="onSelection">
                <bindParam name="keyCode" value="RED"/>
              </bind>
@@ -521,22 +521,22 @@
                <bindParam name="var" value="ixLua"/>
              </bind>
              <bind component="imgBtnLocalizacaoOut" role="stop"/>
-           </link>
+           </link> -->
 
-           <!-- <link xconnector="onBeginSet"> -->
-           <!--   <bind component="luaCep" role="onBegin" /> -->
-           <!--   <bind component="setNode" interface="user.location" role="pegadali" /> -->
-           <!--   <bind component="luaCep" interface="location" role="set"> -->
-           <!--     <bindParam name="val" value="$pegadali" /> -->
-           <!--   </bind> -->
-           <!-- </link> -->
+           <!-- <link xconnector="onBeginSet">
+              <bind component="luaCep" role="onBegin" />
+              <bind component="setNode" interface="user.location" role="pegadali" />
+              <bind component="luaCep" interface="location" role="set">
+                <bindParam name="val" value="$pegadali" />
+              </bind>
+           </link> -->
 
            <!-- ### Termina o outback encerra tudo ### -->
-           <link xconnector="conn#onEndStopN">
+           <!-- <link xconnector="conn#onEndStopN">
              <bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
              <bind component="imgBtnLocalizacaoOut" role="stop"/>
              <bind component="luaCep" role="stop"/>
-           </link>
+           </link> -->
          </context>
        </body>
      </ncl>
